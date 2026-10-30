@@ -8,7 +8,7 @@ const getProductModel = () => window.productModel;
 const getCartModel = () => window.cartModel;
 
 // --- ESTADO LOCAL DEL CONTROLADOR ---
-let currentCategory = 'all';
+let currentCategory = 'available';
 let searchQuery = '';
 let currentSort = 'featured';
 let isWishlistView = false;
@@ -510,7 +510,7 @@ function simulateCheckout() {
 
 // --- FILTRADO DE CATEGORÍAS EN "THE FINDS" ---
 function setCategory(cat, shouldScroll = false) {
-    currentCategory = cat || 'all';
+    currentCategory = (cat && ['available', 'on-request', 'archive'].includes(cat)) ? cat : 'available';
     isWishlistView = false;
 
     // Actualizar pastillas de filtro
@@ -608,7 +608,7 @@ function setCategory(cat, shouldScroll = false) {
 function resetFilters() {
     searchQuery = '';
     if (DOM.searchInput) DOM.searchInput.value = '';
-    setCategory('all', true);
+    setCategory('available', true);
 }
 
 function setGridCols(cols) {
@@ -1005,7 +1005,7 @@ function initListeners() {
         if (isTheFindsPage) {
             try {
                 const url = new URL(link.href, window.location.href);
-                const cat = url.searchParams.get('cat') || 'all';
+                const cat = url.searchParams.get('cat') || 'available';
                 e.preventDefault();
                 toggleMobileNav(false);
                 setCategory(cat, true);
@@ -1018,7 +1018,7 @@ function initListeners() {
         const isTheFindsPage = window.location.pathname.includes('the-finds.html') || window.location.pathname.endsWith('/the-finds');
         if (isTheFindsPage) {
             const urlParams = new URLSearchParams(window.location.search);
-            const cat = urlParams.get('cat') || 'all';
+            const cat = urlParams.get('cat') || 'available';
             setCategory(cat, false);
         }
     });
@@ -1083,10 +1083,10 @@ async function init() {
         const catParam = urlParams.get('cat') || urlParams.get('category');
         const qParam = urlParams.get('q') || urlParams.get('search');
 
-        if (catParam && ['available', 'on-request', 'archive', 'all'].includes(catParam)) {
+        if (catParam && ['available', 'on-request', 'archive'].includes(catParam)) {
             setCategory(catParam, false);
         } else {
-            setCategory(currentCategory || 'all', false);
+            setCategory('available', false);
         }
 
         if (qParam && DOM.searchInput) {
