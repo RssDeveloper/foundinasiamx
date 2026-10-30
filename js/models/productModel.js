@@ -1,7 +1,7 @@
 /* ==========================================================================
    js/models/productModel.js — Modelo de Datos Puro: Catálogo "The Finds"
    Estándar Operativo V2.6 — Frontend MVC
-   Piezas Oficiales de Archivo & Colección (8 Hallazgos Reales)
+   Piezas Oficiales de Archivo & Colección (12 Hallazgos Reales)
    Categorías:
      1. available: Entrega Inmediata en México
      2. on-request: Encontrado en viajes, listo para compra bajo pedido
@@ -25,8 +25,8 @@ const THE_FINDS = [
         sizes: ["Edición Estándar LP"],
         description: "Prensado japonés para coleccionistas con faja OBI tradicional en caracteres japoneses. Adquirido in situ en tienda de archivo independiente de vinilos en Fukuoka.",
         images: [
-            "./finf-001-fukoka-japan.jpeg",
-            "./finf-001-fukoka-japan.jpeg"
+            "./find-001-fukoka-japan.jpeg",
+            "./find-001-fukoka-japan.jpeg"
         ]
     },
 
@@ -174,6 +174,90 @@ const THE_FINDS = [
         images: [
             "./find-008-nigata-japan.jpeg",
             "./find-008-nigata-japan.jpeg"
+        ]
+    },
+
+    // --- 9. FIND 009 — TOKIO, JAPÓN (Available) ---
+    {
+        id: "find-009",
+        name: "A Bathing Ape — BAPESTA FS-001 (Green Patent)",
+        subtitle: "Archivo Urahara • Charol Verde Manzana y Blanco",
+        category: "available",
+        categoryLabel: "Available",
+        price: 9800,
+        badge: "Find 009 • Tokio",
+        status: "Disponible para entrega inmediata en CDMX",
+        origin: "Tokio, Japón",
+        composition: "Charol brillante de alta calidad con estrella Bapesta lateral, suela de caucho vulcanizado y forro de camuflaje tradicional",
+        fit: "Silueta Low Clásica Urahara",
+        sizes: ["27.5 MX (9.5 US)", "28.0 MX (10 US)"],
+        description: "Sneaker de culto del archivo japonés Nigo-era en charol verde manzana vibrante y blanco. Estado impecable con empaque original verificado in situ en Shibuya, Tokio.",
+        images: [
+            "./find-008.jpeg",
+            "./find-008.jpeg"
+        ]
+    },
+
+    // --- 10. FIND 010 — TOKIO, JAPÓN (On Request) ---
+    {
+        id: "find-010",
+        name: "Medicom Toy x BAPE — Be@rbrick Shark Camo Set",
+        subtitle: "Figura de Arte Coleccionable 1000% / 400% / 100%",
+        category: "on-request",
+        categoryLabel: "On Request",
+        price: 15400,
+        badge: "Find 010 • Tokio",
+        status: "Localizado en Tokio (Adquisición bajo pedido)",
+        origin: "Tokio, Japón",
+        composition: "Vinilo rígido con acabado mate y capucha de felpa gris con cremallera funcional e impresión Camo Shark",
+        fit: "Set Trilogía Coleccionista (70cm / 28cm / 7cm)",
+        sizes: ["Set Completo con Caja"],
+        description: "Colaboración emblemática entre Medicom Toy y A Bathing Ape con sudadera Shark Hoodie en felpa real gris y patrón multicolor. Adquisición garantizada con certificado de autenticidad en Tokio.",
+        images: [
+            "./find-009.jpeg",
+            "./find-009.jpeg"
+        ]
+    },
+
+    // --- 11. FIND 011 — TOKIO, JAPÓN (Available) ---
+    {
+        id: "find-011",
+        name: "Audio-Technica AT-VMN95SH Replacement Stylus",
+        subtitle: "Aguja Fonocaptora Shibata • Made in Japan",
+        category: "available",
+        categoryLabel: "Available",
+        price: 4100,
+        badge: "Find 011 • Tokio",
+        status: "Disponible en Atelier CDMX",
+        origin: "Tokio, Japón",
+        composition: "Cuerpo de polímero de baja resonancia con diamante natural de corte Shibata y cantiléver de aluminio cónico",
+        fit: "Compatible con Serie VM95",
+        sizes: ["Cartucho Nuevo Sellado en Caja"],
+        description: "Cápsula fonocaptora de alta precisión para audiófilos fabricada en Japón. Ofrece una reproducción sonora de gama alta con separación de canales impecable para vinilos de archivo.",
+        images: [
+            "./find-010.jpeg",
+            "./find-010.jpeg"
+        ]
+    },
+
+    // --- 12. FIND 012 — SEÚL, COREA DEL SUR (Archive) ---
+    {
+        id: "find-012",
+        name: "KAWS:HOLIDAY Plush Keychain (Planeta Tierra)",
+        subtitle: "Edición Limitada de Colección con Ojos XX",
+        category: "archive",
+        categoryLabel: "Archive",
+        price: 2900,
+        badge: "Find 012 • Seúl",
+        status: "Pieza de Archivo / Colección Privada",
+        origin: "Seúl, Corea del Sur",
+        composition: "Felpa bordada azul océano y verde continental con ojos bordados en 'XX' de KAWS y herraje metálico niquelado",
+        fit: "Llavero de Colección (15 cm)",
+        sizes: ["Tamaño Único"],
+        description: "Llavero de felpa conmemorativo de la gira mundial KAWS:HOLIDAY representando el planeta Tierra con los emblemáticos ojos en cruz de Brian Donnelly. Procedente de colección privada en Seúl.",
+        images: [
+            "./llavero-tierra.jpeg",
+            "./llavero-tierra.jpeg"
         ]
     }
 ];

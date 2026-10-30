@@ -77,7 +77,7 @@ foundinasiamx/
 1. Al pulsar "Añadir Bolsa" o "Detalles & Medidas", la prenda se suma a `cartModel` y se persiste en `localStorage`.
 2. El drawer lateral `#cart-drawer` se despliega mostrando la lista de prendas, controles de cantidad `+` y `-`, cálculo de subtotal y la barra de progreso hacia el envío gratis ($4,500 MXN).
 3. Botón "Pedir Orden vía WhatsApp" genera el ticket de pedido con desglose y abre la conversación con el personal shopper.
-4. Botón "Pagar con Tarjeta (Demo)" simula una pasarela de pago instantánea con confirmación por toast.
+4. Botón "Pedir Orden vía WhatsApp" genera el ticket de pedido con desglose y abre la conversación directa con el concierge.
 5. El botón de corazón en cada prenda conmuta la lista de deseos (`wishlist`), actualiza el badge en el header y permite ver exclusivamente las prendas guardadas.
 
 ---

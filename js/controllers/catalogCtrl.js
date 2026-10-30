@@ -509,48 +509,121 @@ function simulateCheckout() {
 }
 
 // --- FILTRADO DE CATEGORÍAS EN "THE FINDS" ---
-function setCategory(cat) {
-    currentCategory = cat;
+function setCategory(cat, shouldScroll = false) {
+    currentCategory = cat || 'all';
     isWishlistView = false;
 
+    // Actualizar pastillas de filtro
     document.querySelectorAll('.cat-pill').forEach(btn => {
-        if (btn.dataset.cat === cat) {
-            btn.className = 'cat-pill active px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-carbon-dark font-semibold';
+        if (btn.dataset.cat === currentCategory) {
+            btn.className = 'cat-pill active px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-carbon-dark font-semibold shadow-sm';
         } else {
             btn.className = 'cat-pill px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60';
         }
     });
 
+    // Actualizar bloques grandes de categorías (si existen)
+    document.querySelectorAll('.cat-block-card').forEach(card => {
+        if (card.dataset.cat === currentCategory) {
+            card.classList.add('border-olive', 'bg-carbon', 'ring-2', 'ring-olive/50', 'shadow-lg');
+            card.classList.remove('border-carbon-light/60');
+            const arrow = card.querySelector('span.transform');
+            if (arrow) arrow.textContent = '● Seleccionado';
+        } else {
+            card.classList.remove('border-olive', 'ring-2', 'ring-olive/50', 'shadow-lg');
+            card.classList.add('border-carbon-light/60');
+            const arrow = card.querySelector('span.transform');
+            if (arrow) arrow.textContent = '→';
+        }
+    });
+
+    // Actualizar banner indicador de vista activa (si existe)
+    const banner = document.getElementById('active-view-indicator');
+    if (banner) {
+        const labels = {
+            'all': 'Todos los Hallazgos de Archivo (12 piezas)',
+            'available': 'Available — Entrega Inmediata en México (6 piezas)',
+            'on-request': 'Source on Request — Búsqueda en Viajes Activos (3 piezas)',
+            'archive': 'Archive — Colección Histórica y Referencia (3 piezas)'
+        };
+        const titleEl = banner.querySelector('.view-title');
+        if (titleEl) {
+            titleEl.textContent = labels[currentCategory] || 'Catálogo The Finds';
+        }
+    }
+
+    // Actualizar estado activo en enlaces de submenús de navegación (Desktop Dropdown y Menú Móvil)
+    document.querySelectorAll('a[href*="the-finds.html"]').forEach(link => {
+        try {
+            const linkHref = link.getAttribute('href') || '';
+            let linkCat = 'all';
+            if (linkHref.includes('cat=')) {
+                const match = linkHref.match(/cat=([a-zA-Z0-9_-]+)/);
+                if (match) linkCat = match[1];
+            }
+
+            // Submenú móvil (grid de 3 botones)
+            if (link.closest('#mobile-the-finds-submenu')) {
+                if (linkCat === currentCategory) {
+                    link.classList.add('bg-olive', 'text-carbon-dark', 'border-olive');
+                    link.classList.remove('bg-carbon-dark', 'text-brokenwhite');
+                } else {
+                    link.classList.remove('bg-olive', 'text-carbon-dark', 'border-olive');
+                    link.classList.add('bg-carbon-dark', 'text-brokenwhite');
+                }
+            }
+
+            // Dropdown Desktop
+            if (link.closest('.group') && link.closest('nav')) {
+                if (linkCat === currentCategory && linkHref.includes('cat=')) {
+                    link.classList.add('text-olive', 'font-bold');
+                } else {
+                    link.classList.remove('text-olive', 'font-bold');
+                }
+            }
+        } catch (e) {}
+    });
+
     renderCatalog();
+
+    if (shouldScroll) {
+        const targetEl = document.getElementById('active-view-indicator') || document.getElementById('products-grid');
+        if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
 }
 
 function resetFilters() {
     searchQuery = '';
     if (DOM.searchInput) DOM.searchInput.value = '';
-    setCategory('all');
+    setCategory('all', true);
 }
 
 function setGridCols(cols) {
+    if (!DOM.gridContainer) DOM.gridContainer = document.getElementById('products-grid');
     if (!DOM.gridContainer) return;
-    DOM.gridContainer.classList.remove('lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4');
+
+    DOM.gridContainer.classList.remove(
+        'grid-cols-1', 'grid-cols-2', 'grid-cols-3',
+        'sm:grid-cols-2', 'sm:grid-cols-3',
+        'md:grid-cols-2', 'md:grid-cols-3',
+        'lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4'
+    );
 
     const btn2 = document.getElementById('grid-btn-2');
     const btn3 = document.getElementById('grid-btn-3');
-    const btn4 = document.getElementById('grid-btn-4');
 
-    [btn2, btn3, btn4].forEach(b => {
+    [btn2, btn3].forEach(b => {
         if (b) b.className = 'p-1.5 rounded-full text-ash hover:text-brokenwhite transition-colors';
     });
 
     if (cols === 2) {
-        DOM.gridContainer.classList.add('lg:grid-cols-2');
+        DOM.gridContainer.classList.add('grid-cols-2', 'sm:grid-cols-2', 'md:grid-cols-2', 'lg:grid-cols-2');
         if (btn2) btn2.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
-    } else if (cols === 3) {
-        DOM.gridContainer.classList.add('lg:grid-cols-3');
-        if (btn3) btn3.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
     } else {
-        DOM.gridContainer.classList.add('lg:grid-cols-4');
-        if (btn4) btn4.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
+        DOM.gridContainer.classList.add('grid-cols-2', 'sm:grid-cols-2', 'md:grid-cols-3', 'lg:grid-cols-3');
+        if (btn3) btn3.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
     }
 }
 
@@ -692,7 +765,13 @@ function handleGlobalClick(e) {
             break;
 
         case 'filter-cat':
-            setCategory(cat);
+            setCategory(cat, true);
+            if (window.location.pathname.includes('the-finds')) {
+                try {
+                    const newUrl = cat === 'all' ? './the-finds.html' : `./the-finds.html?cat=${cat}`;
+                    window.history.pushState({ cat }, '', newUrl);
+                } catch (e) {}
+            }
             break;
 
         case 'reset-filters':
@@ -741,6 +820,8 @@ function initSourcingForm() {
         const name = document.getElementById('sourcing-name')?.value.trim();
         const contact = document.getElementById('sourcing-contact')?.value.trim();
         const piece = document.getElementById('sourcing-piece')?.value.trim();
+        const link = document.getElementById('sourcing-link')?.value.trim();
+        const photoFile = document.getElementById('sourcing-photo')?.files?.[0];
         const budget = document.getElementById('sourcing-budget')?.value.trim();
         const notes = document.getElementById('sourcing-notes')?.value.trim();
 
@@ -754,6 +835,8 @@ function initSourcingForm() {
         msg += `*Cliente:* ${name}\n`;
         msg += `*Contacto:* ${contact}\n`;
         msg += `*Pieza / Diseñador solicitado:* ${piece}\n`;
+        if (link) msg += `*Enlace de Referencia:* ${link}\n`;
+        if (photoFile) msg += `*Fotografía adjunta:* ${photoFile.name} (te la envío en este chat)\n`;
         if (budget) msg += `*Presupuesto aproximado:* ${budget}\n`;
         if (notes) msg += `*Detalles / Talla / Referencias:* ${notes}\n`;
         msg += `-------------------------------------------------\n`;
@@ -872,6 +955,63 @@ function initListeners() {
     if (closeMobileBtn) closeMobileBtn.addEventListener('click', () => toggleMobileNav(false));
     if (mobileBackdrop) mobileBackdrop.addEventListener('click', () => toggleMobileNav(false));
 
+    // Submenú acordeón The Finds en Menú Móvil
+    const mobileFindsToggle = document.getElementById('mobile-the-finds-toggle');
+    const mobileFindsSubmenu = document.getElementById('mobile-the-finds-submenu');
+    const mobileFindsChevron = document.getElementById('mobile-the-finds-chevron');
+
+    if (mobileFindsToggle && mobileFindsSubmenu) {
+        mobileFindsToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isHidden = mobileFindsSubmenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileFindsSubmenu.classList.remove('hidden');
+                if (mobileFindsChevron) mobileFindsChevron.classList.add('rotate-180');
+                mobileFindsToggle.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileFindsSubmenu.classList.add('hidden');
+                if (mobileFindsChevron) mobileFindsChevron.classList.remove('rotate-180');
+                mobileFindsToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    const mobileSearchBtn = document.getElementById('mobile-search-trigger-btn');
+    if (mobileSearchBtn && DOM.searchBarContainer && DOM.searchInput) {
+        mobileSearchBtn.addEventListener('click', () => {
+            toggleMobileNav(false);
+            DOM.searchBarContainer.classList.remove('hidden');
+            DOM.searchInput.focus();
+        });
+    }
+
+    // Intercepción dinámica de enlaces a subsecciones de The Finds para cambio instantáneo de vista
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href*="the-finds.html?cat="], a[href="./the-finds.html"], a[href="the-finds.html"]');
+        if (!link) return;
+
+        const isTheFindsPage = window.location.pathname.includes('the-finds.html') || window.location.pathname.endsWith('/the-finds');
+        if (isTheFindsPage) {
+            try {
+                const url = new URL(link.href, window.location.href);
+                const cat = url.searchParams.get('cat') || 'all';
+                e.preventDefault();
+                toggleMobileNav(false);
+                setCategory(cat, true);
+                window.history.pushState({ cat }, '', url.href);
+            } catch (err) {}
+        }
+    });
+
+    window.addEventListener('popstate', () => {
+        const isTheFindsPage = window.location.pathname.includes('the-finds.html') || window.location.pathname.endsWith('/the-finds');
+        if (isTheFindsPage) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cat = urlParams.get('cat') || 'all';
+            setCategory(cat, false);
+        }
+    });
+
     // Backdrops
     if (DOM.cartBackdrop) DOM.cartBackdrop.addEventListener('click', closeCart);
     if (DOM.quickviewBackdrop) DOM.quickviewBackdrop.addEventListener('click', closeQuickViewModal);
@@ -933,14 +1073,9 @@ async function init() {
         const qParam = urlParams.get('q') || urlParams.get('search');
 
         if (catParam && ['available', 'on-request', 'archive', 'all'].includes(catParam)) {
-            currentCategory = catParam;
-            document.querySelectorAll('.cat-pill').forEach(btn => {
-                if (btn.dataset.cat === catParam) {
-                    btn.className = 'cat-pill active px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-carbon-dark font-semibold';
-                } else {
-                    btn.className = 'cat-pill px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60';
-                }
-            });
+            setCategory(catParam, false);
+        } else {
+            setCategory(currentCategory || 'all', false);
         }
 
         if (qParam && DOM.searchInput) {

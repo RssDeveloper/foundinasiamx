@@ -8,6 +8,9 @@
     <meta name="description" content="Servicio exclusivo de personal shopping en Asia para México. Piezas de archivo, sastrería japonesa y envíos asegurados por DHL Express.">
     <link rel="canonical" href="https://foundinasiamx.com/">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -42,10 +45,10 @@
     <!-- ======================================================== -->
     <header id="main-header"
         class="sticky top-0 z-30 bg-carbon-dark/95 backdrop-blur-md border-b border-carbon-light/40 transition-all duration-300">
-        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+        <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-20 flex items-center justify-between">
 
-            <!-- Left: Mobile Menu Button & Desktop Nav -->
-            <div class="flex items-center gap-8">
+            <!-- Left: Mobile Menu Button & Unified Desktop Nav (TODAS LAS SECCIONES EN PEQUEÑO) -->
+            <div class="flex items-center gap-4 xl:gap-6">
                 <button id="mobile-menu-btn" aria-label="Abrir Menú de Navegación"
                     class="lg:hidden text-brokenwhite hover:text-olive transition-colors p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,38 +57,66 @@
                     </svg>
                 </button>
 
-                <!-- Menú Desktop Multi-Página: Acceso a las 4 Secciones -->
-                <nav
-                    class="hidden lg:flex items-center gap-8 text-[12px] tracking-widest uppercase font-medium text-ash">
+                <!-- Menú Desktop Unificado con TODAS las secciones en pequeño -->
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[10px] xl:text-[11px] tracking-[0.16em] uppercase font-medium text-ash">
                     <a href="./index.html"
                         class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">Inicio</a>
-                    <a href="./the-finds.html"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">The Finds</a>
+
+                    <!-- The Finds con Dropdown Desktop -->
+                    <div class="relative group py-2">
+                        <a href="./the-finds.html"
+                            class="hover:text-brokenwhite transition-colors border-b-2 border-transparent hover:border-olive flex items-center gap-1">
+                            <span>The Finds</span>
+                            <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <!-- Dropdown Desktop para The Finds -->
+                        <div class="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                            <div class="w-48 bg-carbon rounded-xl border border-carbon-light shadow-xl p-2 space-y-1">
+                                <a href="./the-finds.html?cat=available"
+                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                    Available
+                                </a>
+                                <a href="./the-finds.html?cat=on-request"
+                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                    Source on Request
+                                </a>
+                                <a href="./the-finds.html?cat=archive"
+                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                    Archive
+                                </a>
+                                <div class="border-t border-carbon-light/60 my-1"></div>
+                                <a href="./the-finds.html"
+                                    class="block px-3 py-1.5 text-[9px] font-mono tracking-widest uppercase text-olive hover:underline">
+                                    Ver catálogo completo →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="./personal-sourcing.html"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Personal Sourcing</a>
+
                     <a href="./destinations.html"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Destinations</a>
+
                     <a href="./about.html"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">About</a>
                 </nav>
             </div>
 
-            <!-- Center: Logo -->
-            <div class="text-center">
-                <a href="./index.html" class="inline-block group" aria-label="Found in Asia MX — Inicio">
-                    <h1
-                        class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.28em] text-brokenwhite group-hover:text-olive transition-colors uppercase font-sans">
-                        FOUND IN ASIA
-                    </h1>
-                    <span
-                        class="block text-[9px] tracking-[0.45em] text-basegray group-hover:text-ash uppercase -mt-0.5">
-                        PERSONAL SHOPPING • MÉXICO
-                    </span>
+            <!-- Center: Logo Oficial con Fondo Transparente Centrado -->
+            <div class="flex items-center justify-center">
+                <a href="./index.html" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
+                    <img src="./logo.png?v=3"
+                        alt="FOUND IN ASIA"
+                        class="h-7 sm:h-8 md:h-9 w-auto max-w-[120px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105" />
                 </a>
             </div>
 
             <!-- Right: Search, Wishlist & Bag Actions -->
-            <div class="flex items-center gap-3 sm:gap-6">
+            <div class="flex items-center gap-3 sm:gap-4 xl:gap-5 justify-end">
                 <!-- Search Trigger -->
                 <button id="search-toggle-btn" class="text-ash hover:text-brokenwhite transition-colors p-2"
                     title="Buscar prendas" aria-label="Buscar prendas">
@@ -130,7 +161,7 @@
                         d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
                 <input id="search-input" type="text"
-                    placeholder="Buscar abrigos de Niigata, archivo Issey Miyake, blazers de Kioto..."
+                    placeholder="Buscar vinilos OBI, Supreme, BAPE, figuras de colección..."
                     class="w-full bg-transparent border-none text-brokenwhite placeholder:text-basegray text-sm md:text-base focus:outline-none focus:ring-0 tracking-wide">
                 <button id="clear-search-btn"
                     class="text-xs text-ash hover:text-brokenwhite uppercase tracking-wider">Cerrar</button>
@@ -139,36 +170,109 @@
     </header>
 
     <!-- ======================================================== -->
-    <!-- MOBILE SLIDE-OUT NAVIGATION                              -->
+    <!-- MOBILE SLIDE-OUT NAVIGATION (DISEÑO CLARO CONCORDADO)     -->
     <!-- ======================================================== -->
     <div id="mobile-menu-drawer"
-        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden">
-        <div class="w-4/5 max-w-sm bg-carbon h-full border-r border-carbon-light p-6 flex flex-col justify-between">
+        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden flex">
+        <div class="w-full max-w-sm sm:max-w-md bg-carbon-dark h-full border-r border-carbon-light p-6 flex flex-col justify-between overflow-y-auto no-scrollbar shadow-2xl">
             <div>
-                <div class="flex items-center justify-between pb-6 border-b border-carbon-light">
-                    <span class="text-xs tracking-ultra uppercase text-brokenwhite">FOUND IN ASIA</span>
-                    <button id="close-mobile-menu-btn" class="text-ash hover:text-brokenwhite p-1" aria-label="Cerrar menú móvil">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M6 18L18 6M6 6l12 12"></path>
+                <!-- Top Bar: = | FOUND IN ASIA | 🔍 -->
+                <div class="flex items-center justify-between pb-5 border-b border-carbon-light/80">
+                    <button id="close-mobile-menu-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Cerrar menú móvil">
+                        <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h16M4 15h16" />
+                        </svg>
+                    </button>
+                    <span class="text-base font-semibold tracking-[0.22em] uppercase text-brokenwhite font-sans">
+                        FOUND IN ASIA
+                    </span>
+                    <button id="mobile-search-trigger-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Buscar en catálogo">
+                        <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
                     </button>
                 </div>
-                <nav class="flex flex-col gap-6 mt-8 text-sm uppercase tracking-widest text-ash font-medium">
-                    <a href="./index.html" class="mobile-nav-link text-olive font-semibold transition-colors">Inicio</a>
-                    <a href="./the-finds.html" class="mobile-nav-link hover:text-olive transition-colors">The Finds (Catálogo)</a>
-                    <a href="./personal-sourcing.html" class="mobile-nav-link hover:text-olive transition-colors">Personal Sourcing</a>
-                    <a href="./destinations.html" class="mobile-nav-link hover:text-olive transition-colors">Destinations (Viajes)</a>
-                    <a href="./about.html" class="mobile-nav-link hover:text-olive transition-colors">About & Envíos</a>
-                </nav>
+
+                <!-- Sección: MENÚ PRINCIPAL -->
+                <div class="mt-6">
+                    <p class="text-[11px] font-mono tracking-widest uppercase text-ash/80 mb-2 px-1 font-semibold">
+                        MENÚ PRINCIPAL
+                    </p>
+
+                    <nav class="flex flex-col text-sm sm:text-base">
+                        <!-- Home (Activo) -->
+                        <a href="./index.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-olive font-semibold transition-colors group">
+                            <span class="font-normal tracking-wide">Home</span>
+                            <svg class="w-4 h-4 text-olive transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <!-- The Finds (Acordeón Desplegable) -->
+                        <div class="border-b border-carbon-light/70">
+                            <button type="button" id="mobile-the-finds-toggle" aria-expanded="false" class="w-full flex items-center justify-between py-4 px-1 text-brokenwhite hover:text-olive transition-colors group text-left">
+                                <span class="font-normal tracking-wide">The Finds</span>
+                                <svg id="mobile-the-finds-chevron" class="w-4 h-4 text-ash/70 group-hover:text-olive transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <!-- Submenús que se despliegan al picarle a The Finds -->
+                            <div id="mobile-the-finds-submenu" class="hidden pb-4 pt-1 px-1 space-y-2">
+                                <div class="grid grid-cols-3 gap-2 p-3 bg-carbon rounded-xl border border-carbon-light/80 shadow-sm">
+                                    <a href="./the-finds.html?cat=available"
+                                        class="flex items-center justify-center text-center p-2.5 rounded-lg bg-carbon-dark hover:bg-olive hover:text-carbon-dark border border-carbon-light/80 hover:border-olive text-xs font-semibold text-brokenwhite transition-all shadow-sm">
+                                        Available
+                                    </a>
+                                    <a href="./the-finds.html?cat=on-request"
+                                        class="flex items-center justify-center text-center p-2.5 rounded-lg bg-carbon-dark hover:bg-olive hover:text-carbon-dark border border-carbon-light/80 hover:border-olive text-xs font-semibold text-brokenwhite leading-tight transition-all shadow-sm">
+                                        Source on<br>Request
+                                    </a>
+                                    <a href="./the-finds.html?cat=archive"
+                                        class="flex items-center justify-center text-center p-2.5 rounded-lg bg-carbon-dark hover:bg-olive hover:text-carbon-dark border border-carbon-light/80 hover:border-olive text-xs font-semibold text-brokenwhite transition-all shadow-sm">
+                                        Archive
+                                    </a>
+                                </div>
+                                <a href="./the-finds.html" class="flex items-center justify-between px-3 py-2 text-xs font-mono tracking-wider uppercase text-olive hover:underline">
+                                    <span>Ver catálogo completo →</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Personal Sourcing -->
+                        <a href="./personal-sourcing.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">Personal Sourcing</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <!-- Destinations -->
+                        <a href="./destinations.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">Destinations</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <!-- About -->
+                        <a href="./about.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">About / How It Works</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
             </div>
-            <div class="pt-6 border-t border-carbon-light/50 text-xs text-ash space-y-3">
-                <p class="text-[11px] uppercase tracking-wider text-basegray">Concierge Personal</p>
-                <p class="text-brokenwhite">concierge@foundinasiamx.com</p>
-                <p>WhatsApp: +52 55 8920 1204</p>
+
+            <!-- Footer del Menú Móvil -->
+            <div class="pt-6 mt-6 border-t border-carbon-light/80 text-xs text-ash space-y-2">
+                <p class="text-[10px] uppercase font-mono tracking-widest text-basegray font-semibold">Concierge Personal</p>
+                <p class="text-brokenwhite font-medium">concierge@foundinasiamx.com</p>
+                <p class="text-ash">WhatsApp: +52 55 8920 1204</p>
             </div>
         </div>
-        <div id="mobile-menu-backdrop" class="flex-1 bg-black/60 backdrop-blur-sm"></div>
+        <div id="mobile-menu-backdrop" class="flex-1 bg-black/40 backdrop-blur-sm cursor-pointer"></div>
     </div>
 
     <!-- ======================================================== -->
@@ -176,12 +280,12 @@
     <!-- ======================================================== -->
     <main class="flex-1">
 
-        <!-- 1. HERO EDITORIAL: MARCA Y PROPUESTA DE VALOR (CON IMAGEN OFICIAL DE INICIO) -->
-        <section class="relative min-h-[75vh] flex items-center justify-start border-b border-carbon-light/30 overflow-hidden bg-carbon-dark">
-            <div class="relative z-10 max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-16 sm:py-24">
+        <!-- 1. HERO EDITORIAL: PRESENTACIÓN BREVE DE LA MARCA -->
+        <section class="relative min-h-[70vh] flex items-center justify-start border-b border-carbon-light/30 overflow-hidden bg-carbon-dark">
+            <div class="relative z-10 max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-16 sm:py-20">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     
-                    <!-- Columna Izquierda: Manifiesto y Call-to-Action -->
+                    <!-- Columna Izquierda: Introducción Breve & CTAs -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="flex items-center gap-3">
                             <span class="w-8 h-[1px] bg-olive"></span>
@@ -196,122 +300,336 @@
                         </h2>
 
                         <p class="text-sm sm:text-base lg:text-lg text-ash font-light max-w-xl leading-relaxed">
-                            Somos tu concierge y personal shopper en Japón, Corea y Taiwán. Localizamos vinilos japoneses raros, piezas de archivo inconseguibles y coleccionables icónicos traídos directamente a México con entrega asegurada.
+                            Somos tu concierge y personal shopper en Tokio, Seúl y Kioto. Localizamos vinilos de colección con OBI, streetwear de archivo y diseño japonés exclusivo con entrega asegurada en México.
                         </p>
 
                         <div class="flex flex-wrap items-center gap-4 pt-4">
                             <a href="./the-finds.html"
                                 class="px-8 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-olive/10">
-                                Explorar The Finds (8 Hallazgos)
+                                Explorar The Finds (12 Hallazgos)
                             </a>
                             <a href="./personal-sourcing.html"
                                 class="px-8 py-3.5 bg-carbon border border-carbon-light/60 hover:border-brokenwhite text-brokenwhite text-xs uppercase tracking-widest rounded-full transition-colors font-medium">
-                                Pedir Personal Sourcing
+                                Solicitar Personal Sourcing
                             </a>
                         </div>
                     </div>
 
-                    <!-- Columna Derecha: Emblema Oficial de Inicio (imagen-inicio.jpeg) -->
+                    <!-- Columna Derecha: Tarjeta Visual de Marca -->
                     <div class="lg:col-span-5 flex justify-center">
-                        <div class="relative max-w-md w-full aspect-square rounded-3xl overflow-hidden border border-carbon-light/60 shadow-xl bg-carbon p-6 flex items-center justify-center group">
+                        <a href="./the-finds.html" class="relative max-w-md w-full aspect-square rounded-3xl overflow-hidden border border-carbon-light/60 shadow-2xl bg-carbon p-6 flex items-center justify-center group cursor-pointer" title="Explorar Catálogo The Finds">
                             <img src="./imagen-inicio.jpeg"
                                 alt="Found in Asia — Official Brand Emblem"
                                 width="1254"
                                 height="1254"
                                 class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                                 loading="eager" />
-                        </div>
+                        </a>
                     </div>
 
-                </div>
-
-                <!-- Los 3 Pilares del Servicio In Situ -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 mt-12 border-t border-carbon-light/30 text-xs">
-                    <div class="space-y-2 bg-carbon p-6 rounded-xl border border-carbon-light/40 shadow-sm">
-                        <span class="text-olive font-mono text-sm block font-semibold">01 / In Situ</span>
-                        <h4 class="text-brokenwhite uppercase tracking-wider font-semibold text-sm">Sourcing Directo</h4>
-                        <p class="text-ash leading-relaxed font-light">
-                            Compramos presencialmente en ateliers independientes, subastas privadas y tiendas de archivo en Daikanyama, Aoyama, Hannam-dong y Seongsu.
-                        </p>
-                    </div>
-                    <div class="space-y-2 bg-carbon p-6 rounded-xl border border-carbon-light/40 shadow-sm">
-                        <span class="text-olive font-mono text-sm block font-semibold">02 / Selección</span>
-                        <h4 class="text-brokenwhite uppercase tracking-wider font-semibold text-sm">Inspección de Autenticidad</h4>
-                        <p class="text-ash leading-relaxed font-light">
-                            Cada pieza se verifica minuciosamente: prensados japoneses originales con OBI, piezas de archivo textil y coleccionables 100% legítimos.
-                        </p>
-                    </div>
-                    <div class="space-y-2 bg-carbon p-6 rounded-xl border border-carbon-light/40 shadow-sm">
-                        <span class="text-olive font-mono text-sm block font-semibold">03 / México</span>
-                        <h4 class="text-brokenwhite uppercase tracking-wider font-semibold text-sm">Entrega Asegurada</h4>
-                        <p class="text-ash leading-relaxed font-light">
-                            Importación y despacho aduanal resueltos sin costos sorpresa. Envíos express asegurados con DHL a todo México y citas privadas en Roma Norte CDMX.
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. LA ESENCIA DE FOUND IN ASIA MX: HISTORIA Y CÓMO OPERAMOS -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-20 lg:py-32 border-b border-carbon-light/40">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- 2. LOS TRES BLOQUES GRANDES DE THE FINDS (ACCESO DIRECTO) -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-20 border-b border-carbon-light/40">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs uppercase tracking-ultra text-olive font-medium block mb-2">Modalidades de Catálogo</span>
+                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-editorial font-light text-brokenwhite">
+                        The Finds
+                    </h3>
+                    <p class="text-xs sm:text-sm text-ash max-w-xl font-light mt-1">
+                        Tres bloques de adquisición según la inmediatez de tu compra. Selecciona uno para abrir su respectivo catálogo.
+                    </p>
+                </div>
+                <a href="./the-finds.html" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors font-semibold group">
+                    <span>Ver catálogo completo (12)</span>
+                    <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
 
-                <!-- Columna Izquierda: Filosofía del Personal Shopping -->
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="space-y-3">
-                        <span class="text-xs uppercase tracking-ultra text-olive font-medium">Nuestra Identidad</span>
-                        <h3 class="text-3xl sm:text-5xl font-editorial font-light text-brokenwhite leading-tight">
-                            El arte de encontrar lo que ya no se produce.
+            <!-- Grid de los 3 Bloques Grandes -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Bloque 1: Available -->
+                <a href="./the-finds.html?cat=available"
+                    class="group p-8 rounded-2xl bg-carbon hover:bg-carbon-light/20 border border-carbon-light/60 hover:border-olive/60 transition-all flex flex-col justify-between space-y-6 shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-olive/10 border border-olive/30 text-olive text-[10px] font-mono uppercase tracking-wider font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-olive"></span>
+                                Entrega Inmediata
+                            </span>
+                            <span class="text-xs text-ash/80 font-mono">6 Hallazgos</span>
+                        </div>
+                        <h4 class="text-2xl font-editorial text-brokenwhite group-hover:text-olive transition-colors">
+                            Available
+                        </h4>
+                        <p class="text-xs text-ash font-light leading-relaxed">
+                            Piezas físicas verificadas e inspeccionadas bajo luz natural. Listas en CDMX para despacho express el mismo día a todo México.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs uppercase tracking-wider text-brokenwhite group-hover:text-olive font-medium pt-4 border-t border-carbon-light/40">
+                        <span>Explorar Disponibles</span>
+                        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </a>
+
+                <!-- Bloque 2: Source on Request -->
+                <a href="./the-finds.html?cat=on-request"
+                    class="group p-8 rounded-2xl bg-carbon hover:bg-carbon-light/20 border border-carbon-light/60 hover:border-olive/60 transition-all flex flex-col justify-between space-y-6 shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-carbon-dark border border-carbon-light/80 text-ash text-[10px] font-mono uppercase tracking-wider font-semibold">
+                                <span class="w-1.5 h-1.5 rounded-full bg-ash"></span>
+                                En Viajes Activos
+                            </span>
+                            <span class="text-xs text-ash/80 font-mono">3 Hallazgos</span>
+                        </div>
+                        <h4 class="text-2xl font-editorial text-brokenwhite group-hover:text-olive transition-colors">
+                            Source on Request
+                        </h4>
+                        <p class="text-xs text-ash font-light leading-relaxed">
+                            Piezas localizadas en boutiques y tiendas de archivo en Tokio y Seúl. Las adquirimos en nuestro próximo recorrido bajo tu encargo.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs uppercase tracking-wider text-brokenwhite group-hover:text-olive font-medium pt-4 border-t border-carbon-light/40">
+                        <span>Ver Bajo Pedido</span>
+                        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </a>
+
+                <!-- Bloque 3: Archive -->
+                <a href="./the-finds.html?cat=archive"
+                    class="group p-8 rounded-2xl bg-carbon hover:bg-carbon-light/20 border border-carbon-light/60 hover:border-olive/60 transition-all flex flex-col justify-between space-y-6 shadow-lg">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-carbon-dark border border-carbon-light/80 text-basegray text-[10px] font-mono uppercase tracking-wider font-semibold">
+                                Colección Histórica
+                            </span>
+                            <span class="text-xs text-ash/80 font-mono">3 Hallazgos</span>
+                        </div>
+                        <h4 class="text-2xl font-editorial text-brokenwhite group-hover:text-olive transition-colors">
+                            Archive
+                        </h4>
+                        <p class="text-xs text-ash font-light leading-relaxed">
+                            Registro de piezas históricas ya gestionadas para coleccionistas. Si buscas una pieza similar, la rastreamos in situ.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs uppercase tracking-wider text-brokenwhite group-hover:text-olive font-medium pt-4 border-t border-carbon-light/40">
+                        <span>Explorar Archivo</span>
+                        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. PRODUCTOS DESTACADOS (FOTOGRAFÍAS ATRACTIVAS Y PRODUCTOS REALES) -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-20 border-b border-carbon-light/40">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs uppercase tracking-ultra text-olive font-medium block mb-2">Curaduría Reciente</span>
+                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-editorial font-light text-brokenwhite">
+                        Hallazgos Destacados
+                    </h3>
+                    <p class="text-xs sm:text-sm text-ash max-w-xl font-light mt-1">
+                        Una muestra selecta de piezas que puedes adquirir o solicitar ahora mismo.
+                    </p>
+                </div>
+                <a href="./the-finds.html" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors font-semibold group">
+                    <span>Ver todos los 12 hallazgos</span>
+                    <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <!-- Grid de 4 Productos Destacados -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Producto 1: BAPESTA Green Patent (Find 009) -->
+                <a href="./the-finds.html" class="group bg-carbon rounded-2xl overflow-hidden border border-carbon-light/60 hover:border-olive/50 transition-all shadow-lg flex flex-col justify-between">
+                    <div class="relative aspect-[4/5] bg-studiogray overflow-hidden">
+                        <img src="./find-008.jpeg"
+                            alt="A Bathing Ape BAPESTA Green Patent"
+                            width="1122"
+                            height="1402"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy" />
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono uppercase tracking-wider text-olive font-semibold border border-white/10">
+                            Available
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono text-brokenwhite/80 border border-white/10">
+                            Find 009 • Tokio
+                        </span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-sm font-semibold text-brokenwhite group-hover:text-olive transition-colors line-clamp-1">
+                            A Bathing Ape — BAPESTA FS-001
+                        </h4>
+                        <p class="text-xs text-ash line-clamp-1 font-light">Charol Verde Manzana • Archivo Urahara</p>
+                        <div class="pt-2 flex items-center justify-between border-t border-carbon-light/40">
+                            <span class="text-xs font-mono font-semibold text-brokenwhite">$9,800 MXN</span>
+                            <span class="text-[11px] text-olive uppercase tracking-wider font-medium">Ver Ficha →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Producto 2: Murakami Plush (Find 005) -->
+                <a href="./the-finds.html" class="group bg-carbon rounded-2xl overflow-hidden border border-carbon-light/60 hover:border-olive/50 transition-all shadow-lg flex flex-col justify-between">
+                    <div class="relative aspect-[4/5] bg-studiogray overflow-hidden">
+                        <img src="./find-005-tokyo-japan.jpeg"
+                            alt="Takashi Murakami x BLACKPINK Flower Plush"
+                            width="1080"
+                            height="1350"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy" />
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono uppercase tracking-wider text-olive font-semibold border border-white/10">
+                            Available
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono text-brokenwhite/80 border border-white/10">
+                            Find 005 • Tokio
+                        </span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-sm font-semibold text-brokenwhite group-hover:text-olive transition-colors line-clamp-1">
+                            Murakami x BLACKPINK Flower Plush
+                        </h4>
+                        <p class="text-xs text-ash line-clamp-1 font-light">Kaikai Kiki Co. • Tokyo Limited Edition</p>
+                        <div class="pt-2 flex items-center justify-between border-t border-carbon-light/40">
+                            <span class="text-xs font-mono font-semibold text-brokenwhite">$4,950 MXN</span>
+                            <span class="text-[11px] text-olive uppercase tracking-wider font-medium">Ver Ficha →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Producto 3: Be@rbrick Set (Find 010) -->
+                <a href="./the-finds.html?cat=on-request" class="group bg-carbon rounded-2xl overflow-hidden border border-carbon-light/60 hover:border-olive/50 transition-all shadow-lg flex flex-col justify-between">
+                    <div class="relative aspect-[4/5] bg-studiogray overflow-hidden">
+                        <img src="./find-009.jpeg"
+                            alt="Medicom Toy x BAPE Be@rbrick Set"
+                            width="1122"
+                            height="1402"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy" />
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono uppercase tracking-wider text-ash font-semibold border border-white/10">
+                            On Request
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono text-brokenwhite/80 border border-white/10">
+                            Find 010 • Tokio
+                        </span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-sm font-semibold text-brokenwhite group-hover:text-olive transition-colors line-clamp-1">
+                            Be@rbrick BAPE Shark Camo Set
+                        </h4>
+                        <p class="text-xs text-ash line-clamp-1 font-light">Trilogía 1000% / 400% / 100%</p>
+                        <div class="pt-2 flex items-center justify-between border-t border-carbon-light/40">
+                            <span class="text-xs font-mono font-semibold text-brokenwhite">$15,400 MXN</span>
+                            <span class="text-[11px] text-olive uppercase tracking-wider font-medium">Ver Ficha →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Producto 4: KAWS Plush Keychain (Find 012) -->
+                <a href="./the-finds.html?cat=archive" class="group bg-carbon rounded-2xl overflow-hidden border border-carbon-light/60 hover:border-olive/50 transition-all shadow-lg flex flex-col justify-between">
+                    <div class="relative aspect-[4/5] bg-studiogray overflow-hidden">
+                        <img src="./llavero-tierra.jpeg"
+                            alt="KAWS:HOLIDAY Plush Keychain"
+                            width="1086"
+                            height="1448"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy" />
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono uppercase tracking-wider text-basegray font-semibold border border-white/10">
+                            Archive
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 bg-carbon-dark/85 backdrop-blur-md rounded-full text-[10px] font-mono text-brokenwhite/80 border border-white/10">
+                            Find 012 • Seúl
+                        </span>
+                    </div>
+                    <div class="p-5 space-y-2">
+                        <h4 class="text-sm font-semibold text-brokenwhite group-hover:text-olive transition-colors line-clamp-1">
+                            KAWS:HOLIDAY Plush (Tierra)
+                        </h4>
+                        <p class="text-xs text-ash line-clamp-1 font-light">Llavero Colección Brian Donnelly</p>
+                        <div class="pt-2 flex items-center justify-between border-t border-carbon-light/40">
+                            <span class="text-xs font-mono font-semibold text-brokenwhite">$2,900 MXN</span>
+                            <span class="text-[11px] text-olive uppercase tracking-wider font-medium">Ver Ficha →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Botón Central hacia The Finds -->
+            <div class="text-center pt-10">
+                <a href="./the-finds.html"
+                    class="inline-flex items-center gap-3 px-8 py-4 bg-carbon border border-carbon-light/70 hover:border-olive text-brokenwhite hover:text-olive rounded-full text-xs uppercase tracking-widest font-semibold transition-all">
+                    <span>Explorar los 12 Hallazgos en The Finds</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 4. CONVIERTE EL INTERÉS EN SOLICITUDES: PERSONAL SOURCING & DESTINATIONS -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Tarjeta Principal: Personal Sourcing por Foto o Enlace -->
+                <div class="lg:col-span-7 bg-carbon p-8 sm:p-12 rounded-3xl border border-carbon-light/60 flex flex-col justify-between space-y-6 shadow-xl">
+                    <div class="space-y-4">
+                        <span class="text-xs uppercase tracking-ultra text-olive font-medium block">
+                            Búsqueda Personalizada In Situ
+                        </span>
+                        <h3 class="text-3xl sm:text-4xl font-editorial font-light text-brokenwhite leading-tight">
+                            ¿Buscas una pieza específica de Japón o Corea?
                         </h3>
-                    </div>
-
-                    <div class="space-y-6 text-sm text-ash font-light leading-relaxed">
-                        <p>
-                            FOUND IN ASIA MX nace como un canal exclusivo para el coleccionista y aficionado de la moda en México que busca prendas con alma, historia y manufactura excepcional. Lejos de la producción en masa y la inmediatez efímera, nos enfocamos en prendas de corte arquitectónico, lanas pesadas trabajadas en telares tradicionales de Japón y siluetas desestructuradas contemporáneas de Corea del Sur.
-                        </p>
-                        <p>
-                            No somos una tienda de reventa genérica. Funcionamos como un concierge privado: viajamos directamente a las capitales asiáticas, exploramos boutiques secretas de archivo, evaluamos el estado de los textiles bajo luz natural y gestionamos todo el proceso logístico para que recibas piezas irrepetibles en la comodidad de tu hogar en México.
+                        <p class="text-xs sm:text-sm text-ash font-light leading-relaxed max-w-xl">
+                            Envíanos una fotografía o enlace web de lo que deseas: vinilos raros, ropa de diseñador de archivo o coleccionables de arte. Nuestro equipo la localiza presencialmente en nuestro próximo viaje y la entrega asegurada en México.
                         </p>
                     </div>
 
-                    <!-- Datos y Credenciales de Servicio -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4 border-t border-carbon-light/50">
-                        <div>
-                            <span class="text-3xl font-editorial text-olive">Asia Directo</span>
-                            <p class="text-xs text-basegray mt-1">Expediciones periódicas directas</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-editorial text-olive">100%</span>
-                            <p class="text-xs text-basegray mt-1">Autenticidad e inspección en mano</p>
-                        </div>
-                        <div>
-                            <span class="text-3xl font-editorial text-olive">DHL Express</span>
-                            <p class="text-xs text-basegray mt-1">Envíos asegurados a todo México</p>
-                        </div>
+                    <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-carbon-light/40">
+                        <a href="./personal-sourcing.html"
+                            class="px-8 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all">
+                            Solicitar por Foto o Enlace →
+                        </a>
+                        <a href="https://wa.me/525589201204" target="_blank" rel="noopener"
+                            class="px-6 py-3.5 bg-carbon-dark border border-carbon-light/60 hover:border-brokenwhite text-brokenwhite text-xs uppercase tracking-widest rounded-full transition-colors">
+                            WhatsApp Concierge
+                        </a>
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Recuadro de Muestra Arquitectónico (Sin Imagen de Ropa) -->
-                <div class="lg:col-span-5">
-                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-studiogray border border-carbon-light/60 shadow-lg p-8 flex flex-col justify-between">
-                        <div class="flex items-center justify-between border-b border-white/20 pb-4">
-                            <span class="text-[10px] uppercase font-mono tracking-widest text-white/90">Recuadro de Muestra</span>
-                            <span class="text-xs text-white/80 font-mono">01 / ARCHIVO</span>
+                <!-- Tarjeta Secundaria: Próximos Viajes y Fechas para Pedidos -->
+                <div class="lg:col-span-5 bg-carbon p-8 sm:p-12 rounded-3xl border border-carbon-light/60 flex flex-col justify-between space-y-6 shadow-xl">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs uppercase tracking-ultra text-olive font-medium">Destinations</span>
+                            <span class="px-3 py-1 rounded-full bg-olive/10 text-olive text-[10px] font-mono border border-olive/30 font-semibold">
+                                Recepción Abierta
+                            </span>
                         </div>
-                        <div class="space-y-4 my-auto text-center py-8">
-                            <div class="w-16 h-16 mx-auto rounded-full border border-white/30 flex items-center justify-center text-white/90 font-editorial text-2xl">
-                                FIA
-                            </div>
-                            <h4 class="text-xl sm:text-2xl font-editorial text-white">Inspección Textil in Situ</h4>
-                            <p class="text-xs text-white/80 max-w-xs mx-auto font-light leading-relaxed">
-                                Verificación presencial de composición, tacto, estado de conservación y origen en ateliers de autor.
-                            </p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-white/20 backdrop-blur-md border border-white/20 text-xs text-white">
-                            <span class="text-[10px] uppercase font-mono tracking-widest text-olive block mb-1">Criterio Textil</span>
-                            <p class="font-light">"Cada costura, forro de cupro y botón de cuerno es examinado antes de ingresar a nuestra selección."</p>
-                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-editorial font-light text-brokenwhite leading-tight">
+                            Próximas Expediciones
+                        </h3>
+                        <ul class="text-xs text-ash space-y-3 font-light">
+                            <li class="flex items-center justify-between py-2 border-b border-carbon-light/40">
+                                <span class="text-brokenwhite font-medium">Tokio & Niigata</span>
+                                <span class="font-mono text-olive">15 - 28 Noviembre, 2026</span>
+                            </li>
+                            <li class="flex items-center justify-between py-2 border-b border-carbon-light/40">
+                                <span class="text-brokenwhite font-medium">Seúl & Hannam-dong</span>
+                                <span class="font-mono text-ash">10 - 22 Enero, 2027</span>
+                            </li>
+                            <li class="flex items-center justify-between py-2">
+                                <span class="text-brokenwhite font-medium">Kioto & Osaka</span>
+                                <span class="font-mono text-ash">04 - 18 Marzo, 2027</span>
+                            </li>
+                        </ul>
                     </div>
+
+                    <a href="./destinations.html"
+                        class="inline-flex items-center justify-between w-full py-3.5 px-6 rounded-full bg-carbon-dark hover:bg-carbon-light/40 border border-carbon-light text-brokenwhite text-xs uppercase tracking-wider transition-colors font-medium">
+                        <span>Ver Calendario de Viajes</span>
+                        <span>→</span>
+                    </a>
                 </div>
 
             </div>

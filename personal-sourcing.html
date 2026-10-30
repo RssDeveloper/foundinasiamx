@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Sourcing — Encargos Exclusivos en Japón & Corea | FOUND IN ASIA MX</title>
-    <meta name="description" content="Servicio exclusivo de Personal Shopping y Sourcing en Tokio y Seúl. Conseguimos piezas de archivo, diseñadores japoneses y ropa exclusiva traída a México.">
+    <meta name="description" content="Servicio exclusivo de Personal Shopping y Sourcing en Asia. Conseguimos piezas de archivo, diseñadores independientes y prendas exclusivas traídas a México.">
     <link rel="canonical" href="https://foundinasiamx.com/personal-sourcing">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -41,10 +44,10 @@
     <!-- ======================================================== -->
     <header id="main-header"
         class="sticky top-0 z-30 bg-carbon-dark/95 backdrop-blur-md border-b border-carbon-light/40 transition-all duration-300">
-        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+                <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-20 flex items-center justify-between">
 
-            <!-- Left: Mobile Menu Button & Desktop Nav -->
-            <div class="flex items-center gap-8">
+            <!-- Left: Mobile Menu Button & Unified Desktop Nav (TODAS LAS SECCIONES EN PEQUEÑO) -->
+            <div class="flex items-center gap-4 xl:gap-6">
                 <button id="mobile-menu-btn" aria-label="Abrir Menú de Navegación"
                     class="lg:hidden text-brokenwhite hover:text-olive transition-colors p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,38 +56,66 @@
                     </svg>
                 </button>
 
-                <!-- Menú Desktop: Personal Sourcing Activo -->
-                <nav
-                    class="hidden lg:flex items-center gap-8 text-[12px] tracking-widest uppercase font-medium text-ash">
+                <!-- Menú Desktop Unificado con TODAS las secciones en pequeño -->
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[10px] xl:text-[11px] tracking-[0.16em] uppercase font-medium text-ash">
                     <a href="./index.html"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Inicio</a>
-                    <a href="./the-finds.html"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">The Finds</a>
+
+                    <!-- The Finds con Dropdown Desktop -->
+                    <div class="relative group py-2">
+                        <a href="./the-finds.html"
+                            class="hover:text-brokenwhite transition-colors border-b-2 border-transparent hover:border-olive flex items-center gap-1">
+                            <span>The Finds</span>
+                            <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <!-- Dropdown Desktop para The Finds -->
+                        <div class="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                            <div class="w-48 bg-carbon rounded-xl border border-carbon-light shadow-xl p-2 space-y-1">
+                                <a href="./the-finds.html?cat=available"
+                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                    Available
+                                </a>
+                                <a href="./the-finds.html?cat=on-request"
+                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                    Source on Request
+                                </a>
+                                <a href="./the-finds.html?cat=archive"
+                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                    Archive
+                                </a>
+                                <div class="border-t border-carbon-light/60 my-1"></div>
+                                <a href="./the-finds.html"
+                                    class="block px-3 py-1.5 text-[9px] font-mono tracking-widest uppercase text-olive hover:underline">
+                                    Ver catálogo completo →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="./personal-sourcing.html"
                         class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">Personal Sourcing</a>
+
                     <a href="./destinations.html"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Destinations</a>
+
                     <a href="./about.html"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">About</a>
                 </nav>
             </div>
 
-            <!-- Center: Logo -->
-            <div class="text-center">
-                <a href="./index.html" class="inline-block group" aria-label="Found in Asia MX — Inicio">
-                    <h1
-                        class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.28em] text-brokenwhite group-hover:text-olive transition-colors uppercase font-sans">
-                        FOUND IN ASIA
-                    </h1>
-                    <span
-                        class="block text-[9px] tracking-[0.45em] text-basegray group-hover:text-ash uppercase -mt-0.5">
-                        PERSONAL SHOPPING • MÉXICO
-                    </span>
+            <!-- Center: Logo Oficial con Fondo Transparente Centrado -->
+            <div class="flex items-center justify-center">
+                <a href="./index.html" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
+                    <img src="./logo.png?v=3"
+                        alt="FOUND IN ASIA"
+                        class="h-7 sm:h-8 md:h-9 w-auto max-w-[120px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105" />
                 </a>
             </div>
 
             <!-- Right: Search, Wishlist & Bag Actions -->
-            <div class="flex items-center gap-3 sm:gap-6">
+            <div class="flex items-center gap-3 sm:gap-4 xl:gap-5 justify-end">
                 <!-- Search Trigger -->
                 <button id="search-toggle-btn" class="text-ash hover:text-brokenwhite transition-colors p-2"
                     title="Buscar prendas" aria-label="Buscar prendas">
@@ -138,36 +169,109 @@
     </header>
 
     <!-- ======================================================== -->
-    <!-- MOBILE SLIDE-OUT NAVIGATION                              -->
+    <!-- MOBILE SLIDE-OUT NAVIGATION (DISEÑO CLARO CONCORDADO)     -->
     <!-- ======================================================== -->
     <div id="mobile-menu-drawer"
-        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden">
-        <div class="w-4/5 max-w-sm bg-carbon h-full border-r border-carbon-light p-6 flex flex-col justify-between">
+        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden flex">
+        <div class="w-full max-w-sm sm:max-w-md bg-carbon-dark h-full border-r border-carbon-light p-6 flex flex-col justify-between overflow-y-auto no-scrollbar shadow-2xl">
             <div>
-                <div class="flex items-center justify-between pb-6 border-b border-carbon-light">
-                    <span class="text-xs tracking-ultra uppercase text-brokenwhite">FOUND IN ASIA</span>
-                    <button id="close-mobile-menu-btn" class="text-ash hover:text-brokenwhite p-1" aria-label="Cerrar menú móvil">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M6 18L18 6M6 6l12 12"></path>
+                <!-- Top Bar: = | FOUND IN ASIA | 🔍 -->
+                <div class="flex items-center justify-between pb-5 border-b border-carbon-light/80">
+                    <button id="close-mobile-menu-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Cerrar menú móvil">
+                        <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h16M4 15h16" />
+                        </svg>
+                    </button>
+                    <span class="text-base font-semibold tracking-[0.22em] uppercase text-brokenwhite font-sans">
+                        FOUND IN ASIA
+                    </span>
+                    <button id="mobile-search-trigger-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Buscar en catálogo">
+                        <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
                     </button>
                 </div>
-                <nav class="flex flex-col gap-6 mt-8 text-sm uppercase tracking-widest text-ash font-medium">
-                    <a href="./index.html" class="mobile-nav-link hover:text-olive transition-colors">Inicio</a>
-                    <a href="./the-finds.html" class="mobile-nav-link hover:text-olive transition-colors">The Finds (Catálogo)</a>
-                    <a href="./personal-sourcing.html" class="mobile-nav-link text-olive font-semibold transition-colors">Personal Sourcing</a>
-                    <a href="./destinations.html" class="mobile-nav-link hover:text-olive transition-colors">Destinations (Viajes)</a>
-                    <a href="./about.html" class="mobile-nav-link hover:text-olive transition-colors">About & Envíos</a>
-                </nav>
+
+                <!-- Sección: MENÚ PRINCIPAL -->
+                <div class="mt-6">
+                    <p class="text-[11px] font-mono tracking-widest uppercase text-ash/80 mb-2 px-1 font-semibold">
+                        MENÚ PRINCIPAL
+                    </p>
+
+                    <nav class="flex flex-col text-sm sm:text-base">
+                        <!-- Home -->
+                        <a href="./index.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">Home</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <!-- The Finds (Acordeón Desplegable) -->
+                        <div class="border-b border-carbon-light/70">
+                            <button type="button" id="mobile-the-finds-toggle" aria-expanded="false" class="w-full flex items-center justify-between py-4 px-1 text-brokenwhite hover:text-olive hover:text-olive transition-colors group text-left">
+                                <span class="font-normal tracking-wide">The Finds</span>
+                                <svg id="mobile-the-finds-chevron" class="w-4 h-4 text-ash/70 group-hover:text-olive transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <!-- Submenús que se despliegan al picarle a The Finds -->
+                            <div id="mobile-the-finds-submenu" class="hidden pb-4 pt-1 px-1 space-y-2">
+                                <div class="grid grid-cols-3 gap-2 p-3 bg-carbon rounded-xl border border-carbon-light/80 shadow-sm">
+                                    <a href="./the-finds.html?cat=available"
+                                        class="flex items-center justify-center text-center p-2.5 rounded-lg bg-carbon-dark hover:bg-olive hover:text-carbon-dark border border-carbon-light/80 hover:border-olive text-xs font-semibold text-brokenwhite transition-all shadow-sm">
+                                        Available
+                                    </a>
+                                    <a href="./the-finds.html?cat=on-request"
+                                        class="flex items-center justify-center text-center p-2.5 rounded-lg bg-carbon-dark hover:bg-olive hover:text-carbon-dark border border-carbon-light/80 hover:border-olive text-xs font-semibold text-brokenwhite leading-tight transition-all shadow-sm">
+                                        Source on<br>Request
+                                    </a>
+                                    <a href="./the-finds.html?cat=archive"
+                                        class="flex items-center justify-center text-center p-2.5 rounded-lg bg-carbon-dark hover:bg-olive hover:text-carbon-dark border border-carbon-light/80 hover:border-olive text-xs font-semibold text-brokenwhite transition-all shadow-sm">
+                                        Archive
+                                    </a>
+                                </div>
+                                <a href="./the-finds.html" class="flex items-center justify-between px-3 py-2 text-xs font-mono tracking-wider uppercase text-olive hover:underline">
+                                    <span>Ver catálogo completo →</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Personal Sourcing -->
+                        <a href="./personal-sourcing.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-olive font-semibold transition-colors group">
+                            <span class="font-normal tracking-wide">Personal Sourcing</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <!-- Destinations -->
+                        <a href="./destinations.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">Destinations</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <!-- About -->
+                        <a href="./about.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">About / How It Works</span>
+                            <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </nav>
+                </div>
             </div>
-            <div class="pt-6 border-t border-carbon-light/50 text-xs text-ash space-y-3">
-                <p class="text-[11px] uppercase tracking-wider text-basegray">Concierge Personal</p>
-                <p class="text-brokenwhite">concierge@foundinasiamx.com</p>
-                <p>WhatsApp: +52 55 8920 1204</p>
+
+            <!-- Footer del Menú Móvil -->
+            <div class="pt-6 mt-6 border-t border-carbon-light/80 text-xs text-ash space-y-2">
+                <p class="text-[10px] uppercase font-mono tracking-widest text-basegray font-semibold">Concierge Personal</p>
+                <p class="text-brokenwhite font-medium">concierge@foundinasiamx.com</p>
+                <p class="text-ash">WhatsApp: +52 55 8920 1204</p>
             </div>
         </div>
-        <div id="mobile-menu-backdrop" class="flex-1 bg-black/60 backdrop-blur-sm"></div>
+        <div id="mobile-menu-backdrop" class="flex-1 bg-black/40 backdrop-blur-sm cursor-pointer"></div>
     </div>
 
     <!-- ======================================================== -->
@@ -360,14 +464,32 @@
 
                             <div>
                                 <label for="sourcing-piece" class="block text-xs uppercase tracking-wider text-ash mb-2 font-medium">
-                                    Prenda, Diseñador o Archivo Solicitado *
+                                    Pieza, Diseñador o Archivo Solicitado *
                                 </label>
                                 <input type="text" id="sourcing-piece" required
-                                    placeholder="Ej. Blazer Comme des Garçons 1997, abrigo de lana Niigata, denim Kurabo..."
+                                    placeholder="Ej. Vinilo Arctic Monkeys OBI Fukuoka, BAPE Shark Hoodie, KAWS Plush..."
                                     class="w-full bg-carbon-dark border border-carbon-light rounded-xl py-3.5 px-4 text-xs sm:text-sm text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
                                 <span class="text-[11px] text-basegray mt-1.5 block">
-                                    Si vienes desde una prenda del catálogo o un destino, este campo se completa automáticamente.
+                                    Si vienes desde una pieza del catálogo o un destino, este campo se completa automáticamente.
                                 </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="sourcing-link" class="block text-xs uppercase tracking-wider text-ash mb-2 font-medium">
+                                        Enlace Web del Producto (Opcional)
+                                    </label>
+                                    <input type="url" id="sourcing-link"
+                                        placeholder="https://grailed.com/... o post de Instagram"
+                                        class="w-full bg-carbon-dark border border-carbon-light rounded-xl py-3.5 px-4 text-xs sm:text-sm text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
+                                </div>
+                                <div>
+                                    <label for="sourcing-photo" class="block text-xs uppercase tracking-wider text-ash mb-2 font-medium">
+                                        Fotografía o Captura de Referencia
+                                    </label>
+                                    <input type="file" id="sourcing-photo" accept="image/*"
+                                        class="w-full bg-carbon-dark border border-carbon-light rounded-xl py-2.5 px-3 text-xs text-ash file:mr-3 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-[11px] file:font-semibold file:bg-olive file:text-carbon-dark hover:file:bg-olive-hover cursor-pointer focus:outline-none focus:border-olive">
+                                </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -375,14 +497,14 @@
                                     <label for="sourcing-budget" class="block text-xs uppercase tracking-wider text-ash mb-2 font-medium">
                                         Presupuesto Estimado (MXN)
                                     </label>
-                                    <input type="text" id="sourcing-budget" placeholder="Ej. $8,000 - $15,000 MXN"
+                                    <input type="text" id="sourcing-budget" placeholder="Ej. $5,000 - $12,000 MXN"
                                         class="w-full bg-carbon-dark border border-carbon-light rounded-xl py-3.5 px-4 text-xs sm:text-sm text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
                                 </div>
                                 <div>
                                     <label for="sourcing-notes" class="block text-xs uppercase tracking-wider text-ash mb-2 font-medium">
-                                        Talla, Medidas o Referencias
+                                        Talla, Estado o Referencias Extra
                                     </label>
-                                    <input type="text" id="sourcing-notes" placeholder="Ej. Talla M, color carbón o marino"
+                                    <input type="text" id="sourcing-notes" placeholder="Ej. Talla M, estado 9/10 o sellado nuevo"
                                         class="w-full bg-carbon-dark border border-carbon-light rounded-xl py-3.5 px-4 text-xs sm:text-sm text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
                                 </div>
                             </div>
