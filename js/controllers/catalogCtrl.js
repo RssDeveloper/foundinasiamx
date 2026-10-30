@@ -562,14 +562,25 @@ function setCategory(cat, shouldScroll = false) {
                 if (match) linkCat = match[1];
             }
 
-            // Submenú móvil (grid de 3 botones)
+            // Submenú móvil (formato de lista vertical)
             if (link.closest('#mobile-the-finds-submenu')) {
+                const dot = link.querySelector('.subnav-dot');
                 if (linkCat === currentCategory) {
-                    link.classList.add('bg-olive', 'text-carbon-dark', 'border-olive');
-                    link.classList.remove('bg-carbon-dark', 'text-brokenwhite');
+                    link.classList.add('bg-carbon', 'text-olive', 'font-medium', 'shadow-sm');
+                    link.classList.remove('text-brokenwhite');
+                    if (dot) {
+                        dot.classList.add('bg-olive');
+                        dot.classList.remove('bg-ash/40');
+                    }
                 } else {
-                    link.classList.remove('bg-olive', 'text-carbon-dark', 'border-olive');
-                    link.classList.add('bg-carbon-dark', 'text-brokenwhite');
+                    link.classList.remove('bg-carbon', 'text-olive', 'font-medium', 'shadow-sm');
+                    if (linkCat !== 'all') {
+                        link.classList.add('text-brokenwhite');
+                    }
+                    if (dot) {
+                        dot.classList.remove('bg-olive');
+                        dot.classList.add('bg-ash/40');
+                    }
                 }
             }
 
