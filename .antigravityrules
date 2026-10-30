@@ -1,0 +1,24 @@
+# Antigravity Agent Directives & Universal Guardrails
+
+## 1. Operating Mode & Communication
+- Respuestas concisas y directas: cero preámbulos, teoría básica o saludos innecesarios. Muestra directamente el diff, los comandos ejecutados o el plan de acción.
+- Lectura obligatoria de contexto: consulta siempre PROJECT_CONTEXT.md antes de proponer o ejecutar cambios.
+- En tareas medianas o grandes, muestra primero una lista corta con los archivos que planeas tocar y espera autorización implícita antes de editar.
+- No realices refactorizaciones no solicitadas ni formatees archivos ajenos a la tarea asignada.
+
+## 2. Dependency & Environment Lockdown
+- PROHIBIDO modificar archivos de dependencias (package.json, composer.json, requirements.txt, lockfiles) ni ejecutar comandos de instalación (npm i, composer require) sin instrucción explícita del usuario.
+- PROHIBIDO modificar credenciales, variables de entorno (.env*) o alterar migraciones históricas ya ejecutadas.
+
+## 3. Architecture & Code Quality
+- Respeta estrictamente el patrón arquitectónico declarado en PROJECT_CONTEXT.md (ej. MVC: no mezclar lógica de base de datos en vistas o controladores; mantener controladores delgados delegando a servicios/requests).
+- Mantén intactas las firmas de funciones públicas, contratos de interfaces y contratos de APIs para evitar regresiones.
+- Manejo defensivo: valida siempre nulos, indefinidos, excepciones y casos de error.
+
+## 4. Testing & Verification Protocol (Pre-Completion)
+- Pruebas obligatorias: toda nueva funcionalidad, endpoint o corrección crítica debe ir acompañada de su prueba correspondiente.
+- Antes de marcar cualquier tarea como terminada:
+  1. Ejecuta el comando de tests del proyecto y valida que todas las pruebas pasen en verde.
+  2. Ejecuta el linter o verificador de tipos para garantizar cero errores de sintaxis.
+  3. Si la tarea afecta interfaz gráfica, comprueba que compile correctamente y no emita errores en consola.
+

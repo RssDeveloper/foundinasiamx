@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations — Calendario de Expediciones Tokio, Seúl & Kioto | FOUND IN ASIA MX</title>
+    <meta name="description" content="Calendario de viajes de sourcing a Japón y Corea del Sur. Programa encargos exclusivos para nuestras próximas fechas en Tokio, Seúl y Kioto.">
+    <link rel="canonical" href="https://foundinasiamx.com/destinations">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Destinations & Sourcing Calendar | FOUND IN ASIA MX">
+    <meta property="og:description" content="Expediciones de personal shopping y búsqueda en Japón y Corea del Sur. Agenda tus encargos antes de cada viaje.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración del tema Tailwind (Play CDN config) -->
+    <script src="./js/config/tailwind.config.js"></script>
+
+    <!-- Hojas de Estilo Maestras Externas Exclusivas (Regla Inquebrantable: Cero CSS en HTML) -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+</head>
+
+<body
+    class="bg-carbon-dark text-brokenwhite font-sans antialiased selection:bg-olive selection:text-carbon-dark min-h-screen flex flex-col bg-noise">
+
+
+    <!-- ======================================================== -->
+    <!-- 2. STICKY LUXURY HEADER                                  -->
+    <!-- ======================================================== -->
+    <header id="main-header"
+        class="sticky top-0 z-30 bg-carbon-dark/95 backdrop-blur-md border-b border-carbon-light/40 transition-all duration-300">
+        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+
+            <!-- Left: Mobile Menu Button & Desktop Nav -->
+            <div class="flex items-center gap-8">
+                <button id="mobile-menu-btn" aria-label="Abrir Menú de Navegación"
+                    class="lg:hidden text-brokenwhite hover:text-olive transition-colors p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Menú Desktop: Destinations Activo -->
+                <nav
+                    class="hidden lg:flex items-center gap-8 text-[12px] tracking-widest uppercase font-medium text-ash">
+                    <a href="./index.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Inicio</a>
+                    <a href="./the-finds.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">The Finds</a>
+                    <a href="./personal-sourcing.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Personal Sourcing</a>
+                    <a href="./destinations.html"
+                        class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">Destinations</a>
+                    <a href="./about.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">About</a>
+                </nav>
+            </div>
+
+            <!-- Center: Logo -->
+            <div class="text-center">
+                <a href="./index.html" class="inline-block group" aria-label="Found in Asia MX — Inicio">
+                    <h1
+                        class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.28em] text-brokenwhite group-hover:text-olive transition-colors uppercase font-sans">
+                        FOUND IN ASIA
+                    </h1>
+                    <span
+                        class="block text-[9px] tracking-[0.45em] text-basegray group-hover:text-ash uppercase -mt-0.5">
+                        PERSONAL SHOPPING • MÉXICO
+                    </span>
+                </a>
+            </div>
+
+            <!-- Right: Search, Wishlist & Bag Actions -->
+            <div class="flex items-center gap-3 sm:gap-6">
+                <!-- Search Trigger -->
+                <button id="search-toggle-btn" class="text-ash hover:text-brokenwhite transition-colors p-2"
+                    title="Buscar prendas" aria-label="Buscar prendas">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+
+                <!-- Wishlist Button -->
+                <button id="wishlist-btn" class="relative text-ash hover:text-brokenwhite transition-colors p-2"
+                    title="Lista de Deseos" aria-label="Ver lista de deseos">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    </svg>
+                    <span id="wishlist-count-badge"
+                        class="hidden absolute top-1 right-1 w-4 h-4 bg-olive text-carbon-dark text-[10px] font-bold rounded-full items-center justify-center">0</span>
+                </button>
+
+                <!-- Shopping Bag Trigger -->
+                <button id="cart-toggle-btn" data-action="open-cart"
+                    class="flex items-center gap-2 text-ash hover:text-brokenwhite transition-colors py-2 px-3 rounded-full hover:bg-carbon border border-carbon-light/40"
+                    aria-label="Abrir bolsa de compras">
+                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.19-.578-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                    <span class="text-xs uppercase tracking-wider hidden sm:inline pointer-events-none">Bolsa</span>
+                    <span id="cart-count-badge"
+                        class="text-xs bg-olive text-carbon-dark font-bold w-5 h-5 rounded-full flex items-center justify-center pointer-events-none">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Collapsible Search Bar Dropdown -->
+        <div id="search-bar-container"
+            class="hidden border-t border-carbon-light bg-carbon px-4 sm:px-8 py-4 transition-all">
+            <div class="max-w-4xl mx-auto flex items-center gap-3">
+                <svg class="w-5 h-5 text-ash" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+                <input id="search-input" type="text"
+                    placeholder="Buscar abrigos de Niigata, archivo Issey Miyake, blazers de Kioto..."
+                    class="w-full bg-transparent border-none text-brokenwhite placeholder:text-basegray text-sm md:text-base focus:outline-none focus:ring-0 tracking-wide">
+                <button id="clear-search-btn"
+                    class="text-xs text-ash hover:text-brokenwhite uppercase tracking-wider">Cerrar</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- MOBILE SLIDE-OUT NAVIGATION                              -->
+    <!-- ======================================================== -->
+    <div id="mobile-menu-drawer"
+        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden">
+        <div class="w-4/5 max-w-sm bg-carbon h-full border-r border-carbon-light p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-carbon-light">
+                    <span class="text-xs tracking-ultra uppercase text-brokenwhite">FOUND IN ASIA</span>
+                    <button id="close-mobile-menu-btn" class="text-ash hover:text-brokenwhite p-1" aria-label="Cerrar menú móvil">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-6 mt-8 text-sm uppercase tracking-widest text-ash font-medium">
+                    <a href="./index.html" class="mobile-nav-link hover:text-olive transition-colors">Inicio</a>
+                    <a href="./the-finds.html" class="mobile-nav-link hover:text-olive transition-colors">The Finds (Catálogo)</a>
+                    <a href="./personal-sourcing.html" class="mobile-nav-link hover:text-olive transition-colors">Personal Sourcing</a>
+                    <a href="./destinations.html" class="mobile-nav-link text-olive font-semibold transition-colors">Destinations (Viajes)</a>
+                    <a href="./about.html" class="mobile-nav-link hover:text-olive transition-colors">About & Envíos</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-carbon-light/50 text-xs text-ash space-y-3">
+                <p class="text-[11px] uppercase tracking-wider text-basegray">Concierge Personal</p>
+                <p class="text-brokenwhite">concierge@foundinasiamx.com</p>
+                <p>WhatsApp: +52 55 8920 1204</p>
+            </div>
+        </div>
+        <div id="mobile-menu-backdrop" class="flex-1 bg-black/60 backdrop-blur-sm"></div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MAIN CONTENT: DEDICATED DESTINATIONS                     -->
+    <!-- ======================================================== -->
+    <main class="flex-1">
+
+        <!-- Enlace de Retorno al Home Principal -->
+        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 pb-2">
+            <a href="./index.html" class="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors group">
+                <span class="p-1 rounded-full border border-carbon-light group-hover:border-olive group-hover:bg-olive/10 transition-colors">
+                    <svg class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+                    </svg>
+                </span>
+                <span>← Volver al Home Principal</span>
+            </a>
+        </div>
+
+        <!-- Header Editorial -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-12 pb-14 border-b border-carbon-light/50">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="max-w-3xl space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-olive"></span>
+                        <span class="text-xs uppercase tracking-ultra text-olive font-medium">
+                            Calendario de Expediciones • 2026 / 2027
+                        </span>
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-editorial font-light text-brokenwhite">
+                        Destinations
+                    </h2>
+                    <p class="text-sm sm:text-base text-ash font-light leading-relaxed">
+                        Nuestras expediciones periódicas de sourcing directo en Japón y Corea del Sur. Programa encargos exclusivos antes del despegue para que visitemos tiendas de archivo, tejedurías tradicionales y boutiques de autor en tu nombre.
+                    </p>
+                </div>
+                <div class="text-xs text-olive uppercase tracking-wider font-mono bg-carbon px-4 py-2.5 rounded-full border border-carbon-light">
+                    3 Expediciones Confirmadas
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Itinerarios y Fechas de Viaje -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- VIAJE 1: Tokio & Niigata -->
+                <div class="destination-card bg-carbon rounded-2xl border border-carbon-light overflow-hidden flex flex-col justify-between">
+                    <div class="relative aspect-[16/9] bg-studiogray overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80"
+                            alt="Tokio & Niigata"
+                            class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-olive/10 text-olive border border-olive/30 font-semibold">
+                                    Próximo Drop • Confirmado
+                                </span>
+                                <span class="text-xs text-basegray font-mono uppercase tracking-wider">Japón</span>
+                            </div>
+
+                            <h3 class="text-3xl font-editorial text-brokenwhite mb-1">Tokio & Niigata</h3>
+                            <p class="text-xs text-olive font-mono mb-5">15 al 28 de Noviembre, 2026</p>
+
+                            <p class="text-xs sm:text-sm text-ash leading-relaxed mb-6 font-light">
+                                Expedición enfocada en boutiques de archivo de Shibuya, Daikanyama y Aoyama, complementada con una ruta textil hacia las tejedurías tradicionales de estambre pesado en Niigata.
+                            </p>
+
+                            <!-- Distritos y Hallazgos Clave -->
+                            <div class="space-y-4 border-t border-carbon-light/60 pt-5 mb-8 text-xs">
+                                <div>
+                                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray block mb-1">Ruta en Tokio</span>
+                                    <p class="text-brokenwhite">Daikanyama, Omotesando, Shibuya, Asakusa</p>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray block mb-1">Enfoque de Sourcing</span>
+                                    <ul class="text-ash/90 space-y-1">
+                                        <li>• Sastrería de archivo (Yohji Yamamoto, CDG, Issey Miyake)</li>
+                                        <li>• Lanas de invierno de telar lento de Niigata</li>
+                                        <li>• Calzado en piel y marroquinería de Asakusa</li>
+                                        <li>• Denim japonés selvedge con tintura natural de índigo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" data-action="request-destination-sourcing" data-destination="Tokio & Niigata (Nov 2026)"
+                            class="w-full py-4 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 shadow-lg shadow-olive/10">
+                            Encargar para Tokio & Niigata →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VIAJE 2: Seúl Minimalist Drop -->
+                <div class="destination-card bg-carbon rounded-2xl border border-carbon-light overflow-hidden flex flex-col justify-between">
+                    <div class="relative aspect-[16/9] bg-studiogray overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=900&q=80"
+                            alt="Seúl Minimalist"
+                            class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-carbon-dark text-ash border border-carbon-light font-semibold">
+                                    Agenda Abierta
+                                </span>
+                                <span class="text-xs text-basegray font-mono uppercase tracking-wider">Corea del Sur</span>
+                            </div>
+
+                            <h3 class="text-3xl font-editorial text-brokenwhite mb-1">Seúl Minimalist</h3>
+                            <p class="text-xs text-olive font-mono mb-5">5 al 18 de Enero, 2027</p>
+
+                            <p class="text-xs sm:text-sm text-ash leading-relaxed mb-6 font-light">
+                                Exploración en los epicentros del diseño coreano contemporáneo en Hannam-dong y Seongsu-dong. Búsqueda de siluetas arquitectónicas andróginas y cuero rígido de diseñador independiente.
+                            </p>
+
+                            <!-- Distritos y Hallazgos Clave -->
+                            <div class="space-y-4 border-t border-carbon-light/60 pt-5 mb-8 text-xs">
+                                <div>
+                                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray block mb-1">Ruta en Seúl</span>
+                                    <p class="text-brokenwhite">Hannam-dong, Seongsu-dong, Dosan Park (Gangnam)</p>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray block mb-1">Enfoque de Sourcing</span>
+                                    <ul class="text-ash/90 space-y-1">
+                                        <li>• Siluetas cocoon y pantalones plisados contemporáneos</li>
+                                        <li>• Bolsos monolíticos en piel estructurada</li>
+                                        <li>• Gabardinas de autor pesadas con patronaje experimental</li>
+                                        <li>• Knitwear minimalista de alpaca y cachemira</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" data-action="request-destination-sourcing" data-destination="Seúl Minimalist (Ene 2027)"
+                            class="w-full py-4 bg-carbon-dark hover:bg-olive hover:text-carbon-dark text-brokenwhite font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 border border-carbon-light">
+                            Encargar para Seúl →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- VIAJE 3: Kioto & Osaka Tour -->
+                <div class="destination-card bg-carbon rounded-2xl border border-carbon-light overflow-hidden flex flex-col justify-between">
+                    <div class="relative aspect-[16/9] bg-studiogray overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80"
+                            alt="Kioto & Osaka Tour"
+                            class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-carbon-dark text-ash border border-carbon-light font-semibold">
+                                    En Planeación
+                                </span>
+                                <span class="text-xs text-basegray font-mono uppercase tracking-wider">Japón Tradicional</span>
+                            </div>
+
+                            <h3 class="text-3xl font-editorial text-brokenwhite mb-1">Kioto & Osaka Tour</h3>
+                            <p class="text-xs text-olive font-mono mb-5">10 al 24 de Marzo, 2027</p>
+
+                            <p class="text-xs sm:text-sm text-ash leading-relaxed mb-6 font-light">
+                                Visita a ateliers de seda Mulberry y camisería con cortes orientales inspirados en el kimono en Kioto, más rastreo de archivo vintage 90s Osaka Americana y piezas de telar en Kansai.
+                            </p>
+
+                            <!-- Distritos y Hallazgos Clave -->
+                            <div class="space-y-4 border-t border-carbon-light/60 pt-5 mb-8 text-xs">
+                                <div>
+                                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray block mb-1">Ruta en Kansai</span>
+                                    <p class="text-brokenwhite">Gion, Nakazakicho, Amerikamura, Shinsaibashi</p>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray block mb-1">Enfoque de Sourcing</span>
+                                    <ul class="text-ash/90 space-y-1">
+                                        <li>• Sedas pesadas y linos japoneses sin teñir</li>
+                                        <li>• Sacos desestructurados con solapas estilo kimono</li>
+                                        <li>• Coleccionismo vintage de Osaka y workwear japonés</li>
+                                        <li>• Cerámica ceremonial de colección de Mino y Gifu</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" data-action="request-destination-sourcing" data-destination="Kioto & Osaka (Mar 2027)"
+                            class="w-full py-4 bg-carbon-dark hover:bg-olive hover:text-carbon-dark text-brokenwhite font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 border border-carbon-light">
+                            Encargar para Kioto & Osaka →
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Cronograma y Política de Encargos -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 border-t border-carbon-light/50">
+            <div class="bg-carbon p-8 sm:p-12 rounded-2xl border border-carbon-light/60 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase font-mono tracking-widest text-olive">Regla 01</span>
+                    <h4 class="text-lg font-editorial text-brokenwhite">Cierre de Encargos: 5 Días Antes</h4>
+                    <p class="text-xs text-ash leading-relaxed">
+                        Para poder planificar la ruta de subastas y boutiques en Tokio o Seúl, cerramos la recepción de pedidos 5 días antes de la fecha de vuelo.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase font-mono tracking-widest text-olive">Regla 02</span>
+                    <h4 class="text-lg font-editorial text-brokenwhite">Cupo Máximo: 8 Clientes por Viaje</h4>
+                    <p class="text-xs text-ash leading-relaxed">
+                        Para garantizar que cada prenda sea inspeccionada en persona sin prisas, limitamos los encargos a un máximo de 8 clientes por expedición.
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-[10px] uppercase font-mono tracking-widest text-olive">Regla 03</span>
+                    <h4 class="text-lg font-editorial text-brokenwhite">Recepción Directa en México</h4>
+                    <p class="text-xs text-ash leading-relaxed">
+                        Todas las prendas viajan embaladas en maletas climatizadas o despachadas vía DHL Express con seguro total contra pérdidas o daños.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA de Regreso al Home Principal -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pb-16">
+            <div class="p-8 sm:p-10 rounded-2xl bg-carbon border border-carbon-light/60 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="text-left space-y-1">
+                    <h4 class="text-xl font-editorial text-brokenwhite">¿Deseas regresar a la portada principal?</h4>
+                    <p class="text-xs text-ash">Vuelve al home para conocer nuestros pilares de servicio, selección y garantías de entrega.</p>
+                </div>
+                <a href="./index.html" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-carbon-dark hover:bg-olive hover:text-carbon-dark text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest font-semibold transition-all duration-300 whitespace-nowrap">
+                    <span>← Regresar al Home Principal</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================== -->
+    <!-- 4. LUXURY FOOTER                                         -->
+    <!-- ======================================================== -->
+    <footer class="bg-carbon-dark border-t border-carbon-light/50 pt-16 pb-12 mt-auto">
+        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-carbon-light/40">
+
+                <!-- Column: Brand Info -->
+                <div class="space-y-4">
+                    <span class="text-sm tracking-widest uppercase font-medium text-brokenwhite block">FOUND IN ASIA</span>
+                    <p class="text-xs text-ash leading-relaxed max-w-sm font-light">
+                        Personal shopping de lujo y piezas de archivo en Japón y Corea del Sur. Compramos in situ para clientes en todo México.
+                    </p>
+                    <div class="pt-2 text-[11px] text-basegray space-y-1">
+                        <p>Atelier & Fitting: Col. Roma Norte, Cuauhtémoc, CDMX</p>
+                        <p>Horario de atención: Lun - Sáb, 11:00 - 19:00 hrs</p>
+                        <p>WhatsApp Concierge: +52 55 8920 1204</p>
+                    </div>
+                </div>
+
+                <!-- Column: Navigation -->
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Secciones</span>
+                    <ul class="text-xs text-ash space-y-2.5">
+                        <li><a href="./index.html" class="hover:text-olive transition-colors">Inicio</a></li>
+                        <li><a href="./the-finds.html" class="hover:text-olive transition-colors">The Finds (Catálogo)</a></li>
+                        <li><a href="./personal-sourcing.html" class="hover:text-olive transition-colors">Personal Sourcing</a></li>
+                        <li><a href="./destinations.html" class="hover:text-olive text-brokenwhite font-semibold transition-colors">Destinations (Viajes)</a></li>
+                        <li><a href="./about.html" class="hover:text-olive transition-colors">About & Envíos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column: Services & Mexico Logistics -->
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Garantías México</span>
+                    <ul class="text-xs text-ash space-y-2.5">
+                        <li><span class="text-ash/80">Envíos DHL Express Asegurados</span></li>
+                        <li><span class="text-ash/80">Cero Sorpresas Aduanales</span></li>
+                        <li><span class="text-ash/80">Inspección de Autenticidad</span></li>
+                        <li><span class="text-ash/80">Citas de Fitting en Roma Norte</span></li>
+                        <li><a href="https://wa.me/525589201204" target="_blank"
+                                class="hover:text-olive transition-colors">WhatsApp Directo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column: Newsletter Subscription -->
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Lista Privada</span>
+                    <p class="text-xs text-ash leading-relaxed">
+                        Avisos anticipados antes de cada viaje para recepción de encargos.
+                    </p>
+                    <form id="newsletter-form" class="space-y-2">
+                        <div class="relative">
+                            <input type="email" id="newsletter-email" required placeholder="tu@correo.com"
+                                class="w-full bg-carbon-dark border border-carbon-light rounded-full py-2.5 px-4 text-xs text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
+                            <button type="submit"
+                                class="absolute right-1 top-1 bottom-1 px-4 bg-olive text-carbon-dark text-[11px] font-bold uppercase rounded-full hover:bg-olive-hover transition-colors">
+                                Unirse
+                            </button>
+                        </div>
+                        <p id="newsletter-feedback" class="text-[11px] text-olive hidden">Gracias por suscribirte al círculo privado.</p>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-basegray gap-4">
+                <div>
+                    © 2026 FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="./about.html" class="hover:text-ash">Términos de Compra</a>
+                    <a href="./about.html" class="hover:text-ash">Envíos & Aduanas</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ======================================================== -->
+    <!-- CART SLIDE-OUT DRAWER                                    -->
+    <!-- ======================================================== -->
+    <div id="cart-drawer-container"
+        class="fixed inset-0 z-50 hidden pointer-events-none opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div id="cart-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+        <!-- Drawer Content -->
+        <div id="cart-drawer"
+            class="absolute top-0 right-0 h-full w-full max-w-md bg-carbon border-l border-carbon-light p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out z-10">
+
+            <!-- Drawer Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-carbon-light">
+                <div>
+                    <h3 class="text-sm uppercase tracking-widest font-semibold text-brokenwhite">Bolsa de Compras</h3>
+                    <span id="cart-items-qty-label" class="text-xs text-basegray">0 prendas seleccionadas</span>
+                </div>
+                <button id="close-cart-btn" data-action="close-cart" aria-label="Cerrar bolsa de compras" class="p-2 text-ash hover:text-brokenwhite transition-colors">
+                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Shipping Progress Bar (Envío gratis a partir de $4,500 MXN) -->
+            <div class="py-3 px-3 my-3 bg-carbon-dark/80 rounded-lg border border-carbon-light/40 text-[11px] space-y-1.5">
+                <div class="flex justify-between text-ash">
+                    <span id="shipping-progress-text">Envío gratis a partir de $4,500 MXN</span>
+                </div>
+                <div class="w-full bg-carbon-light h-1.5 rounded-full overflow-hidden">
+                    <div id="shipping-progress-bar" class="bg-olive h-full transition-all duration-500 w-0 shipping-bar-filled"></div>
+                </div>
+            </div>
+
+            <!-- Items List Container -->
+            <div id="cart-items-list" class="flex-1 overflow-y-auto space-y-4 pr-1">
+                <!-- Se inyecta dinámicamente con catalogCtrl.js -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="pt-5 border-t border-carbon-light mt-auto space-y-4">
+                <div class="space-y-1.5 text-xs">
+                    <div class="flex justify-between text-ash">
+                        <span>Subtotal estimado</span>
+                        <span id="cart-subtotal-text" class="text-brokenwhite font-mono">$0 MXN</span>
+                    </div>
+                    <div class="flex justify-between text-ash">
+                        <span>Envío asegurado (México)</span>
+                        <span id="cart-shipping-text" class="text-brokenwhite">Calculado al pagar</span>
+                    </div>
+                    <div
+                        class="flex justify-between text-sm font-semibold text-brokenwhite pt-2 border-t border-carbon-light/40">
+                        <span>Total</span>
+                        <span id="cart-total-text" class="font-mono text-olive">$0 MXN</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2 pt-2">
+                    <button id="checkout-whatsapp-btn" data-action="checkout-whatsapp"
+                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
+                        <span>Pedir Orden vía WhatsApp</span>
+                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.055 1.233 1.543.513.319.923.414 1.137.499.167.066.265.055.365-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <p class="text-[10px] text-center text-ash/60 uppercase tracking-widest">
+                    Garantía de autenticidad & cambios sin costo en México
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- NOTIFICATION TOAST POPUP                                 -->
+    <!-- ======================================================== -->
+    <div id="toast"
+        class="fixed bottom-6 right-6 z-50 bg-carbon border border-olive text-brokenwhite px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div id="toast-icon" class="text-olive">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+        <span id="toast-message" class="text-xs tracking-wider uppercase font-medium">Prenda añadida a tu bolsa</span>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- CAPA DE DATOS Y CONTROLADOR MVC                          -->
+    <!-- ======================================================== -->
+    <script src="./js/config/supabase.js"></script>
+    <script src="./js/models/cartModel.js"></script>
+    <script src="./js/models/productModel.js"></script>
+    <script src="./js/controllers/catalogCtrl.js"></script>
+</body>
+
+</html>

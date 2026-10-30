@@ -1,0 +1,114 @@
+/* ==========================================================================
+   css/main.css — Variables CSS, Reset, Scrollbars y Utilidades Globales
+   Estándar Operativo V2.6 — Frontend MVC (Tema Claro Editorial de Lujo)
+   ========================================================================== */
+
+:root {
+    --color-olive: #6E8335;
+    --color-olive-hover: #5A6D2B;
+    --color-basegray: #6B7280;
+    --color-carbon-dark: #E8E9EC;     /* Gris claro para toda la página y secciones */
+    --color-carbon: #FFFFFF;          /* Blanco puro para tarjetas y bloques */
+    --color-carbon-light: #CBD0D8;     /* Bordes y separadores sutiles */
+    --color-carbon-surface: #DFE1E5;   /* Superficie gris claro alternativa */
+    --color-ash: #4B5563;              /* Texto secundario legible y sobrio */
+    --color-brokenwhite: #14171A;      /* Títulos y textos principales en carbón */
+    --color-studiogray: #8B8B8D;       /* Gris de estudio fotográfico */
+}
+
+/* Reset y scroll suave */
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #E8E9EC;
+    color: #14171A;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Base Body */
+body {
+    background-color: #E8E9EC;
+    color: #14171A;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Custom Scrollbar Global */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #E8E9EC;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD0D8;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #849C44;
+}
+
+/* Utilidad para ocultar barras de scroll en navegación horizontal táctil */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Textura sutil de grano de lujo */
+.bg-noise {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+/* Enlaces activos en navegación */
+.nav-link-active {
+    color: #14171A !important;
+    border-bottom-color: #849C44 !important;
+}
+
+/* Fallbacks claros de lujo para inputs */
+input[type="text"], input[type="email"], textarea, select {
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD0D8 !important;
+    color: #14171A !important;
+}
+
+input[type="text"]::placeholder, input[type="email"]::placeholder, textarea::placeholder {
+    color: #9CA3AF !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus, select:focus {
+    border-color: #849C44 !important;
+    outline: none;
+}
+
+/* Clases de Resiliencia de Color (Gris Claro para toda la página y secciones) */
+.bg-carbon-dark { background-color: #E8E9EC !important; }
+.bg-carbon { background-color: #FFFFFF !important; }
+.bg-carbon-light { background-color: #CBD0D8 !important; }
+.bg-carbon-surface { background-color: #DFE1E5 !important; }
+.bg-olive { background-color: #849C44 !important; }
+.bg-olive-hover:hover { background-color: #6E8335 !important; }
+.text-olive { color: #6E8335 !important; }
+.text-brokenwhite { color: #14171A !important; }
+.text-ash { color: #4B5563 !important; }
+.text-basegray { color: #6B7280 !important; }
+.border-carbon-light { border-color: #CBD0D8 !important; }
+.border-olive { border-color: #849C44 !important; }
+.bg-studiogray, .bg-studio-gray, .bg-gray-studio { background-color: #8B8B8D !important; }
+.border-studiogray { border-color: #8B8B8D !important; }
+.img-studio-bg { background-color: #8B8B8D !important; }

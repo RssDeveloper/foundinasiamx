@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOUND IN ASIA MX — Catálogo Editorial de Lujo</title>
+    <title>FOUND IN ASIA MX — Personal Shopping de Lujo & Archivo</title>
+    <meta name="description" content="Servicio exclusivo de personal shopping en Asia para México. Piezas de archivo, sastrería japonesa y envíos asegurados por DHL Express.">
+    <link rel="canonical" href="https://foundinasiamx.com/">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
-    <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FOUND IN ASIA MX — Personal Shopping & Archivo">
+    <meta property="og:description" content="Servicio exclusivo de personal shopping en Asia. Piezas de archivo, sastrería japonesa y envíos asegurados a todo México.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85">
+    <meta property="og:url" content="https://foundinasiamx.com/">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,164 +25,28 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        olive: {
-                            DEFAULT: '#849C44', // Verde olivo refinado de alta gama
-                            hover: '#92AB4B',
-                            soft: '#849C4420',
-                            accent: '#98C93C'
-                        },
-                        basegray: '#73777C',   // Gris Base
-                        carbon: {
-                            DEFAULT: '#1E2226', // Gris Carbón para tarjetas, drawer y menús
-                            dark: '#14171A',    // Fondo profundo
-                            light: '#282D33',   // Bordes y separadores sutiles
-                            surface: '#181C20'
-                        },
-                        ash: '#CBD5E1',       // Gris Ceniza (textos secundarios y bordes)
-                        brokenwhite: '#F8FAFC' // Blanco Roto (títulos y contraste)
-                    },
-                    fontFamily: {
-                        editorial: ['"Cormorant Garamond"', 'serif'],
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    letterSpacing: {
-                        ultra: '0.25em',
-                        widest: '0.18em',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Configuración del tema Tailwind (Play CDN config) -->
+    <script src="./js/config/tailwind.config.js"></script>
 
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #14171A;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #282D33;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #849C44;
-        }
-
-        /* Subdued luxury grain texture */
-        .bg-noise {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
-
-        /* Smooth Image Flip on Hover */
-        .product-img-wrapper {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 3 / 4;
-            background-color: #14171A;
-        }
-
-        .product-img-primary,
-        .product-img-secondary {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .product-img-secondary {
-            opacity: 0;
-        }
-
-        .product-card:hover .product-img-secondary {
-            opacity: 1;
-            transform: scale(1.03);
-        }
-
-        .product-card:hover .product-img-primary {
-            opacity: 0;
-            transform: scale(1.03);
-        }
-
-        /* Ticker animation */
-        @keyframes ticker {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .ticker-track {
-            display: flex;
-            width: 200%;
-            animation: ticker 32s linear infinite;
-        }
-
-        .ticker-track:hover {
-            animation-play-state: paused;
-        }
-    </style>
+    <!-- Hojas de Estilo Maestras Externas Exclusivas (Regla Inquebrantable: Cero CSS en HTML) -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
 </head>
 
 <body
     class="bg-carbon-dark text-brokenwhite font-sans antialiased selection:bg-olive selection:text-carbon-dark min-h-screen flex flex-col bg-noise">
 
-    <!-- ======================================================== -->
-    <!-- 1. LUXURY ANNOUNCEMENT TICKER                            -->
-    <!-- ======================================================== -->
-    <div
-        class="bg-carbon border-b border-carbon-light/50 text-[11px] tracking-widest uppercase text-ash/80 overflow-hidden py-2.5 select-none relative z-40">
-        <div class="ticker-track flex items-center">
-            <div class="flex items-center gap-10 whitespace-nowrap px-4">
-                <span>Curaduría de archivo & confección de Japón y Corea del Sur</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-                <span>Envíos asegurados a todo México con DHL Express</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-                <span>Found in Asia Atelier — Citas privadas en CDMX</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-                <span>Cortesía de envío en compras superiores a $4,500 MXN</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-            </div>
-            <div class="flex items-center gap-10 whitespace-nowrap px-4">
-                <span>Curaduría de archivo & confección de Japón y Corea del Sur</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-                <span>Envíos asegurados a todo México con DHL Express</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-                <span>Found in Asia Atelier — Citas privadas en CDMX</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-                <span>Cortesía de envío en compras superiores a $4,500 MXN</span>
-                <span class="inline-block w-1.5 h-1.5 rounded-full bg-olive"></span>
-            </div>
-        </div>
-    </div>
 
     <!-- ======================================================== -->
-    <!-- 2. STICKY MINIMALIST HEADER                              -->
+    <!-- 2. STICKY LUXURY HEADER (ACCESO A TODAS LAS SECCIONES)   -->
     <!-- ======================================================== -->
     <header id="main-header"
-        class="sticky top-0 z-30 bg-carbon-dark/90 backdrop-blur-md border-b border-carbon-light/40 transition-all duration-300">
+        class="sticky top-0 z-30 bg-carbon-dark/95 backdrop-blur-md border-b border-carbon-light/40 transition-all duration-300">
         <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
 
             <!-- Left: Mobile Menu Button & Desktop Nav -->
             <div class="flex items-center gap-8">
-                <button id="mobile-menu-btn" aria-label="Abrir Menú"
+                <button id="mobile-menu-btn" aria-label="Abrir Menú de Navegación"
                     class="lg:hidden text-brokenwhite hover:text-olive transition-colors p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -180,31 +54,32 @@
                     </svg>
                 </button>
 
+                <!-- Menú Desktop Multi-Página: Acceso a las 4 Secciones -->
                 <nav
                     class="hidden lg:flex items-center gap-8 text-[12px] tracking-widest uppercase font-medium text-ash">
-                    <a href="#catalogo"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Catálogo</a>
-                    <a href="#uniforme"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">The
-                        Uniform</a>
-                    <a href="#manifiesto"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Manifiesto</a>
-                    <a href="#atelier"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Atelier
-                        CDMX</a>
+                    <a href="./index.html"
+                        class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">Inicio</a>
+                    <a href="./the-finds.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">The Finds</a>
+                    <a href="./personal-sourcing.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Personal Sourcing</a>
+                    <a href="./destinations.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Destinations</a>
+                    <a href="./about.html"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">About</a>
                 </nav>
             </div>
 
             <!-- Center: Logo -->
             <div class="text-center">
-                <a href="#" class="inline-block group">
+                <a href="./index.html" class="inline-block group" aria-label="Found in Asia MX — Inicio">
                     <h1
                         class="text-lg sm:text-xl md:text-2xl font-light tracking-[0.28em] text-brokenwhite group-hover:text-olive transition-colors uppercase font-sans">
                         FOUND IN ASIA
                     </h1>
                     <span
                         class="block text-[9px] tracking-[0.45em] text-basegray group-hover:text-ash uppercase -mt-0.5">
-                        MÉXICO • TOKYO • SEOUL
+                        PERSONAL SHOPPING • MÉXICO
                     </span>
                 </a>
             </div>
@@ -213,7 +88,7 @@
             <div class="flex items-center gap-3 sm:gap-6">
                 <!-- Search Trigger -->
                 <button id="search-toggle-btn" class="text-ash hover:text-brokenwhite transition-colors p-2"
-                    title="Buscar prendas">
+                    title="Buscar prendas" aria-label="Buscar prendas">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -222,7 +97,7 @@
 
                 <!-- Wishlist Button -->
                 <button id="wishlist-btn" class="relative text-ash hover:text-brokenwhite transition-colors p-2"
-                    title="Lista de Deseos">
+                    title="Lista de Deseos" aria-label="Ver lista de deseos">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -232,20 +107,21 @@
                 </button>
 
                 <!-- Shopping Bag Trigger -->
-                <button id="cart-toggle-btn"
-                    class="flex items-center gap-2 text-ash hover:text-brokenwhite transition-colors py-2 px-3 rounded-full hover:bg-carbon border border-carbon-light/40">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="cart-toggle-btn" data-action="open-cart"
+                    class="flex items-center gap-2 text-ash hover:text-brokenwhite transition-colors py-2 px-3 rounded-full hover:bg-carbon border border-carbon-light/40"
+                    aria-label="Abrir bolsa de compras">
+                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.19-.578-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                     </svg>
-                    <span class="text-xs uppercase tracking-wider hidden sm:inline">Bolsa</span>
+                    <span class="text-xs uppercase tracking-wider hidden sm:inline pointer-events-none">Bolsa</span>
                     <span id="cart-count-badge"
-                        class="text-xs bg-olive text-carbon-dark font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                        class="text-xs bg-olive text-carbon-dark font-bold w-5 h-5 rounded-full flex items-center justify-center pointer-events-none">0</span>
                 </button>
             </div>
         </div>
 
-        <!-- Collapsible Search Bar Header Dropdown -->
+        <!-- Collapsible Search Bar Dropdown -->
         <div id="search-bar-container"
             class="hidden border-t border-carbon-light bg-carbon px-4 sm:px-8 py-4 transition-all">
             <div class="max-w-4xl mx-auto flex items-center gap-3">
@@ -254,7 +130,7 @@
                         d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
                 <input id="search-input" type="text"
-                    placeholder="Buscar abrigos, sastrería japonesa, lana virgen, calzado..."
+                    placeholder="Buscar abrigos de Niigata, archivo Issey Miyake, blazers de Kioto..."
                     class="w-full bg-transparent border-none text-brokenwhite placeholder:text-basegray text-sm md:text-base focus:outline-none focus:ring-0 tracking-wide">
                 <button id="clear-search-btn"
                     class="text-xs text-ash hover:text-brokenwhite uppercase tracking-wider">Cerrar</button>
@@ -266,12 +142,12 @@
     <!-- MOBILE SLIDE-OUT NAVIGATION                              -->
     <!-- ======================================================== -->
     <div id="mobile-menu-drawer"
-        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex">
+        class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden">
         <div class="w-4/5 max-w-sm bg-carbon h-full border-r border-carbon-light p-6 flex flex-col justify-between">
             <div>
                 <div class="flex items-center justify-between pb-6 border-b border-carbon-light">
                     <span class="text-xs tracking-ultra uppercase text-brokenwhite">FOUND IN ASIA</span>
-                    <button id="close-mobile-menu-btn" class="text-ash hover:text-brokenwhite p-1">
+                    <button id="close-mobile-menu-btn" class="text-ash hover:text-brokenwhite p-1" aria-label="Cerrar menú móvil">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                 d="M6 18L18 6M6 6l12 12"></path>
@@ -279,347 +155,292 @@
                     </button>
                 </div>
                 <nav class="flex flex-col gap-6 mt-8 text-sm uppercase tracking-widest text-ash font-medium">
-                    <a href="#catalogo" class="mobile-nav-link hover:text-olive transition-colors">Todo el Catálogo</a>
-                    <a href="#catalogo" onclick="setCategoryFilter('abrigos')"
-                        class="mobile-nav-link hover:text-olive transition-colors">Abrigos & Gabardinas</a>
-                    <a href="#catalogo" onclick="setCategoryFilter('sastreria')"
-                        class="mobile-nav-link hover:text-olive transition-colors">Sastrería & Camisería</a>
-                    <a href="#catalogo" onclick="setCategoryFilter('pantalones')"
-                        class="mobile-nav-link hover:text-olive transition-colors">Pantalones & Denim</a>
-                    <a href="#catalogo" onclick="setCategoryFilter('calzado')"
-                        class="mobile-nav-link hover:text-olive transition-colors">Calzado & Piel</a>
-                    <a href="#uniforme" class="mobile-nav-link hover:text-olive transition-colors">The Uniform</a>
-                    <a href="#atelier" class="mobile-nav-link hover:text-olive transition-colors">Atelier Privado
-                        CDMX</a>
+                    <a href="./index.html" class="mobile-nav-link text-olive font-semibold transition-colors">Inicio</a>
+                    <a href="./the-finds.html" class="mobile-nav-link hover:text-olive transition-colors">The Finds (Catálogo)</a>
+                    <a href="./personal-sourcing.html" class="mobile-nav-link hover:text-olive transition-colors">Personal Sourcing</a>
+                    <a href="./destinations.html" class="mobile-nav-link hover:text-olive transition-colors">Destinations (Viajes)</a>
+                    <a href="./about.html" class="mobile-nav-link hover:text-olive transition-colors">About & Envíos</a>
                 </nav>
             </div>
             <div class="pt-6 border-t border-carbon-light/50 text-xs text-ash space-y-3">
-                <p class="text-[11px] uppercase tracking-wider text-basegray">Atención Personalizada</p>
-                <p class="text-brokenwhite">atelier@foundinasiamx.com</p>
+                <p class="text-[11px] uppercase tracking-wider text-basegray">Concierge Personal</p>
+                <p class="text-brokenwhite">concierge@foundinasiamx.com</p>
                 <p>WhatsApp: +52 55 8920 1204</p>
             </div>
         </div>
         <div id="mobile-menu-backdrop" class="flex-1 bg-black/60 backdrop-blur-sm"></div>
     </div>
 
+    <!-- ======================================================== -->
+    <!-- MAIN CONTENT: EXCLUSIVAMENTE HOME PRINCIPAL              -->
+    <!-- ======================================================== -->
     <main class="flex-1">
 
-        <!-- ======================================================== -->
-        <!-- 3. HERO EDITORIAL (Estilo Totême Minimalista)             -->
-        <!-- ======================================================== -->
-        <section
-            class="relative min-h-[82vh] flex items-end justify-start border-b border-carbon-light/30 overflow-hidden">
-            <!-- Background Image with Subtle Parallax feel -->
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=2000&q=85"
-                    alt="Found in Asia Editorial"
-                    class="w-full h-full object-cover object-top opacity-55 scale-105 transition-transform duration-1000"
-                    onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=2000&q=80'" />
-                <div class="absolute inset-0 bg-gradient-to-t from-carbon-dark via-carbon-dark/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-carbon-dark/30"></div>
-            </div>
-
-            <!-- Hero Typography & CTAs -->
-            <div class="relative z-10 max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 pb-16 sm:pb-24 pt-32">
-                <div class="max-w-2xl space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-[1px] bg-olive"></span>
-                        <span class="text-xs uppercase tracking-ultra text-olive font-medium">Colección Permanente / No.
-                            04</span>
-                    </div>
-
-                    <h2
-                        class="text-4xl sm:text-6xl lg:text-7xl font-light font-editorial leading-[1.08] text-brokenwhite">
-                        Siluetas sobrias.<br>
-                        <span class="italic font-normal">Arquitectura del vestir.</span>
-                    </h2>
-
-                    <p class="text-sm sm:text-base text-ash font-light max-w-lg leading-relaxed">
-                        Una selección intransigente de sastrería estructural, lanas puras de Niigata y sedas naturales
-                        de Kioto traídas a México. Ropa concebida para durar generaciones.
-                    </p>
-
-                    <div class="flex flex-wrap items-center gap-4 pt-4">
-                        <a href="#catalogo"
-                            class="px-8 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-medium text-xs uppercase tracking-widest rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-olive/10">
-                            Explorar Catálogo
-                        </a>
-                        <a href="#uniforme"
-                            class="px-8 py-3.5 bg-transparent border border-ash/40 hover:border-brokenwhite text-brokenwhite text-xs uppercase tracking-widest rounded-full transition-colors">
-                            Ver Manifiesto
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ======================================================== -->
-        <!-- 4. CATALOG HEADER & FILTER BAR                           -->
-        <!-- ======================================================== -->
-        <section id="catalogo" class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-16 pb-8">
-
-            <!-- Top Title & Item Count -->
-            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-carbon-light pb-6 gap-4">
-                <div>
-                    <span class="text-[11px] uppercase tracking-ultra text-basegray block mb-1">Inventario
-                        Seleccionado</span>
-                    <h3 class="text-3xl sm:text-4xl font-editorial font-light text-brokenwhite">El Guardarropa Esencial
-                    </h3>
-                </div>
-                <div class="text-xs tracking-widest uppercase text-ash/80">
-                    Mostrando <span id="displayed-count" class="text-brokenwhite font-semibold">10</span> piezas curadas
-                </div>
-            </div>
-
-            <!-- Controls Row: Category Filters, Search, Sort & Grid Switcher -->
-            <div
-                class="py-6 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 border-b border-carbon-light/50">
-
-                <!-- Category Pills -->
-                <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 no-scrollbar">
-                    <button onclick="setCategoryFilter('all')" data-cat="all"
-                        class="cat-pill active px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-carbon-dark font-semibold">
-                        Todas
-                    </button>
-                    <button onclick="setCategoryFilter('abrigos')" data-cat="abrigos"
-                        class="cat-pill px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60">
-                        Abrigos & Capas
-                    </button>
-                    <button onclick="setCategoryFilter('sastreria')" data-cat="sastreria"
-                        class="cat-pill px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60">
-                        Sastrería & Blazers
-                    </button>
-                    <button onclick="setCategoryFilter('pantalones')" data-cat="pantalones"
-                        class="cat-pill px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60">
-                        Pantalones
-                    </button>
-                    <button onclick="setCategoryFilter('calzado')" data-cat="calzado"
-                        class="cat-pill px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60">
-                        Calzado & Piel
-                    </button>
-                    <button onclick="setCategoryFilter('diseno')" data-cat="diseno"
-                        class="cat-pill px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60">
-                        Objetos & Diseño
-                    </button>
-                </div>
-
-                <!-- Right Controls: Sort & Grid View Switcher (Totême signature) -->
-                <div class="flex items-center justify-between sm:justify-end gap-4">
-                    <!-- Sort Dropdown -->
-                    <div class="relative">
-                        <select id="sort-select" onchange="handleSortChange(this.value)"
-                            class="appearance-none bg-carbon border border-carbon-light/60 text-brokenwhite text-xs uppercase tracking-wider rounded-full py-2.5 pl-4 pr-9 focus:outline-none focus:border-olive cursor-pointer">
-                            <option value="featured">Destacados / Curaduría</option>
-                            <option value="price-asc">Precio: Menor a Mayor</option>
-                            <option value="price-desc">Precio: Mayor a Menor</option>
-                            <option value="name">Alfabético (A-Z)</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-ash">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Column View Toggle (Desktop only) -->
-                    <div class="hidden sm:flex items-center border border-carbon-light/60 rounded-full p-1 bg-carbon">
-                        <button onclick="setGridColumns(2)" id="grid-btn-2"
-                            class="p-1.5 rounded-full text-ash hover:text-brokenwhite transition-colors"
-                            title="2 Columnas">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="7" height="18" rx="1" />
-                                <rect x="14" y="3" width="7" height="18" rx="1" />
-                            </svg>
-                        </button>
-                        <button onclick="setGridColumns(3)" id="grid-btn-3"
-                            class="p-1.5 rounded-full text-ash hover:text-brokenwhite transition-colors"
-                            title="3 Columnas">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="5" height="18" rx="1" />
-                                <rect x="9.5" y="3" width="5" height="18" rx="1" />
-                                <rect x="17" y="3" width="5" height="18" rx="1" />
-                            </svg>
-                        </button>
-                        <button onclick="setGridColumns(4)" id="grid-btn-4"
-                            class="p-1.5 rounded-full bg-olive text-carbon-dark transition-colors" title="4 Columnas">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="3.5" height="18" rx="0.5" />
-                                <rect x="7.5" y="3" width="3.5" height="18" rx="0.5" />
-                                <rect x="13" y="3" width="3.5" height="18" rx="0.5" />
-                                <rect x="18.5" y="3" width="3.5" height="18" rx="0.5" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ======================================================== -->
-            <!-- 5. PRODUCTS GRID                                         -->
-            <!-- ======================================================== -->
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 pt-10">
-                <!-- Injected via JavaScript -->
-            </div>
-
-            <!-- Empty state if no filter matches -->
-            <div id="empty-state" class="hidden py-24 text-center">
-                <p class="text-ash text-sm tracking-wider uppercase">No se encontraron piezas con los filtros
-                    seleccionados.</p>
-                <button onclick="resetFilters()"
-                    class="mt-4 px-6 py-2 bg-olive text-carbon-dark text-xs uppercase tracking-widest rounded-full">
-                    Restablecer Filtros
-                </button>
-            </div>
-
-        </section>
-
-        <!-- ======================================================== -->
-        <!-- 6. EDITORIAL HIGHLIGHT: "THE UNIFORM" (Totême Style)     -->
-        <!-- ======================================================== -->
-        <section id="uniforme"
-            class="bg-carbon border-y border-carbon-light/50 my-20 py-20 lg:py-28 relative overflow-hidden">
-            <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12">
+        <!-- 1. HERO EDITORIAL: MARCA Y PROPUESTA DE VALOR (CON IMAGEN OFICIAL DE INICIO) -->
+        <section class="relative min-h-[75vh] flex items-center justify-start border-b border-carbon-light/30 overflow-hidden bg-carbon-dark">
+            <div class="relative z-10 max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-16 sm:py-24">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Columna Izquierda: Manifiesto y Call-to-Action -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-[1px] bg-olive"></span>
+                            <span class="text-xs uppercase tracking-ultra text-olive font-medium">
+                                Personal Shopping • Tokio & Seúl para México
+                            </span>
+                        </div>
 
-                    <!-- Editorial Text -->
-                    <div class="lg:col-span-5 space-y-8">
-                        <span class="text-xs uppercase tracking-ultra text-olive font-semibold block">Filosofía de
-                            Armario</span>
-                        <h3 class="text-3xl sm:text-5xl font-editorial font-light leading-tight text-brokenwhite">
-                            The Uniform:<br>
-                            <span class="italic">El arte de vestir sin estridencias.</span>
-                        </h3>
+                        <h2 class="text-4xl sm:text-6xl lg:text-7xl font-light font-editorial leading-[1.06] text-brokenwhite">
+                            Curaduría de archivo.<br>
+                            <span class="italic font-normal">Búsqueda personalizada en Asia.</span>
+                        </h2>
 
-                        <p class="text-ash text-sm sm:text-base leading-relaxed font-light">
-                            Inspirados en la precisión estética de Tokio y el minimalismo arquitectónico contemporáneo,
-                            concebimos cada colección como un uniforme modular. No seguimos temporadas aceleradas:
-                            producimos en tirajes limitados con talleres familiares en Niigata, Kioto y Seúl.
+                        <p class="text-sm sm:text-base lg:text-lg text-ash font-light max-w-xl leading-relaxed">
+                            Somos tu concierge y personal shopper en Japón, Corea y Taiwán. Localizamos vinilos japoneses raros, piezas de archivo inconseguibles y coleccionables icónicos traídos directamente a México con entrega asegurada.
                         </p>
 
-                        <div class="grid grid-cols-2 gap-6 pt-4 border-t border-carbon-light">
-                            <div>
-                                <span class="block text-2xl font-editorial text-brokenwhite">100%</span>
-                                <span class="text-[11px] tracking-wider uppercase text-basegray">Fibras Naturales</span>
-                            </div>
-                            <div>
-                                <span class="block text-2xl font-editorial text-brokenwhite">30 pzas</span>
-                                <span class="text-[11px] tracking-wider uppercase text-basegray">Por silueta
-                                    máxima</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-2">
-                            <a href="#catalogo"
-                                class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-olive hover:text-brokenwhite transition-colors group">
-                                Explorar el Uniforme
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
+                        <div class="flex flex-wrap items-center gap-4 pt-4">
+                            <a href="./the-finds.html"
+                                class="px-8 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-olive/10">
+                                Explorar The Finds (8 Hallazgos)
+                            </a>
+                            <a href="./personal-sourcing.html"
+                                class="px-8 py-3.5 bg-carbon border border-carbon-light/60 hover:border-brokenwhite text-brokenwhite text-xs uppercase tracking-widest rounded-full transition-colors font-medium">
+                                Pedir Personal Sourcing
                             </a>
                         </div>
                     </div>
 
-                    <!-- Editorial Imagery Collage -->
-                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                        <div class="space-y-4">
-                            <div class="relative overflow-hidden aspect-[3/4] bg-carbon-dark">
-                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80"
-                                    alt="Textura Lana Niigata"
-                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                                    onerror="this.src='https://placehold.co/600x800/1E2226/F8FAFC?text=FOUND+IN+ASIA'" />
-                            </div>
-                            <p class="text-[11px] uppercase tracking-wider text-basegray">Fig. 01 — Lana de estambre
-                                japonés y caída desestructurada</p>
-                        </div>
-
-                        <div class="space-y-4 sm:pt-12">
-                            <div class="relative overflow-hidden aspect-[3/4] bg-carbon-dark">
-                                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80"
-                                    alt="Silueta Sastrería Seúl"
-                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                                    onerror="this.src='https://placehold.co/600x800/1E2226/F8FAFC?text=EDITORIAL+02'" />
-                            </div>
-                            <p class="text-[11px] uppercase tracking-wider text-basegray">Fig. 02 — Corte de hombro
-                                extendido y silueta andrógina</p>
+                    <!-- Columna Derecha: Emblema Oficial de Inicio (imagen-inicio.jpeg) -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative max-w-md w-full aspect-square rounded-3xl overflow-hidden border border-carbon-light/60 shadow-xl bg-carbon p-6 flex items-center justify-center group">
+                            <img src="./imagen-inicio.jpeg"
+                                alt="Found in Asia — Official Brand Emblem"
+                                width="1254"
+                                height="1254"
+                                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                                loading="eager" />
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Los 3 Pilares del Servicio In Situ -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 mt-12 border-t border-carbon-light/30 text-xs">
+                    <div class="space-y-2 bg-carbon p-6 rounded-xl border border-carbon-light/40 shadow-sm">
+                        <span class="text-olive font-mono text-sm block font-semibold">01 / In Situ</span>
+                        <h4 class="text-brokenwhite uppercase tracking-wider font-semibold text-sm">Sourcing Directo</h4>
+                        <p class="text-ash leading-relaxed font-light">
+                            Compramos presencialmente en ateliers independientes, subastas privadas y tiendas de archivo en Daikanyama, Aoyama, Hannam-dong y Seongsu.
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-carbon p-6 rounded-xl border border-carbon-light/40 shadow-sm">
+                        <span class="text-olive font-mono text-sm block font-semibold">02 / Selección</span>
+                        <h4 class="text-brokenwhite uppercase tracking-wider font-semibold text-sm">Inspección de Autenticidad</h4>
+                        <p class="text-ash leading-relaxed font-light">
+                            Cada pieza se verifica minuciosamente: prensados japoneses originales con OBI, piezas de archivo textil y coleccionables 100% legítimos.
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-carbon p-6 rounded-xl border border-carbon-light/40 shadow-sm">
+                        <span class="text-olive font-mono text-sm block font-semibold">03 / México</span>
+                        <h4 class="text-brokenwhite uppercase tracking-wider font-semibold text-sm">Entrega Asegurada</h4>
+                        <p class="text-ash leading-relaxed font-light">
+                            Importación y despacho aduanal resueltos sin costos sorpresa. Envíos express asegurados con DHL a todo México y citas privadas en Roma Norte CDMX.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ======================================================== -->
-        <!-- 7. ATELIER & PRIVATE APPOINTMENTS CDMX                   -->
-        <!-- ======================================================== -->
-        <section id="atelier" class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
-            <div
-                class="border border-carbon-light bg-carbon/50 p-8 sm:p-14 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="max-w-xl space-y-3 text-center md:text-left">
-                    <span class="text-xs uppercase tracking-ultra text-olive font-medium">Experiencia Privada</span>
-                    <h4 class="text-2xl sm:text-3xl font-editorial font-light text-brokenwhite">Atelier & Fitting
-                        Privado en CDMX</h4>
-                    <p class="text-sm text-ash font-light leading-relaxed">
-                        Visita nuestro showroom en Colonia Roma Norte. Prueba de siluetas, ajuste personalizado y
-                        asesoría de sastrería bajo previa cita.
-                    </p>
+        <!-- 2. LA ESENCIA DE FOUND IN ASIA MX: HISTORIA Y CÓMO OPERAMOS -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-20 lg:py-32 border-b border-carbon-light/40">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+                <!-- Columna Izquierda: Filosofía del Personal Shopping -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="space-y-3">
+                        <span class="text-xs uppercase tracking-ultra text-olive font-medium">Nuestra Identidad</span>
+                        <h3 class="text-3xl sm:text-5xl font-editorial font-light text-brokenwhite leading-tight">
+                            El arte de encontrar lo que ya no se produce.
+                        </h3>
+                    </div>
+
+                    <div class="space-y-6 text-sm text-ash font-light leading-relaxed">
+                        <p>
+                            FOUND IN ASIA MX nace como un canal exclusivo para el coleccionista y aficionado de la moda en México que busca prendas con alma, historia y manufactura excepcional. Lejos de la producción en masa y la inmediatez efímera, nos enfocamos en prendas de corte arquitectónico, lanas pesadas trabajadas en telares tradicionales de Japón y siluetas desestructuradas contemporáneas de Corea del Sur.
+                        </p>
+                        <p>
+                            No somos una tienda de reventa genérica. Funcionamos como un concierge privado: viajamos directamente a las capitales asiáticas, exploramos boutiques secretas de archivo, evaluamos el estado de los textiles bajo luz natural y gestionamos todo el proceso logístico para que recibas piezas irrepetibles en la comodidad de tu hogar en México.
+                        </p>
+                    </div>
+
+                    <!-- Datos y Credenciales de Servicio -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4 border-t border-carbon-light/50">
+                        <div>
+                            <span class="text-3xl font-editorial text-olive">Asia Directo</span>
+                            <p class="text-xs text-basegray mt-1">Expediciones periódicas directas</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-editorial text-olive">100%</span>
+                            <p class="text-xs text-basegray mt-1">Autenticidad e inspección en mano</p>
+                        </div>
+                        <div>
+                            <span class="text-3xl font-editorial text-olive">DHL Express</span>
+                            <p class="text-xs text-basegray mt-1">Envíos asegurados a todo México</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-                    <a href="https://wa.me/525589201204?text=Hola%20Found%20In%20Asia%20MX,%20deseo%20agendar%20una%20cita%20privada%20en%20el%20Atelier%20CDMX."
-                        target="_blank"
-                        class="px-8 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full text-center transition-colors">
-                        Agendar por WhatsApp
-                    </a>
+
+                <!-- Columna Derecha: Recuadro de Muestra Arquitectónico (Sin Imagen de Ropa) -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-studiogray border border-carbon-light/60 shadow-lg p-8 flex flex-col justify-between">
+                        <div class="flex items-center justify-between border-b border-white/20 pb-4">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-white/90">Recuadro de Muestra</span>
+                            <span class="text-xs text-white/80 font-mono">01 / ARCHIVO</span>
+                        </div>
+                        <div class="space-y-4 my-auto text-center py-8">
+                            <div class="w-16 h-16 mx-auto rounded-full border border-white/30 flex items-center justify-center text-white/90 font-editorial text-2xl">
+                                FIA
+                            </div>
+                            <h4 class="text-xl sm:text-2xl font-editorial text-white">Inspección Textil in Situ</h4>
+                            <p class="text-xs text-white/80 max-w-xs mx-auto font-light leading-relaxed">
+                                Verificación presencial de composición, tacto, estado de conservación y origen en ateliers de autor.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/20 backdrop-blur-md border border-white/20 text-xs text-white">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-olive block mb-1">Criterio Textil</span>
+                            <p class="font-light">"Cada costura, forro de cupro y botón de cuerno es examinado antes de ingresar a nuestra selección."</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
     </main>
 
     <!-- ======================================================== -->
-    <!-- 8. SHOPPING BAG DRAWER (SLIDE-OUT FROM RIGHT)            -->
+    <!-- 4. LUXURY FOOTER                                         -->
+    <!-- ======================================================== -->
+    <footer class="bg-carbon-dark border-t border-carbon-light/50 pt-16 pb-12 mt-auto">
+        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-carbon-light/40">
+
+                <!-- Column: Brand Info -->
+                <div class="space-y-4">
+                    <span class="text-sm tracking-widest uppercase font-medium text-brokenwhite block">FOUND IN ASIA</span>
+                    <p class="text-xs text-ash leading-relaxed max-w-sm font-light">
+                        Personal shopping de lujo y piezas de archivo en Japón y Corea del Sur. Compramos in situ para clientes en todo México.
+                    </p>
+                    <div class="pt-2 text-[11px] text-basegray space-y-1">
+                        <p>Atelier & Fitting: Col. Roma Norte, Cuauhtémoc, CDMX</p>
+                        <p>Horario de atención: Lun - Sáb, 11:00 - 19:00 hrs</p>
+                        <p>WhatsApp Concierge: +52 55 8920 1204</p>
+                    </div>
+                </div>
+
+                <!-- Column: Navigation (Acceso a las 5 Páginas) -->
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Secciones</span>
+                    <ul class="text-xs text-ash space-y-2.5">
+                        <li><a href="./index.html" class="hover:text-olive text-brokenwhite font-semibold transition-colors">Inicio</a></li>
+                        <li><a href="./the-finds.html" class="hover:text-olive transition-colors">The Finds (Catálogo)</a></li>
+                        <li><a href="./personal-sourcing.html" class="hover:text-olive transition-colors">Personal Sourcing</a></li>
+                        <li><a href="./destinations.html" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
+                        <li><a href="./about.html" class="hover:text-olive transition-colors">About & Envíos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column: Services & Mexico Logistics -->
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Garantías México</span>
+                    <ul class="text-xs text-ash space-y-2.5">
+                        <li><span class="text-ash/80">Envíos DHL Express Asegurados</span></li>
+                        <li><span class="text-ash/80">Cero Sorpresas Aduanales</span></li>
+                        <li><span class="text-ash/80">Inspección de Autenticidad</span></li>
+                        <li><span class="text-ash/80">Citas de Fitting en Roma Norte</span></li>
+                        <li><a href="https://wa.me/525589201204" target="_blank"
+                                class="hover:text-olive transition-colors">WhatsApp Directo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column: Newsletter Subscription -->
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Lista Privada</span>
+                    <p class="text-xs text-ash leading-relaxed">
+                        Avisos anticipados antes de cada viaje para recepción de encargos.
+                    </p>
+                    <form id="newsletter-form" class="space-y-2">
+                        <div class="relative">
+                            <input type="email" id="newsletter-email" required placeholder="tu@correo.com"
+                                class="w-full bg-carbon-dark border border-carbon-light rounded-full py-2.5 px-4 text-xs text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
+                            <button type="submit"
+                                class="absolute right-1 top-1 bottom-1 px-4 bg-olive text-carbon-dark text-[11px] font-bold uppercase rounded-full hover:bg-olive-hover transition-colors">
+                                Unirse
+                            </button>
+                        </div>
+                        <p id="newsletter-feedback" class="text-[11px] text-olive hidden">Gracias por suscribirte al círculo privado.</p>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-basegray gap-4">
+                <div>
+                    © 2026 FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="./about.html" class="hover:text-ash">Términos de Compra</a>
+                    <a href="./about.html" class="hover:text-ash">Envíos & Aduanas</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ======================================================== -->
+    <!-- CART SLIDE-OUT DRAWER                                    -->
     <!-- ======================================================== -->
     <div id="cart-drawer-container"
-        class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
+        class="fixed inset-0 z-50 hidden pointer-events-none opacity-0 transition-opacity duration-300">
         <!-- Backdrop -->
-        <div id="cart-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"></div>
+        <div id="cart-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
 
         <!-- Drawer Content -->
         <div id="cart-drawer"
-            class="absolute top-0 right-0 h-full w-full max-w-md bg-carbon border-l border-carbon-light/80 p-6 flex flex-col pointer-events-auto transform translate-x-full transition-transform duration-300 ease-out shadow-2xl">
+            class="absolute top-0 right-0 h-full w-full max-w-md bg-carbon border-l border-carbon-light p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out z-10">
 
             <!-- Drawer Header -->
-            <div class="flex items-center justify-between pb-5 border-b border-carbon-light">
+            <div class="flex items-center justify-between pb-4 border-b border-carbon-light">
                 <div>
-                    <h4 class="text-base font-light tracking-widest uppercase text-brokenwhite">Tu Bolsa de Compras</h4>
+                    <h3 class="text-sm uppercase tracking-widest font-semibold text-brokenwhite">Bolsa de Compras</h3>
                     <span id="cart-items-qty-label" class="text-xs text-basegray">0 prendas seleccionadas</span>
                 </div>
-                <button id="close-cart-btn" class="p-2 text-ash hover:text-brokenwhite transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="close-cart-btn" data-action="close-cart" aria-label="Cerrar bolsa de compras" class="p-2 text-ash hover:text-brokenwhite transition-colors">
+                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
 
-            <!-- Free Shipping Tracker -->
-            <div class="py-3 px-4 my-4 bg-carbon-dark/70 rounded-lg border border-carbon-light/40 text-xs">
-                <div class="flex justify-between text-[11px] tracking-wider uppercase mb-1 text-ash">
+            <!-- Shipping Progress Bar (Envío gratis a partir de $4,500 MXN) -->
+            <div class="py-3 px-3 my-3 bg-carbon-dark/80 rounded-lg border border-carbon-light/40 text-[11px] space-y-1.5">
+                <div class="flex justify-between text-ash">
                     <span id="shipping-progress-text">Envío gratis a partir de $4,500 MXN</span>
                 </div>
-                <div class="w-full bg-carbon-light h-1 rounded-full overflow-hidden">
-                    <div id="shipping-progress-bar" class="bg-olive h-full transition-all duration-500"
-                        style="width: 0%"></div>
+                <div class="w-full bg-carbon-light h-1.5 rounded-full overflow-hidden">
+                    <div id="shipping-progress-bar" class="bg-olive h-full transition-all duration-500 w-0 shipping-bar-filled"></div>
                 </div>
             </div>
 
-            <!-- Cart Item List -->
+            <!-- Items List Container -->
             <div id="cart-items-list" class="flex-1 overflow-y-auto space-y-4 pr-1">
-                <!-- Rendered via JS -->
+                <!-- Se inyecta dinámicamente con catalogCtrl.js -->
             </div>
 
-            <!-- Drawer Footer & Checkout -->
+            <!-- Cart Footer -->
             <div class="pt-5 border-t border-carbon-light mt-auto space-y-4">
                 <div class="space-y-1.5 text-xs">
                     <div class="flex justify-between text-ash">
@@ -638,17 +459,13 @@
                 </div>
 
                 <div class="space-y-2 pt-2">
-                    <button id="checkout-whatsapp-btn" onclick="checkoutViaWhatsApp()"
+                    <button id="checkout-whatsapp-btn" data-action="checkout-whatsapp"
                         class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
                         <span>Pedir Orden vía WhatsApp</span>
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.055 1.233 1.543.513.319.923.414 1.137.499.167.066.265.055.365-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
                         </svg>
-                    </button>
-                    <button onclick="simulateDirectCheckout()"
-                        class="w-full py-3 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest rounded-full transition-colors">
-                        Pagar con Tarjeta (Demo)
                     </button>
                 </div>
 
@@ -661,189 +478,7 @@
     </div>
 
     <!-- ======================================================== -->
-    <!-- 9. QUICK VIEW MODAL (VISTA RÁPIDA DE PRENDA)             -->
-    <!-- ======================================================== -->
-    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-        <!-- Backdrop -->
-        <div id="quickview-backdrop" class="fixed inset-0 bg-black/75 backdrop-blur-md"></div>
-
-        <!-- Modal Box -->
-        <div
-            class="relative bg-carbon border border-carbon-light max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col md:flex-row">
-
-            <!-- Close Button -->
-            <button onclick="closeQuickView()"
-                class="absolute top-4 right-4 z-20 p-2 bg-carbon-dark/80 text-brokenwhite hover:text-olive rounded-full transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-
-            <!-- Modal Gallery Column -->
-            <div class="w-full md:w-1/2 bg-carbon-dark relative flex flex-col justify-center">
-                <div class="relative aspect-[3/4] overflow-hidden">
-                    <img id="qv-image" src="" alt="Prenda" class="w-full h-full object-cover">
-                    <div id="qv-badge"
-                        class="absolute top-4 left-4 bg-olive text-carbon-dark text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">
-                        Japón
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Product Info Column -->
-            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between overflow-y-auto">
-                <div class="space-y-4">
-                    <div>
-                        <span id="qv-category"
-                            class="text-xs tracking-ultra uppercase text-olive font-semibold">Categoría</span>
-                        <h4 id="qv-title" class="text-2xl sm:text-3xl font-editorial font-light text-brokenwhite mt-1">
-                            Nombre Prenda</h4>
-                        <p id="qv-price" class="text-lg font-mono text-brokenwhite mt-1">$0 MXN</p>
-                    </div>
-
-                    <p id="qv-description" class="text-xs sm:text-sm text-ash leading-relaxed font-light">
-                        Descripción de confección y silueta.
-                    </p>
-
-                    <!-- Specifications Box -->
-                    <div class="p-4 bg-carbon-dark rounded-lg border border-carbon-light/40 space-y-2 text-xs">
-                        <div class="flex justify-between">
-                            <span class="text-basegray uppercase tracking-wider">Origen:</span>
-                            <span id="qv-origin" class="text-brokenwhite">Niigata, Japón</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-basegray uppercase tracking-wider">Composición:</span>
-                            <span id="qv-composition" class="text-brokenwhite">100% Lana Virgen</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-basegray uppercase tracking-wider">Calce:</span>
-                            <span id="qv-fit" class="text-brokenwhite">Estructural Oversized</span>
-                        </div>
-                    </div>
-
-                    <!-- Size Selection -->
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs">
-                            <span class="text-ash uppercase tracking-wider">Talla Disponible</span>
-                            <a href="https://wa.me/525589201204?text=Hola,%20tengo%20dudas%20con%20la%20guia%20de%20tallas"
-                                target="_blank" class="text-olive hover:underline">Guía de Medidas</a>
-                        </div>
-                        <div id="qv-sizes-container" class="flex items-center gap-2">
-                            <!-- Sizes pills injected via JS -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="pt-6 space-y-2 mt-4 border-t border-carbon-light">
-                    <button id="qv-add-btn" onclick="addQuickViewToBag()"
-                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full transition-colors flex items-center justify-center gap-2">
-                        <span>Añadir a la Bolsa</span>
-                    </button>
-
-                    <button id="qv-whatsapp-btn" onclick="orderCurrentViaWhatsApp()"
-                        class="w-full py-3 bg-transparent hover:bg-carbon-dark text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest rounded-full transition-colors flex items-center justify-center gap-2">
-                        <span>Consultar disponibilidad en CDMX</span>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- ======================================================== -->
-    <!-- 10. LUXURY FOOTER                                        -->
-    <!-- ======================================================== -->
-    <footer id="manifiesto" class="bg-carbon border-t border-carbon-light mt-auto">
-        <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24">
-
-            <!-- Top Grid -->
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-16 border-b border-carbon-light/50">
-
-                <!-- Brand Info -->
-                <div class="lg:col-span-2 space-y-4">
-                    <h5 class="text-lg font-light tracking-[0.25em] text-brokenwhite uppercase">FOUND IN ASIA MX</h5>
-                    <p class="text-xs text-ash leading-relaxed max-w-sm font-light">
-                        Plataforma de moda de autor y sastrería de archivo seleccionada entre ateliers independientes de
-                        Tokio, Kioto y Seúl. Operación oficial para México.
-                    </p>
-                    <div class="pt-2 text-[11px] text-basegray space-y-1">
-                        <p>Atelier Privado: Col. Roma Norte, Cuauhtémoc, CDMX</p>
-                        <p>Horario de atención: Lun - Sáb, 11:00 - 19:00 hrs</p>
-                    </div>
-                </div>
-
-                <!-- Column: Navigation -->
-                <div class="space-y-3">
-                    <span
-                        class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Navegación</span>
-                    <ul class="text-xs text-ash space-y-2.5">
-                        <li><a href="#catalogo" class="hover:text-olive transition-colors">Colección Actual</a></li>
-                        <li><a href="#uniforme" class="hover:text-olive transition-colors">The Uniform</a></li>
-                        <li><a href="#atelier" class="hover:text-olive transition-colors">Citas Atelier CDMX</a></li>
-                        <li><a href="#catalogo" onclick="setCategoryFilter('abrigos')"
-                                class="hover:text-olive transition-colors">Abrigos y Capas</a></li>
-                        <li><a href="#catalogo" onclick="setCategoryFilter('sastreria')"
-                                class="hover:text-olive transition-colors">Sastrería</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column: Services & Mexico Logistics -->
-                <div class="space-y-3">
-                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Servicios
-                        México</span>
-                    <ul class="text-xs text-ash space-y-2.5">
-                        <li><span class="text-ash/80">Envíos DHL Express Asegurados</span></li>
-                        <li><span class="text-ash/80">Cambios de Talla sin Cargo</span></li>
-                        <li><span class="text-ash/80">Autenticidad Garantizada</span></li>
-                        <li><span class="text-ash/80">Facturación CFDI disponible</span></li>
-                        <li><a href="https://wa.me/525589201204" target="_blank"
-                                class="hover:text-olive transition-colors">Concierge WhatsApp</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column: Newsletter Subscription -->
-                <div class="space-y-4">
-                    <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Lista
-                        Privada</span>
-                    <p class="text-xs text-ash leading-relaxed">
-                        Acceso anticipado a drops de archivo y nuevas piezas importadas.
-                    </p>
-                    <form id="newsletter-form" onsubmit="handleNewsletter(event)" class="space-y-2">
-                        <div class="relative">
-                            <input type="email" id="newsletter-email" required placeholder="tu@correo.com"
-                                class="w-full bg-carbon-dark border border-carbon-light rounded-full py-2.5 px-4 text-xs text-brokenwhite placeholder:text-basegray focus:outline-none focus:border-olive">
-                            <button type="submit"
-                                class="absolute right-1 top-1 bottom-1 px-4 bg-olive text-carbon-dark text-[11px] font-bold uppercase rounded-full hover:bg-olive-hover transition-colors">
-                                Unirse
-                            </button>
-                        </div>
-                        <p id="newsletter-feedback" class="text-[11px] text-olive hidden">Gracias por suscribirte al
-                            círculo privado.</p>
-                    </form>
-                </div>
-
-            </div>
-
-            <!-- Bottom Bar -->
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-basegray gap-4">
-                <div>
-                    © 2026 FOUND IN ASIA MX (foundinasiamx.com). Todos los derechos reservados.
-                </div>
-                <div class="flex items-center gap-6">
-                    <span>Pagos Seguros: Tarjetas, Transferencia SPEI & PayPal</span>
-                    <a href="#" class="hover:text-ash">Términos</a>
-                    <a href="#" class="hover:text-ash">Privacidad</a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- ======================================================== -->
-    <!-- 11. NOTIFICATION TOAST POPUP (No Alert)                  -->
+    <!-- NOTIFICATION TOAST POPUP                                 -->
     <!-- ======================================================== -->
     <div id="toast"
         class="fixed bottom-6 right-6 z-50 bg-carbon border border-olive text-brokenwhite px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
@@ -856,745 +491,12 @@
     </div>
 
     <!-- ======================================================== -->
-    <!-- JAVASCRIPT: CATALOG LOGIC & SHOPPING INTERACTION         -->
+    <!-- CAPA DE DATOS Y CONTROLADOR MVC                          -->
     <!-- ======================================================== -->
-    <script>
-        // --- PRODUCT CATALOG DATA (Curaduría inspirada en Totême & estética asiática) ---
-        const PRODUCTS = [
-            {
-                id: "fia-01",
-                name: "Abrigo Estructural Niigata",
-                subtitle: "Lana virgen japonesa de peso invernal",
-                category: "abrigos",
-                price: 8900,
-                badge: "Edición Limitada",
-                origin: "Niigata, Japón",
-                composition: "100% Lana Virgen de estambre pesado",
-                fit: "Oversized cocoon con hombro caído",
-                sizes: ["XS", "S", "M", "L"],
-                description: "Abrigo de corte arquitectónico inspirado en las siluetas nórdicas y el corte sobrio japonés. Tejido en telar tradicional en la prefectura de Niigata. Cierre oculto con botones de cuerno natural.",
-                images: [
-                    "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-02",
-                name: "Blazer Desestructurado Kioto",
-                subtitle: "Sarga de seda Mulberry y lino pesado",
-                category: "sastreria",
-                price: 6450,
-                badge: "Pieza Icono",
-                origin: "Kioto, Japón",
-                composition: "60% Seda Mulberry, 40% Lino Orgánico",
-                fit: "Recto relajado sin hombreras",
-                sizes: ["S", "M", "L"],
-                description: "Saco de silueta andrógina y tacto fresco pero con cuerpo. Diseñado para usarse como uniforme diario con solapa angosta y bolsillos de ribete sutil.",
-                images: [
-                    "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-03",
-                name: "Pantalón Plisado Seúl",
-                subtitle: "Gabardina de algodón y lana fría",
-                category: "pantalones",
-                price: 4200,
-                badge: "Esencial",
-                origin: "Seúl, Corea del Sur",
-                composition: "70% Gabardina de Algodón, 30% Lana Fría",
-                fit: "Tiro alto con pinza doble invertida",
-                sizes: ["XS", "S", "M", "L"],
-                description: "Pantalón de volumen generoso y pierna ancha recta. Su caída fluida estiliza el andar manteniendo un balance riguroso entre comodidad y formalidad austera.",
-                images: [
-                    "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1508427953056-b00b8d78ebf5?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-04",
-                name: "Trench Coat Tokio Doble Faz",
-                subtitle: "Algodón impermeable de hilado denso",
-                category: "abrigos",
-                price: 9800,
-                badge: "Nuevo Drop",
-                origin: "Tokio, Japón",
-                composition: "100% Algodón de alta densidad resinado",
-                fit: "Maxi largo cruzado con cinturón ancho",
-                sizes: ["S", "M"],
-                description: "Gabardina icónica de corte amplio. El tejido técnico natural repele el agua sin perder la calidez de la fibra orgánica. Hebillas forradas a tono con la prenda.",
-                images: [
-                    "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-05",
-                name: "Camisa Arquitectónica Popelín",
-                subtitle: "Popelina de algodón egipcio 120 hilos",
-                category: "sastreria",
-                price: 3600,
-                badge: "Básico de Lujo",
-                origin: "Osaka, Japón",
-                composition: "100% Algodón mercerizado",
-                fit: "Cuello rígido minimalista y puño extendido",
-                sizes: ["XS", "S", "M", "L"],
-                description: "Una camisa blanca concebida con proporciones agudas. Puños dobles para mancuernilla o uso informal recogido, botonadura oculta y espalda con pliegue de caja.",
-                images: [
-                    "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-06",
-                name: "Mocasín Cuadrado Ginza",
-                subtitle: "Piel vacuna curtida al vegetal",
-                category: "calzado",
-                price: 5800,
-                badge: "Hecho a Mano",
-                origin: "Asakusa, Tokio",
-                composition: "100% Piel de Becerro y suela de cuero cosida",
-                fit: "Horma cuadrada contemporánea",
-                sizes: ["23 MX", "24 MX", "25 MX", "26 MX", "27 MX"],
-                description: "Zapato de silueta geométrica confeccionado por artesanos zapateros del tradicional barrio de Asakusa. Plantilla acojinada en piel de guante.",
-                images: [
-                    "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-07",
-                name: "Bolso Escultural Tótem",
-                subtitle: "Cuero graneado estructurado",
-                category: "calzado",
-                price: 7200,
-                badge: "Curaduría",
-                origin: "Seúl, Corea del Sur",
-                composition: "Piel bovina plena flor certificada LWG",
-                fit: "Estructura rígida de mano y hombro",
-                sizes: ["ÚNICA"],
-                description: "Bolso de líneas puras y asa monolítica integrada. Cierre magnético imperceptible e interior forrado en gamuza tonal.",
-                images: [
-                    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-08",
-                name: "Jeans Rectos Kurabo 14oz",
-                subtitle: "Denim japonés con orillo selvedge",
-                category: "pantalones",
-                price: 4900,
-                badge: "Selvedge Raw",
-                origin: "Okayama, Japón",
-                composition: "100% Algodón Kurabo Mills",
-                fit: "Tiro medio recto sin elasticidad",
-                sizes: ["28", "30", "32", "34"],
-                description: "Mezclilla pura sin lavar, tejida en telares Toyoda de lanzadera lenta. El tono índigo profundo envejecerá y marcará la silueta personal con cada puesta.",
-                images: [
-                    "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1542272604-780c96856592?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-09",
-                name: "Vaso Ceremonial & Objeto Mármol",
-                subtitle: "Pieza de diseño escultórico para interiores",
-                category: "diseno",
-                price: 2100,
-                badge: "Objeto de Arte",
-                origin: "Gifu, Japón",
-                composition: "Cerámica negra horneada con ceniza y basalto",
-                fit: "Pieza única numerada",
-                sizes: ["ÚNICA"],
-                description: "Objeto de introspección estética. Puede fungir como jarrón minimalista para ramas secas o como tótem decorativo en repisa o mesa de centro.",
-                images: [
-                    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=900&q=80"
-                ]
-            },
-            {
-                id: "fia-10",
-                name: "Saco Kimono Sastreril",
-                subtitle: "Lana fría y cierre cruzado interno",
-                category: "sastreria",
-                price: 7600,
-                badge: "Diseño de Autor",
-                origin: "Tokio, Japón",
-                composition: "100% Lana fría de hilado súper 130s",
-                fit: "Corte oriental cruzado sin solapas clásicas",
-                sizes: ["S", "M", "L"],
-                description: "La fusión más pura entre la sastrería europea y el corte kimono de cortejo ceremonial. Liviano, limpio y con una caída impecable.",
-                images: [
-                    "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80",
-                    "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=80"
-                ]
-            }
-        ];
-
-        // --- APPLICATION STATE ---
-        let currentCategory = 'all';
-        let searchQuery = '';
-        let currentSort = 'featured';
-        let gridCols = 4;
-        let cart = []; // { product, size, qty }
-        let wishlist = new Set(); // product IDs
-        let currentQuickViewProduct = null;
-        let selectedQuickViewSize = null;
-
-        // --- DOM REFERENCES ---
-        const gridContainer = document.getElementById('products-grid');
-        const emptyState = document.getElementById('empty-state');
-        const displayedCountEl = document.getElementById('displayed-count');
-        const cartCountBadge = document.getElementById('cart-count-badge');
-        const wishlistCountBadge = document.getElementById('wishlist-count-badge');
-        const cartDrawerContainer = document.getElementById('cart-drawer-container');
-        const cartDrawer = document.getElementById('cart-drawer');
-        const cartBackdrop = document.getElementById('cart-backdrop');
-        const cartItemsList = document.getElementById('cart-items-list');
-        const cartSubtotalText = document.getElementById('cart-subtotal-text');
-        const cartTotalText = document.getElementById('cart-total-text');
-        const cartShippingText = document.getElementById('cart-shipping-text');
-        const shippingProgressBar = document.getElementById('shipping-progress-bar');
-        const shippingProgressText = document.getElementById('shipping-progress-text');
-        const cartItemsQtyLabel = document.getElementById('cart-items-qty-label');
-        const toast = document.getElementById('toast');
-        const toastMessage = document.getElementById('toast-message');
-
-        // --- FORMATTING UTILS ---
-        const formatMXN = (val) => {
-            return new Intl.NumberFormat('es-MX', {
-                style: 'currency',
-                currency: 'MXN',
-                minimumFractionDigits: 0
-            }).format(val) + " MXN";
-        };
-
-        // --- RENDER PRODUCTS GRID ---
-        function renderProducts() {
-            let filtered = PRODUCTS.filter(item => {
-                const matchesCategory = (currentCategory === 'all') || (item.category === currentCategory);
-                const matchesSearch = searchQuery === '' ||
-                    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    item.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    item.composition.toLowerCase().includes(searchQuery.toLowerCase());
-                return matchesCategory && matchesSearch;
-            });
-
-            // Sorting
-            if (currentSort === 'price-asc') {
-                filtered.sort((a, b) => a.price - b.price);
-            } else if (currentSort === 'price-desc') {
-                filtered.sort((a, b) => b.price - a.price);
-            } else if (currentSort === 'name') {
-                filtered.sort((a, b) => a.name.localeCompare(b.name));
-            }
-
-            displayedCountEl.textContent = filtered.length;
-
-            if (filtered.length === 0) {
-                gridContainer.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
-            } else {
-                emptyState.classList.add('hidden');
-            }
-
-            gridContainer.innerHTML = filtered.map(product => {
-                const isWishlisted = wishlist.has(product.id);
-                return `
-          <div class="product-card group flex flex-col justify-between" data-id="${product.id}">
-            <div>
-              <!-- Image Box with Totême-style Hover Flip -->
-              <div class="product-img-wrapper rounded-lg mb-4 cursor-pointer relative bg-carbon" onclick="openQuickView('${product.id}')">
-                <img 
-                  src="${product.images[0]}" 
-                  alt="${product.name}" 
-                  class="product-img-primary"
-                  loading="lazy"
-                  onerror="this.src='https://placehold.co/600x800/1E2226/F8FAFC?text=${encodeURIComponent(product.name)}'"
-                />
-                <img 
-                  src="${product.images[1]}" 
-                  alt="${product.name} detalle" 
-                  class="product-img-secondary"
-                  loading="lazy"
-                  onerror="this.src='${product.images[0]}'"
-                />
-
-                <!-- Top Left Badge -->
-                <div class="absolute top-3 left-3 z-10">
-                  <span class="text-[9px] uppercase tracking-ultra font-semibold px-2.5 py-1 rounded-full bg-carbon-dark/90 text-ash border border-carbon-light/50 backdrop-blur-sm">
-                    ${product.badge}
-                  </span>
-                </div>
-
-                <!-- Top Right Wishlist Button -->
-                <button 
-                  onclick="event.stopPropagation(); toggleWishlist('${product.id}')"
-                  class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-carbon-dark/80 backdrop-blur-sm flex items-center justify-center text-brokenwhite hover:text-olive transition-colors"
-                  title="Guardar en favoritos"
-                >
-                  <svg class="w-4 h-4 ${isWishlisted ? 'fill-olive text-olive' : 'fill-none stroke-current'}" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/>
-                  </svg>
-                </button>
-
-                <!-- Bottom Quick View Floating Pill on Hover -->
-                <div class="absolute inset-x-3 bottom-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button 
-                    onclick="event.stopPropagation(); openQuickView('${product.id}')"
-                    class="w-full py-2.5 bg-carbon/95 text-brokenwhite hover:bg-olive hover:text-carbon-dark text-[11px] uppercase tracking-widest font-medium rounded-full transition-colors backdrop-blur-md shadow-lg"
-                  >
-                    Vista Rápida
-                  </button>
-                </div>
-              </div>
-
-              <!-- Product Details -->
-              <div class="space-y-1">
-                <span class="text-[10px] uppercase tracking-ultra text-basegray block font-mono">${product.origin}</span>
-                <h4 
-                  onclick="openQuickView('${product.id}')" 
-                  class="text-sm font-light tracking-wide text-brokenwhite cursor-pointer hover:text-olive transition-colors"
-                >
-                  ${product.name}
-                </h4>
-                <p class="text-xs text-ash/80 line-clamp-1 font-light">${product.subtitle}</p>
-              </div>
-            </div>
-
-            <!-- Price and Quick Add -->
-            <div class="pt-3 mt-1 flex items-center justify-between border-t border-carbon-light/30">
-              <span class="text-xs font-mono text-brokenwhite">${formatMXN(product.price)}</span>
-              <button 
-                onclick="quickAddToBag('${product.id}')"
-                class="text-[11px] uppercase tracking-wider text-olive hover:text-brokenwhite font-medium flex items-center gap-1 group/btn transition-colors"
-              >
-                <span>Añadir</span>
-                <span class="transform group-hover/btn:translate-x-0.5 transition-transform">+</span>
-              </button>
-            </div>
-          </div>
-        `;
-            }).join('');
-        }
-
-        // --- CATEGORY FILTERING ---
-        function setCategoryFilter(category) {
-            currentCategory = category;
-            document.querySelectorAll('.cat-pill').forEach(btn => {
-                if (btn.dataset.cat === category) {
-                    btn.className = 'cat-pill active px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-carbon-dark font-semibold';
-                } else {
-                    btn.className = 'cat-pill px-4 py-2 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60';
-                }
-            });
-            renderProducts();
-        }
-
-        function resetFilters() {
-            searchQuery = '';
-            document.getElementById('search-input').value = '';
-            setCategoryFilter('all');
-        }
-
-        // --- SORTING ---
-        function handleSortChange(sortValue) {
-            currentSort = sortValue;
-            renderProducts();
-        }
-
-        // --- GRID COLUMNS SWITCHER ---
-        function setGridColumns(cols) {
-            gridCols = cols;
-            gridContainer.classList.remove('lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4');
-
-            const btn2 = document.getElementById('grid-btn-2');
-            const btn3 = document.getElementById('grid-btn-3');
-            const btn4 = document.getElementById('grid-btn-4');
-
-            [btn2, btn3, btn4].forEach(b => {
-                b.className = 'p-1.5 rounded-full text-ash hover:text-brokenwhite transition-colors';
-            });
-
-            if (cols === 2) {
-                gridContainer.classList.add('lg:grid-cols-2');
-                btn2.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
-            } else if (cols === 3) {
-                gridContainer.classList.add('lg:grid-cols-3');
-                btn3.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
-            } else {
-                gridContainer.classList.add('lg:grid-cols-4');
-                btn4.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
-            }
-        }
-
-        // --- WISHLIST TOGGLE ---
-        function toggleWishlist(productId) {
-            if (wishlist.has(productId)) {
-                wishlist.delete(productId);
-                showToast("Eliminado de tu lista de deseos");
-            } else {
-                wishlist.add(productId);
-                showToast("Guardado en tu lista de deseos");
-            }
-
-            const count = wishlist.size;
-            wishlistCountBadge.textContent = count;
-            if (count > 0) {
-                wishlistCountBadge.classList.remove('hidden');
-                wishlistCountBadge.classList.add('flex');
-            } else {
-                wishlistCountBadge.classList.add('hidden');
-                wishlistCountBadge.classList.remove('flex');
-            }
-            renderProducts();
-        }
-
-        // --- QUICK VIEW MODAL LOGIC ---
-        function openQuickView(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-
-            currentQuickViewProduct = product;
-            selectedQuickViewSize = product.sizes[0];
-
-            document.getElementById('qv-image').src = product.images[0];
-            document.getElementById('qv-badge').textContent = product.origin.split(',')[1] || product.badge;
-            document.getElementById('qv-category').textContent = product.category;
-            document.getElementById('qv-title').textContent = product.name;
-            document.getElementById('qv-price').textContent = formatMXN(product.price);
-            document.getElementById('qv-description').textContent = product.description;
-            document.getElementById('qv-origin').textContent = product.origin;
-            document.getElementById('qv-composition').textContent = product.composition;
-            document.getElementById('qv-fit').textContent = product.fit;
-
-            // Sizes pills
-            const sizesContainer = document.getElementById('qv-sizes-container');
-            sizesContainer.innerHTML = product.sizes.map((sz, idx) => `
-        <button 
-          onclick="selectQuickViewSize('${sz}')" 
-          id="qv-size-${sz}"
-          class="qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors ${idx === 0 ? 'border-olive text-olive bg-olive/10' : 'border-carbon-light text-ash hover:border-brokenwhite'}"
-        >
-          ${sz}
-        </button>
-      `).join('');
-
-            const modal = document.getElementById('quickview-modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function selectQuickViewSize(size) {
-            selectedQuickViewSize = size;
-            document.querySelectorAll('.qv-size-btn').forEach(btn => {
-                btn.className = 'qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors border-carbon-light text-ash hover:border-brokenwhite';
-            });
-            const activeBtn = document.getElementById(`qv-size-${size}`);
-            if (activeBtn) {
-                activeBtn.className = 'qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors border-olive text-olive bg-olive/10';
-            }
-        }
-
-        function closeQuickView() {
-            const modal = document.getElementById('quickview-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = '';
-            currentQuickViewProduct = null;
-        }
-
-        function addQuickViewToBag() {
-            if (!currentQuickViewProduct) return;
-            addToBag(currentQuickViewProduct.id, selectedQuickViewSize);
-            closeQuickView();
-            openCartDrawer();
-        }
-
-        function orderCurrentViaWhatsApp() {
-            if (!currentQuickViewProduct) return;
-            const text = `Hola Found in Asia MX, me interesa la pieza "${currentQuickViewProduct.name}" (Talla: ${selectedQuickViewSize || 'Estándar'}) de ${formatMXN(currentQuickViewProduct.price)}. ¿Tienen disponibilidad inmediata para envío en México?`;
-            window.open(`https://wa.me/525589201204?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        // --- SHOPPING BAG / CART LOGIC ---
-        function quickAddToBag(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-            addToBag(productId, product.sizes[0]);
-            openCartDrawer();
-        }
-
-        function addToBag(productId, size = 'M') {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (!product) return;
-
-            const existingIndex = cart.findIndex(item => item.product.id === productId && item.size === size);
-            if (existingIndex > -1) {
-                cart[existingIndex].qty += 1;
-            } else {
-                cart.push({ product, size, qty: 1 });
-            }
-
-            updateCartUI();
-            showToast(`${product.name} añadida a tu bolsa`);
-        }
-
-        function updateCartQty(index, change) {
-            if (cart[index]) {
-                cart[index].qty += change;
-                if (cart[index].qty <= 0) {
-                    cart.splice(index, 1);
-                }
-            }
-            updateCartUI();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-            showToast("Prenda retirada de la bolsa");
-        }
-
-        function updateCartUI() {
-            const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
-            cartCountBadge.textContent = totalItems;
-            cartItemsQtyLabel.textContent = `${totalItems} ${totalItems === 1 ? 'prenda seleccionada' : 'prendas seleccionadas'}`;
-
-            const subtotal = cart.reduce((acc, item) => acc + (item.product.price * item.qty), 0);
-            cartSubtotalText.textContent = formatMXN(subtotal);
-            cartTotalText.textContent = formatMXN(subtotal);
-
-            // Shipping progress bar (Free shipping over $4,500 MXN)
-            const freeShippingThreshold = 4500;
-            if (subtotal >= freeShippingThreshold) {
-                shippingProgressBar.style.width = '100%';
-                shippingProgressText.innerHTML = `<span class="text-olive font-semibold">¡Felicidades! Calificas para envío gratis asegurado</span>`;
-                cartShippingText.textContent = 'Gratis';
-            } else if (subtotal > 0) {
-                const remaining = freeShippingThreshold - subtotal;
-                const percent = Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100));
-                shippingProgressBar.style.width = `${percent}%`;
-                shippingProgressText.innerHTML = `Agrega <strong class="text-brokenwhite">${formatMXN(remaining)}</strong> más para envío de cortesía`;
-                cartShippingText.textContent = '$280 MXN';
-            } else {
-                shippingProgressBar.style.width = '0%';
-                shippingProgressText.textContent = 'Envío gratis a partir de $4,500 MXN';
-                cartShippingText.textContent = 'Calculado al pagar';
-            }
-
-            // Render cart items
-            if (cart.length === 0) {
-                cartItemsList.innerHTML = `
-          <div class="h-64 flex flex-col items-center justify-center text-center text-ash space-y-3">
-            <svg class="w-10 h-10 text-basegray stroke-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.19-.578-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
-            </svg>
-            <p class="text-xs uppercase tracking-widest">Tu bolsa está vacía actualmente</p>
-            <a href="#catalogo" onclick="closeCartDrawer()" class="text-xs text-olive underline uppercase tracking-wider">Ver colecciones</a>
-          </div>
-        `;
-                document.getElementById('checkout-whatsapp-btn').disabled = true;
-                document.getElementById('checkout-whatsapp-btn').classList.add('opacity-50', 'cursor-not-allowed');
-            } else {
-                document.getElementById('checkout-whatsapp-btn').disabled = false;
-                document.getElementById('checkout-whatsapp-btn').classList.remove('opacity-50', 'cursor-not-allowed');
-
-                cartItemsList.innerHTML = cart.map((item, idx) => `
-          <div class="flex gap-4 p-3 bg-carbon-dark/50 rounded-lg border border-carbon-light/30">
-            <img src="${item.product.images[0]}" alt="${item.product.name}" class="w-20 h-24 object-cover rounded bg-carbon">
-            <div class="flex-1 flex flex-col justify-between py-0.5">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h5 class="text-xs font-medium text-brokenwhite leading-tight">${item.product.name}</h5>
-                  <p class="text-[11px] text-basegray">Talla: <span class="text-ash font-mono">${item.size}</span></p>
-                </div>
-                <button onclick="removeFromCart(${idx})" class="text-basegray hover:text-red-400 p-1" title="Eliminar">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-              </div>
-
-              <div class="flex items-center justify-between mt-2">
-                <!-- Quantity buttons -->
-                <div class="flex items-center border border-carbon-light/60 rounded px-2 py-0.5 bg-carbon">
-                  <button onclick="updateCartQty(${idx}, -1)" class="text-ash hover:text-brokenwhite text-xs px-1">-</button>
-                  <span class="text-xs font-mono px-2 text-brokenwhite">${item.qty}</span>
-                  <button onclick="updateCartQty(${idx}, 1)" class="text-ash hover:text-brokenwhite text-xs px-1">+</button>
-                </div>
-                <span class="text-xs font-mono text-brokenwhite">${formatMXN(item.product.price * item.qty)}</span>
-              </div>
-            </div>
-          </div>
-        `).join('');
-            }
-        }
-
-        function openCartDrawer() {
-            cartDrawerContainer.classList.remove('pointer-events-none', 'opacity-0');
-            cartDrawerContainer.classList.add('pointer-events-auto', 'opacity-100');
-            cartDrawer.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeCartDrawer() {
-            cartDrawer.classList.add('translate-x-full');
-            cartDrawerContainer.classList.remove('pointer-events-auto', 'opacity-100');
-            cartDrawerContainer.classList.add('pointer-events-none', 'opacity-0');
-            document.body.style.overflow = '';
-        }
-
-        // --- CHECKOUT SIMULATION & WHATSAPP ORDERS ---
-        function checkoutViaWhatsApp() {
-            if (cart.length === 0) return;
-
-            const subtotal = cart.reduce((acc, item) => acc + (item.product.price * item.qty), 0);
-            let message = `*ORDEN DE COMPRA — FOUND IN ASIA MX*\n`;
-            message += `--------------------------------------\n`;
-            cart.forEach((item, i) => {
-                message += `${i + 1}. ${item.product.name} (Talla: ${item.size}) x${item.qty} — ${formatMXN(item.product.price * item.qty)}\n`;
-            });
-            message += `--------------------------------------\n`;
-            message += `*Total estimado:* ${formatMXN(subtotal)}\n`;
-            message += `*Solicito confirmación de inventario y datos para transferencia/tarjeta.*\n`;
-            message += `Ciudad de entrega en México: [Favor de especificar]`;
-
-            window.open(`https://wa.me/525589201204?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        function simulateDirectCheckout() {
-            if (cart.length === 0) return;
-            closeCartDrawer();
-            showToast("Conectando con la pasarela bancaria segura...");
-            setTimeout(() => {
-                showToast("¡Pedido simulado con éxito! Recibirás confirmación por correo.");
-                cart = [];
-                updateCartUI();
-            }, 1400);
-        }
-
-        // --- TOAST NOTIFICATIONS (No alert()) ---
-        let toastTimeout;
-        function showToast(msg) {
-            clearTimeout(toastTimeout);
-            toastMessage.textContent = msg;
-            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            toastTimeout = setTimeout(() => {
-                toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-                toast.classList.remove('translate-y-0', 'opacity-100');
-            }, 3000);
-        }
-
-        // --- NEWSLETTER ---
-        function handleNewsletter(e) {
-            e.preventDefault();
-            const input = document.getElementById('newsletter-email');
-            const feedback = document.getElementById('newsletter-feedback');
-            if (input.value) {
-                feedback.classList.remove('hidden');
-                input.value = '';
-                showToast("Bienvenido al círculo privado de Found in Asia MX");
-            }
-        }
-
-        // --- EVENT LISTENERS INITIALIZATION ---
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            updateCartUI();
-
-            // Mobile Menu
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const closeMobileBtn = document.getElementById('close-mobile-menu-btn');
-            const mobileDrawer = document.getElementById('mobile-menu-drawer');
-            const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
-
-            const toggleMobileNav = (open) => {
-                if (open) {
-                    mobileDrawer.classList.remove('-translate-x-full');
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    mobileDrawer.classList.add('-translate-x-full');
-                    document.body.style.overflow = '';
-                }
-            };
-
-            mobileBtn.addEventListener('click', () => toggleMobileNav(true));
-            closeMobileBtn.addEventListener('click', () => toggleMobileNav(false));
-            mobileBackdrop.addEventListener('click', () => toggleMobileNav(false));
-            document.querySelectorAll('.mobile-nav-link').forEach(l => {
-                l.addEventListener('click', () => toggleMobileNav(false));
-            });
-
-            // Cart Drawer Trigger
-            document.getElementById('cart-toggle-btn').addEventListener('click', openCartDrawer);
-            document.getElementById('close-cart-btn').addEventListener('click', closeCartDrawer);
-            cartBackdrop.addEventListener('click', closeCartDrawer);
-
-            // Search toggle
-            const searchToggle = document.getElementById('search-toggle-btn');
-            const searchContainer = document.getElementById('search-bar-container');
-            const searchInput = document.getElementById('search-input');
-            const clearSearch = document.getElementById('clear-search-btn');
-
-            searchToggle.addEventListener('click', () => {
-                searchContainer.classList.toggle('hidden');
-                if (!searchContainer.classList.contains('hidden')) {
-                    searchInput.focus();
-                }
-            });
-
-            clearSearch.addEventListener('click', () => {
-                searchContainer.classList.add('hidden');
-                searchQuery = '';
-                searchInput.value = '';
-                renderProducts();
-            });
-
-            searchInput.addEventListener('input', (e) => {
-                searchQuery = e.target.value.trim();
-                renderProducts();
-            });
-
-            // Quick View Backdrop click
-            document.getElementById('quickview-backdrop').addEventListener('click', closeQuickView);
-
-            // Wishlist open
-            document.getElementById('wishlist-btn').addEventListener('click', () => {
-                if (wishlist.size === 0) {
-                    showToast("Aún no tienes piezas guardadas en tu lista de deseos");
-                } else {
-                    showToast(`Tienes ${wishlist.size} piezas en tu lista de deseos`);
-                    // Filter to show only wishlisted
-                    const wishlistedItems = PRODUCTS.filter(p => wishlist.has(p.id));
-                    displayedCountEl.textContent = wishlistedItems.length;
-                    gridContainer.innerHTML = wishlistedItems.map(p => {
-                        return `
-              <div class="product-card group flex flex-col justify-between">
-                <div>
-                  <div class="product-img-wrapper rounded-lg mb-4 cursor-pointer relative bg-carbon" onclick="openQuickView('${p.id}')">
-                    <img src="${p.images[0]}" alt="${p.name}" class="product-img-primary" onerror="this.src='https://placehold.co/600x800/1E2226/F8FAFC?text=${encodeURIComponent(p.name)}'">
-                    <img src="${p.images[1]}" alt="${p.name} detalle" class="product-img-secondary" onerror="this.src='${p.images[0]}'">
-                  </div>
-                  <h4 onclick="openQuickView('${p.id}')" class="text-sm text-brokenwhite cursor-pointer hover:text-olive">${p.name}</h4>
-                  <p class="text-xs text-ash">${p.subtitle}</p>
-                </div>
-                <div class="pt-3 mt-1 flex items-center justify-between border-t border-carbon-light/30">
-                  <span class="text-xs font-mono text-brokenwhite">${formatMXN(p.price)}</span>
-                  <button onclick="quickAddToBag('${p.id}')" class="text-[11px] uppercase tracking-wider text-olive hover:text-brokenwhite">Añadir +</button>
-                </div>
-              </div>
-            `;
-                    }).join('');
-                }
-            });
-        });
-    </script>
+    <script src="./js/config/supabase.js"></script>
+    <script src="./js/models/cartModel.js"></script>
+    <script src="./js/models/productModel.js"></script>
+    <script src="./js/controllers/catalogCtrl.js"></script>
 </body>
 
 </html>
