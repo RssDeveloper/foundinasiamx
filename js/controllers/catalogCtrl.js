@@ -43,6 +43,12 @@
                 } else if (['./about', '/about', 'about'].includes(path)) {
                     e.preventDefault();
                     window.location.href = './about.html' + qStr;
+                } else if (['./404', '/404', '404'].includes(path)) {
+                    e.preventDefault();
+                    window.location.href = './404.html' + qStr;
+                } else if (['./500', '/500', '500'].includes(path)) {
+                    e.preventDefault();
+                    window.location.href = './500.html' + qStr;
                 }
             });
         }

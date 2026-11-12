@@ -29,6 +29,16 @@
   to = "/about.html"
   status = 200
 
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 200
+
+[[redirects]]
+  from = "/500"
+  to = "/500.html"
+  status = 200
+
 # Redirecciones canónicas forzadas 301 para URLs con extensión .html
 [[redirects]]
   from = "/the-finds.html"
@@ -59,6 +69,24 @@
   to = "/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/404.html"
+  to = "/404"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/500.html"
+  to = "/500"
+  status = 301
+  force = true
+
+# Fallback 404 para cualquier ruta no encontrada
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
 # Cabeceras de seguridad
 [[headers]]

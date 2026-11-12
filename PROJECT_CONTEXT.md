@@ -16,6 +16,9 @@ Fuente de verdad técnica para desarrolladores y agentes de inteligencia artific
   3. **Personal Sourcing (`personal-sourcing.html`)**: Explicación paso a paso del servicio de búsqueda a medida en Tokio y Seúl, esquema transparente de honorarios (15%-20%), y formulario interactivo con soporte de pre-llenado (`?piece=...` o `?destination=...`) conectado directamente a WhatsApp Concierge.
   4. **Destinations (`destinations.html`)**: Itinerario de expediciones y drops con fechas confirmadas (Tokio & Niigata, Seúl Minimalist, Kioto & Osaka Tour), rutas de distritos, enfoque de prendas, reglas de encargo y botones de encargo directo por viaje.
   5. **Quiénes Somos / About (`about.html`)**: Historia, trayectoria y visión de Omar (fundador y personal shopper), viajes de búsqueda presencial de piezas de colección y moda vintage de autor en Japón y Corea del Sur, logística express asegurada con DHL Express a México (cero sorpresas arancelarias), y reserva de fitting privado en el Atelier de Roma Norte CDMX.
+  6. **Vistas de Error de Lujo**:
+     - **`404.html` (Pieza Fuera de Ruta / 404 Not Found)**: Vista editorial elegante que guía al usuario cuando una página o prenda no existe, con botones de rescate hacia The Finds, Inicio y WhatsApp Concierge, más 4 tarjetas de acceso directo.
+     - **`500.html` (Interrupción Técnica / 500 Server Error)**: Vista de contingencia con mensaje de tranquilidad, botón de recarga asistida y enlace directo a WhatsApp.
 - **Stack Tecnológico**:
   - **Estructura**: HTML5 Semántico (Regla Inquebrantable: Cero CSS en HTML, cero atributos `style=""`).
   - **Estilos**: Tailwind CSS (Play CDN con configuración previa síncrona `js/config/tailwind.config.js`) + Hojas maestras externas exclusivas (`css/main.css` y `css/components.css`).
@@ -38,6 +41,8 @@ foundinasiamx/
 ├── personal-sourcing.html      # Vista 3: Concierge y Formulario a medida (URL limpia: /personal-sourcing)
 ├── destinations.html           # Vista 4: Itinerario de Viajes y Calendario (URL limpia: /destinations)
 ├── about.html                  # Vista 5: Filosofía, Logística México & Atelier CDMX (URL limpia: /about)
+├── 404.html                    # Vista Error 404: Pieza Fuera de Ruta / Not Found (URL: /404)
+├── 500.html                    # Vista Error 500: Interrupción Técnica Temporal (URL: /500)
 ├── css/                        # Hojas de estilo externas exclusivas
 │   ├── main.css                # Variables CSS, reset, scrollbars y utilidades globales
 │   └── components.css          # Tarjetas de producto, flip de imagen, modales y drawer
