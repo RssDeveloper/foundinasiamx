@@ -171,3 +171,15 @@ button, a {
     transform: rotate(180deg) !important;
 }
 
+/* 13. Luxury Cookie Consent Banner */
+#cookie-consent-banner {
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#cookie-consent-banner.cookie-hidden {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
+    pointer-events: none !important;
+}
+
+
