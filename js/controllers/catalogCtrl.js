@@ -7,8 +7,11 @@
 // --- ENRUTAMIENTO LIMPIO: PRETTY URLS SIN EXTENSIÓN .HTML ---
 (function initPrettyRouting() {
     try {
-        if (window.location.protocol !== 'file:') {
-            // En servidores web (Netlify, localhost, producción): eliminar .html de la barra de direcciones
+        const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        const isFile = window.location.protocol === 'file:';
+
+        // En servidores web (Netlify, localhost, producción): eliminar .html de la barra de direcciones
+        if (!isFile) {
             const path = window.location.pathname;
             if (path.endsWith('.html')) {
                 let cleanPath = path.replace(/\.html$/, '');
@@ -18,8 +21,10 @@
                 const cleanUrl = cleanPath + window.location.search + window.location.hash;
                 window.history.replaceState(window.history.state, '', cleanUrl);
             }
-        } else {
-            // Compatibilidad universal para apertura directa en local (file:///)
+        }
+
+        // Compatibilidad universal para entornos sin reescritura nativa (Live Server en localhost o file://)
+        if (isFile || isLocalhost) {
             document.addEventListener('click', (e) => {
                 const a = e.target.closest('a[href]');
                 if (!a) return;
@@ -28,27 +33,34 @@
 
                 const [path, query] = href.split('?');
                 const qStr = query ? `?${query}` : '';
-                if (path === './' || path === '/' || path === '.') {
+                
+                const routeMap = {
+                    './': './index.html',
+                    '/': './index.html',
+                    '.': './index.html',
+                    './the-finds': './the-finds.html',
+                    '/the-finds': './the-finds.html',
+                    'the-finds': './the-finds.html',
+                    './personal-sourcing': './personal-sourcing.html',
+                    '/personal-sourcing': './personal-sourcing.html',
+                    'personal-sourcing': './personal-sourcing.html',
+                    './destinations': './destinations.html',
+                    '/destinations': './destinations.html',
+                    'destinations': './destinations.html',
+                    './about': './about.html',
+                    '/about': './about.html',
+                    'about': './about.html',
+                    './404': './404.html',
+                    '/404': './404.html',
+                    '404': './404.html',
+                    './500': './500.html',
+                    '/500': './500.html',
+                    '500': './500.html'
+                };
+
+                if (routeMap[path]) {
                     e.preventDefault();
-                    window.location.href = './index.html' + qStr;
-                } else if (['./the-finds', '/the-finds', 'the-finds'].includes(path)) {
-                    e.preventDefault();
-                    window.location.href = './the-finds.html' + qStr;
-                } else if (['./personal-sourcing', '/personal-sourcing', 'personal-sourcing'].includes(path)) {
-                    e.preventDefault();
-                    window.location.href = './personal-sourcing.html' + qStr;
-                } else if (['./destinations', '/destinations', 'destinations'].includes(path)) {
-                    e.preventDefault();
-                    window.location.href = './destinations.html' + qStr;
-                } else if (['./about', '/about', 'about'].includes(path)) {
-                    e.preventDefault();
-                    window.location.href = './about.html' + qStr;
-                } else if (['./404', '/404', '404'].includes(path)) {
-                    e.preventDefault();
-                    window.location.href = './404.html' + qStr;
-                } else if (['./500', '/500', '500'].includes(path)) {
-                    e.preventDefault();
-                    window.location.href = './500.html' + qStr;
+                    window.location.href = routeMap[path] + qStr;
                 }
             });
         }
@@ -1528,6 +1540,49 @@ function initListeners() {
                 if (mobileFindsChevron) mobileFindsChevron.classList.remove('rotate-180');
                 mobileFindsToggle.setAttribute('aria-expanded', 'false');
             }
+        });
+    }
+
+    // Dropdown Desktop The Finds (Click exclusivo para desplegar opciones sin navegar a ninguna dirección)
+    const desktopFindsBtn = document.getElementById('desktop-the-finds-btn');
+    const desktopFindsContainer = document.getElementById('desktop-the-finds-container');
+
+    if (desktopFindsBtn && desktopFindsContainer) {
+        desktopFindsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const isOpen = desktopFindsContainer.classList.contains('is-open');
+            if (isOpen) {
+                desktopFindsContainer.classList.remove('is-open');
+                desktopFindsBtn.setAttribute('aria-expanded', 'false');
+            } else {
+                desktopFindsContainer.classList.add('is-open');
+                desktopFindsBtn.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Cerrar al hacer clic fuera del dropdown
+        document.addEventListener('click', (e) => {
+            if (!desktopFindsContainer.contains(e.target)) {
+                desktopFindsContainer.classList.remove('is-open');
+                desktopFindsBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && desktopFindsContainer.classList.contains('is-open')) {
+                desktopFindsContainer.classList.remove('is-open');
+                desktopFindsBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Cerrar al hacer clic en cualquiera de las opciones
+        desktopFindsContainer.querySelectorAll('.desktop-nav-cat-link').forEach(link => {
+            link.addEventListener('click', () => {
+                desktopFindsContainer.classList.remove('is-open');
+                desktopFindsBtn.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 

@@ -68,31 +68,31 @@
                     <a href="./"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Inicio</a>
 
-                    <!-- The Finds con Dropdown Desktop -->
-                    <div class="relative group py-2">
-                        <a href="./the-finds?cat=available"
-                            class="hover:text-brokenwhite transition-colors border-b-2 border-transparent hover:border-olive flex items-center gap-1">
+                    <!-- The Finds con Dropdown Desktop (Click exclusivo para desplegar opciones sin navegar) -->
+                    <div class="relative py-2 desktop-dropdown-container" id="desktop-the-finds-container">
+                        <button type="button" id="desktop-the-finds-btn" data-action="toggle-desktop-dropdown"
+                            aria-expanded="false" aria-haspopup="true"
+                            class="hover:text-brokenwhite transition-colors border-b-2 border-transparent hover:border-olive flex items-center gap-1 cursor-pointer focus:outline-none select-none">
                             <span>The Finds</span>
-                            <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3 h-3 opacity-60 desktop-dropdown-chevron transition-transform duration-200 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
-                        </a>
+                        </button>
                         <!-- Dropdown Desktop para The Finds -->
-                        <div class="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
+                        <div id="desktop-the-finds-dropdown" class="desktop-dropdown-menu absolute top-full left-0 pt-2 opacity-0 pointer-events-none transition-all duration-200 z-50">
                             <div class="w-48 bg-carbon rounded-xl border border-carbon-light shadow-xl p-2 space-y-1">
-                                <a href="./the-finds?cat=available"
-                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                <a href="./the-finds?cat=available" data-action="nav-filter-cat" data-cat="available"
+                                    class="desktop-nav-cat-link block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Available
                                 </a>
-                                <a href="./the-finds?cat=on-request"
-                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                <a href="./the-finds?cat=on-request" data-action="nav-filter-cat" data-cat="on-request"
+                                    class="desktop-nav-cat-link block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Source on Request
                                 </a>
-                                <a href="./the-finds?cat=archive"
-                                    class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
+                                <a href="./the-finds?cat=archive" data-action="nav-filter-cat" data-cat="archive"
+                                    class="desktop-nav-cat-link block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Archive
                                 </a>
-
                             </div>
                         </div>
                     </div>
