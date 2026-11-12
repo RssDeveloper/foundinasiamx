@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Filosofía, Envíos & Atelier Privado CDMX | FOUND IN ASIA MX</title>
-    <meta name="description" content="Conoce la historia detrás de FOUND IN ASIA MX: nuestra filosofía de piezas de archivo en Japón y Corea, logística de envíos asegurados a México y citas en nuestro Atelier de Roma Norte.">
+    <title>Quiénes Somos — Omar, Trayectoria & Filosofía | FOUND IN ASIA MX</title>
+    <meta name="description" content="Conoce la historia detrás de FOUND IN ASIA MX: Omar, su fundador, sus viajes de búsqueda de moda vintage y piezas de diseñador en Japón y Corea, y el concierge de personal shopping en México.">
     <link rel="canonical" href="https://foundinasiamx.com/about">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -14,15 +14,22 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="About & Atelier CDMX | FOUND IN ASIA MX">
-    <meta property="og:description" content="Moda de archivo de Japón y Corea del Sur. Envíos asegurados DHL a todo México y citas privadas en Roma Norte CDMX.">
+    <meta property="og:title" content="Quiénes Somos & Omar | FOUND IN ASIA MX">
+    <meta property="og:description" content="Conoce a Omar, fundador de FOUND IN ASIA MX. Búsqueda presencial de moda vintage y piezas de diseñador en Japón y Corea del Sur con fitting en Roma Norte CDMX.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85">
+
+    <!-- Favicons & Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="manifest" href="./site.webmanifest">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -58,12 +65,12 @@
 
                 <!-- Menú Desktop Unificado con TODAS las secciones en pequeño -->
                 <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[10px] xl:text-[11px] tracking-[0.16em] uppercase font-medium text-ash">
-                    <a href="./index.html"
+                    <a href="./"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Inicio</a>
 
                     <!-- The Finds con Dropdown Desktop -->
                     <div class="relative group py-2">
-                        <a href="./the-finds.html?cat=available"
+                        <a href="./the-finds?cat=available"
                             class="hover:text-brokenwhite transition-colors border-b-2 border-transparent hover:border-olive flex items-center gap-1">
                             <span>The Finds</span>
                             <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,15 +80,15 @@
                         <!-- Dropdown Desktop para The Finds -->
                         <div class="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
                             <div class="w-48 bg-carbon rounded-xl border border-carbon-light shadow-xl p-2 space-y-1">
-                                <a href="./the-finds.html?cat=available"
+                                <a href="./the-finds?cat=available"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Available
                                 </a>
-                                <a href="./the-finds.html?cat=on-request"
+                                <a href="./the-finds?cat=on-request"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Source on Request
                                 </a>
-                                <a href="./the-finds.html?cat=archive"
+                                <a href="./the-finds?cat=archive"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Archive
                                 </a>
@@ -90,20 +97,20 @@
                         </div>
                     </div>
 
-                    <a href="./personal-sourcing.html"
+                    <a href="./personal-sourcing"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Personal Sourcing</a>
 
-                    <a href="./destinations.html"
+                    <a href="./destinations"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Destinations</a>
 
-                    <a href="./about.html"
-                        class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">About</a>
+                    <a href="./about"
+                        class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">Quiénes Somos</a>
                 </nav>
             </div>
 
             <!-- Center: Logo Oficial con Fondo Transparente Centrado -->
             <div class="flex items-center justify-center">
-                <a href="./index.html" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
+                <a href="./" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
                     <img src="./logo.png?v=3"
                         alt="FOUND IN ASIA"
                         class="h-7 sm:h-8 md:h-9 w-auto max-w-[120px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105" />
@@ -171,7 +178,7 @@
         class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden flex">
         <div class="w-full max-w-sm sm:max-w-md bg-carbon-dark h-full border-r border-carbon-light p-6 flex flex-col justify-between overflow-y-auto no-scrollbar shadow-2xl">
             <div>
-                <!-- Top Bar: = | FOUND IN ASIA | 🔍 -->
+                <!-- Top Bar: Mobile Menu Trigger | LOGO | Cart Trigger -->
                 <div class="flex items-center justify-between pb-5 border-b border-carbon-light/80">
                     <button id="close-mobile-menu-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Cerrar menú móvil">
                         <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,7 +203,7 @@
 
                     <nav class="flex flex-col text-sm sm:text-base">
                         <!-- Home -->
-                        <a href="./index.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Home</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -213,7 +220,7 @@
                             </button>
                             <!-- Submenús que se despliegan al picarle a The Finds -->
                             <div id="mobile-the-finds-submenu" class="hidden pb-3 pt-1 pl-3 my-1 ml-2 border-l-2 border-carbon-light/70 flex flex-col space-y-1">
-                                <a href="./the-finds.html?cat=available" data-cat="available"
+                                <a href="./the-finds?cat=available" data-cat="available"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -223,7 +230,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </a>
-                                <a href="./the-finds.html?cat=on-request" data-cat="on-request"
+                                <a href="./the-finds?cat=on-request" data-cat="on-request"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -233,7 +240,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </a>
-                                <a href="./the-finds.html?cat=archive" data-cat="archive"
+                                <a href="./the-finds?cat=archive" data-cat="archive"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -248,7 +255,7 @@
                         </div>
 
                         <!-- Personal Sourcing -->
-                        <a href="./personal-sourcing.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./personal-sourcing" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Personal Sourcing</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -256,16 +263,16 @@
                         </a>
 
                         <!-- Destinations -->
-                        <a href="./destinations.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./destinations" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Destinations</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </a>
 
-                        <!-- About -->
-                        <a href="./about.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-olive font-semibold transition-colors group">
-                            <span class="font-normal tracking-wide">About / How It Works</span>
+                        <!-- Quiénes Somos -->
+                        <a href="./about" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-olive font-semibold transition-colors group">
+                            <span class="font-normal tracking-wide">Quiénes Somos</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
@@ -291,7 +298,7 @@
 
         <!-- Enlace de Retorno al Home Principal -->
         <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 pb-2">
-            <a href="./index.html" class="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors group">
+            <a href="./" class="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors group">
                 <span class="p-1 rounded-full border border-carbon-light group-hover:border-olive group-hover:bg-olive/10 transition-colors">
                     <svg class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
@@ -301,162 +308,258 @@
             </a>
         </div>
 
-        <!-- Header Editorial -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-12 pb-16 lg:py-20 border-b border-carbon-light/50">
-            <div class="max-w-4xl space-y-6">
+        <!-- Header Editorial: Quiénes Somos -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-10 pb-12 lg:py-16 border-b border-carbon-light/50">
+            <div class="max-w-4xl space-y-4">
                 <div class="flex items-center gap-3">
-                    <span class="w-8 h-[1px] bg-olive"></span>
-                    <span class="text-xs uppercase tracking-ultra text-olive font-medium">
-                        About
+                    <span class="w-6 h-[1.5px] bg-olive"></span>
+                    <span class="text-xs uppercase tracking-widest text-olive font-semibold">
+                        Quiénes Somos • Piezas de Colección & Moda Vintage de Autor
                     </span>
                 </div>
 
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-editorial font-light text-brokenwhite leading-[1.1]">
-                    Información de la marca,<br>
-                    <span class="italic font-normal">proceso de compra y entregas aseguradas.</span>
-                </h2>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-editorial font-medium text-brokenwhite leading-[1.1]">
+                    Quiénes Somos.<br>
+                    <span class="text-olive font-normal">La visión, viajes y hallazgos únicos de Omar.</span>
+                </h1>
 
-                <p class="text-sm sm:text-base text-ash font-light max-w-2xl leading-relaxed">
-                    FOUND IN ASIA MX es el puente directo entre el coleccionismo de archivo asiático y México. Conoce nuestra filosofía, la metodología de compra presencial in situ y las garantías logísticas de importación express hasta tu puerta.
+                <p class="text-sm sm:text-base text-ash font-normal max-w-2xl leading-relaxed">
+                    Found in Asia MX es el proyecto personal de Omar: un puente directo entre boutiques vintage exclusivas en Tokio, estudios vanguardistas de Seúl y amantes de la moda de diseñador en México. Sin intermediarios ni producción en masa; solo piezas únicas de autor encontradas in situ con devoción.
                 </p>
             </div>
         </section>
 
-        <!-- Filosofía: Por qué Japón y Corea -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24 border-b border-carbon-light/50">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="space-y-6">
-                    <span class="text-[11px] uppercase tracking-ultra text-basegray block">Nuestra Razón de Ser</span>
-                    <h3 class="text-3xl sm:text-4xl font-editorial font-light text-brokenwhite leading-snug">
-                        La devoción por la pieza auténtica e irrepetible.
-                    </h3>
-                    <p class="text-sm text-ash font-light leading-relaxed">
-                        Japón y Corea del Sur representan la cúspide mundial de la apreciación textil, los vinilos de alta fidelidad y el coleccionismo de autor. En Tokio, las piezas de archivo se conservan bajo condiciones impecables; mientras que en Seúl y Kioto, los estudios independientes producen objetos de culto que no llegan al circuito comercial masivo.
-                    </p>
-                    <p class="text-sm text-ash font-light leading-relaxed">
-                        No somos una tienda de reventa genérica. Viajamos en persona, inspeccionamos cada vinilo, costura, calzado o juguete de colección bajo luz natural y seleccionamos únicamente aquellas piezas que merecen ser adquiridas y disfrutadas en México.
-                    </p>
-                    <div class="pt-4 grid grid-cols-2 gap-6 border-t border-carbon-light/60">
-                        <div>
-                            <span class="text-2xl font-mono text-olive font-light">100%</span>
-                            <p class="text-xs text-ash mt-1">Autenticidad inspeccionada bajo luz natural</p>
+        <!-- Bloque Principal: Omar, el Fundador y la Historia -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16 border-b border-carbon-light/50">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                
+                <!-- Columna Izquierda: Historia, Pasión y Perfil de Omar -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="space-y-2">
+                        <span class="text-xs uppercase tracking-widest text-olive font-semibold block">El Fundador & Personal Shopper</span>
+                        <h2 class="text-2xl sm:text-4xl font-editorial font-medium text-brokenwhite leading-tight">
+                            Omar y la devoción por la prenda única y auténtica.
+                        </h2>
+                    </div>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-ash font-normal leading-relaxed">
+                        <p>
+                            Detrás de cada hallazgo, cada recomendación y cada envío de Found in Asia MX está la mirada y el criterio personal de <strong class="text-brokenwhite font-semibold">Omar</strong>. Apasionado por la historia de la moda japonesa, el patronaje de vanguardia y la confección textil de autor, Omar transformó sus expediciones recurrentes por Asia en un servicio de personal shopping exclusivo para quienes buscan prendas irrepetibles de diseñador en México.
+                        </p>
+                        <p>
+                            Su trayectoria comenzó coleccionando piezas de diseñadores que redefinieron la moda global: Yohji Yamamoto, Rei Kawakubo (Comme des Garçons), Issey Miyake y Junya Watanabe. Con los años, esa búsqueda se expandió a la exploración minuciosa de tiendas vintage ocultas, colecciones privadas en Tokio y talleres artesanales independientes de Seúl, Kioto y Niigata.
+                        </p>
+                        <p>
+                            Para Omar, el verdadero lujo no son las tendencias efímeras ni la producción masiva: son las piezas con historia, confección de autor, materiales nobles y un diseño que trasciende las épocas.
+                        </p>
+                    </div>
+
+                    <!-- Métricas de Confianza / Sellos de Experiencia de Omar -->
+                    <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-carbon-light/60">
+                        <div class="bg-carbon p-4 rounded-xl border border-carbon-light">
+                            <span class="text-xl sm:text-2xl font-mono text-olive font-semibold block">+8 Años</span>
+                            <p class="text-[11px] text-ash mt-1">Especialización en moda vintage y diseño asiático</p>
                         </div>
-                        <div>
-                            <span class="text-2xl font-mono text-olive font-light">0</span>
-                            <p class="text-xs text-ash mt-1">Sorpresas arancelarias o cargos no especificados</p>
+                        <div class="bg-carbon p-4 rounded-xl border border-carbon-light">
+                            <span class="text-xl sm:text-2xl font-mono text-olive font-semibold block">100%</span>
+                            <p class="text-[11px] text-ash mt-1">Búsqueda e inspección física por Omar</p>
+                        </div>
+                        <div class="bg-carbon p-4 rounded-xl border border-carbon-light">
+                            <span class="text-xl sm:text-2xl font-mono text-olive font-semibold block">15+</span>
+                            <p class="text-[11px] text-ash mt-1">Expediciones completadas en Japón & Corea</p>
+                        </div>
+                        <div class="bg-carbon p-4 rounded-xl border border-carbon-light">
+                            <span class="text-xl sm:text-2xl font-mono text-olive font-semibold block">1-a-1</span>
+                            <p class="text-[11px] text-ash mt-1">Trato directo con el fundador vía WhatsApp</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tarjeta Editorial de Marca -->
-                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-studiogray border border-carbon-light shadow-2xl p-6 sm:p-8 flex flex-col justify-between group">
-                    <img src="./find-006-sapporo-japan.jpeg"
-                        alt="Vintage Citizen Watch — Relojería Japonesa Found in Asia"
-                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        loading="lazy" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-carbon-dark/95 via-transparent to-carbon-dark/70 pointer-events-none"></div>
+                <!-- Columna Derecha: Tarjeta Visual Editorial de Omar y las Expediciones -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden aspect-[4/5] bg-studiogray border border-carbon-light shadow-xl p-6 sm:p-8 flex flex-col justify-between group">
+                        <img src="./find-005-tokyo-japan.jpeg"
+                            alt="Omar en Tokio Japón — Expediciones y búsqueda presencial de moda vintage de autor"
+                            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-carbon-dark/60 via-transparent to-carbon-dark/40 pointer-events-none"></div>
 
-                    <div class="relative z-10 flex items-center justify-between border-b border-white/20 pb-4 pointer-events-none">
-                        <span class="text-[10px] uppercase font-mono tracking-widest text-olive font-semibold">Inspección En Mano</span>
-                        <span class="text-xs text-white/90 font-mono">Sapporo • Find 006</span>
+                        <!-- Top Badge -->
+                        <div class="relative z-10 flex items-center justify-between border-b border-white/20 pb-3 pointer-events-none">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-olive font-semibold">Búsqueda Presencial</span>
+                            <span class="text-xs text-white/90 font-mono">Tokio • Seúl • Kioto</span>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="relative z-10 p-4 rounded-xl bg-carbon-dark/85 backdrop-blur-md border border-white/20 text-xs text-white space-y-1.5 pointer-events-none shadow-xl">
-                        <span class="text-[10px] uppercase font-mono tracking-widest text-olive block">Sello de Autenticidad</span>
-                        <h4 class="text-base font-editorial text-brokenwhite">Validación y Trazabilidad Directa</h4>
-                        <p class="font-light text-ash">"Comprar una pieza de archivo en Found in Asia es adquirir autenticidad verificada presencialmente en origen."</p>
+            </div>
+        </section>
+
+        <!-- Sección: Los Viajes de Omar y las Rutas de Sourcing -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16 border-b border-carbon-light/50">
+            <div class="max-w-3xl mb-10 space-y-2">
+                <span class="text-xs uppercase tracking-widest text-olive font-semibold block">Las Expediciones</span>
+                <h2 class="text-2xl sm:text-3xl font-editorial font-medium text-brokenwhite">
+                    Los viajes de Omar: Rutas in situ por Asia.
+                </h2>
+                <p class="text-xs sm:text-sm text-ash font-normal leading-relaxed">
+                    La experiencia de Omar se construyó en el terreno. Cada viaje es una expedición planificada con precisión para acceder a círculos de coleccionistas locales, talleres artesanales y tiendas de ropa vintage de autor que no tienen presencia digital ni envíos fuera de Asia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Ruta 1: Tokio & Niigata -->
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light space-y-4 shadow-sm flex flex-col justify-between group hover:border-olive/60 transition-colors">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="w-8 h-8 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-xs font-semibold">01</span>
+                            <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Japón Vanguardia</span>
+                        </div>
+                        <h3 class="text-xl font-editorial font-medium text-brokenwhite">Tokio & Niigata</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Rastreo exhaustivo en los distritos de Daikanyama, Aoyama, Harajuku y Nakameguro en busca de prendas icónicas de diseñadores japoneses (80s, 90s y 2000s), complementado con visitas a tejedurías de telar lento y lana pesada en Niigata.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-carbon-light/60 text-[11px] font-mono text-olive font-medium">
+                        Diseño japonés de autor & knitwear artesanal
+                    </div>
+                </div>
+
+                <!-- Ruta 2: Seúl -->
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light space-y-4 shadow-sm flex flex-col justify-between group hover:border-olive/60 transition-colors">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="w-8 h-8 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-xs font-semibold">02</span>
+                            <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Corea Contemporánea</span>
+                        </div>
+                        <h3 class="text-xl font-editorial font-medium text-brokenwhite">Seúl Minimalista</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Inmersión en los distritos de Seongsu-dong, Hannam-dong y Dosan Park. Omar conecta directamente con creadores independientes coreanos para adquirir siluetas cocoon, patronajes andróginos y piezas de cuero contemporáneas.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-carbon-light/60 text-[11px] font-mono text-olive font-medium">
+                        Diseño arquitectónico & vanguardia urbana
+                    </div>
+                </div>
+
+                <!-- Ruta 3: Kioto, Osaka & Sapporo -->
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light space-y-4 shadow-sm flex flex-col justify-between group hover:border-olive/60 transition-colors">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="w-8 h-8 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-xs font-semibold">03</span>
+                            <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Tradición & Vintage</span>
+                        </div>
+                        <h3 class="text-xl font-editorial font-medium text-brokenwhite">Kioto, Osaka & Sapporo</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Exploración en talleres de seda Mulberry y camisería con cortes de kimono en Kioto, boutiques vintage de culto en Osaka, y orfebrería y relojería nipona clásica en el norte de Japón.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-carbon-light/60 text-[11px] font-mono text-olive font-medium">
+                        Fibras naturales, índigo & relojería de autor
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Cómo Funciona la Compra y la Logística a México -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24 border-b border-carbon-light/50">
-            <div class="mb-12">
-                <span class="text-[11px] uppercase tracking-ultra text-basegray block mb-1">Garantías y Logística</span>
-                <h3 class="text-3xl font-editorial font-light text-brokenwhite">Cómo Funciona el Envío a Todo México</h3>
+        <!-- Sección: La Experiencia de Omar para Clientes en México (Cómo Opera el Concierge) -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16 border-b border-carbon-light/50">
+            <div class="max-w-3xl mb-10 space-y-2">
+                <span class="text-xs uppercase tracking-widest text-olive font-semibold block">La Experiencia</span>
+                <h2 class="text-2xl sm:text-3xl font-editorial font-medium text-brokenwhite">
+                    Cómo trabaja Omar para ti en México.
+                </h2>
+                <p class="text-xs sm:text-sm text-ash font-normal leading-relaxed">
+                    Al solicitar una pieza o un encargo de personal sourcing, te comunicas directamente con Omar. Cada etapa está pensada para brindarte certeza absoluta, transparencia y la mejor experiencia de compra.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Tarjeta Logística 1 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-sm">
-                        DHL
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Tarjeta 1 -->
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light space-y-3 shadow-sm">
+                    <div class="w-9 h-9 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-xs font-semibold">
+                        01
                     </div>
-                    <h4 class="text-xl font-editorial text-brokenwhite">Envío DHL Express Asegurado</h4>
-                    <p class="text-xs text-ash leading-relaxed font-light">
-                        Todas las compras y encargos se despachan con DHL Express directo desde Tokio/Seúl a México con número de rastreo prioritario en tiempo real.
+                    <h3 class="text-lg font-editorial font-medium text-brokenwhite">Validación de Autenticidad</h3>
+                    <p class="text-xs text-ash leading-relaxed font-normal">
+                        Omar revisa personalmente etiquetas de época, costuras, forros y herrajes. Si una prenda de diseñador no cuenta con autenticidad comprobada o presenta dudas, no se adquiere.
                     </p>
-                    <span class="text-[11px] font-mono text-olive block pt-2">• 3 a 5 días hábiles de tránsito</span>
+                    <span class="text-[11px] font-mono text-olive block pt-1 font-medium">Inspección física y rigurosa</span>
                 </div>
 
-                <!-- Tarjeta Logística 2 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-sm">
-                        SAT
+                <!-- Tarjeta 2 -->
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light space-y-3 shadow-sm">
+                    <div class="w-9 h-9 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-xs font-semibold">
+                        02
                     </div>
-                    <h4 class="text-xl font-editorial text-brokenwhite">Despacho Aduanal Incluido</h4>
-                    <p class="text-xs text-ash leading-relaxed font-light">
-                        El precio acordado es tu precio final. Nosotros nos encargamos de todo el proceso de importación y aranceles mexicanos sin cobros sorpresa a la entrega.
+                    <h3 class="text-lg font-editorial font-medium text-brokenwhite">Logística & Aduana Asegurada</h3>
+                    <p class="text-xs text-ash leading-relaxed font-normal">
+                        Despacho directo con DHL Express asegurado desde origen o entrega inmediata en México. Gestionamos aranceles e internación aduanal: cero sorpresas ni pagos imprevistos.
                     </p>
-                    <span class="text-[11px] font-mono text-olive block pt-2">• Cero retenciones ni costos imprevistos</span>
+                    <span class="text-[11px] font-mono text-olive block pt-1 font-medium">3 a 5 días de tránsito prioritario</span>
                 </div>
 
-                <!-- Tarjeta Logística 3 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-sm">
-                        MX
+                <!-- Tarjeta 3 -->
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light space-y-3 shadow-sm">
+                    <div class="w-9 h-9 rounded-full bg-olive/10 text-olive flex items-center justify-center font-mono text-xs font-semibold">
+                        03
                     </div>
-                    <h4 class="text-xl font-editorial text-brokenwhite">Garantía de Satisfacción</h4>
-                    <p class="text-xs text-ash leading-relaxed font-light">
-                        Si la prenda disponible no se ajusta a tus medidas según la ficha técnica proporcionada, cuentas con cambio o saldo a favor sin penalización.
+                    <h3 class="text-lg font-editorial font-medium text-brokenwhite">Asesoría 1-a-1 & Fitting CDMX</h3>
+                    <p class="text-xs text-ash leading-relaxed font-normal">
+                        Fotos de detalle en alta resolución, medidas exactas en centímetros y asesoría personalizada directa con Omar vía WhatsApp, además de citas en el showroom de Roma Norte.
                     </p>
-                    <span class="text-[11px] font-mono text-olive block pt-2">• Soporte directo 1-a-1 vía WhatsApp</span>
+                    <span class="text-[11px] font-mono text-olive block pt-1 font-medium">Atención cercana y transparente</span>
                 </div>
             </div>
         </section>
 
-        <!-- Atelier Privado & Fitting Room en Roma Norte CDMX -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24">
-            <div class="bg-carbon rounded-3xl border border-carbon-light p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-12">
-                <div class="max-w-2xl space-y-6">
-                    <span class="text-[10px] uppercase font-mono tracking-ultra text-olive">Citas Presenciales • CDMX</span>
-                    <h3 class="text-3xl sm:text-4xl lg:text-5xl font-editorial font-light text-brokenwhite leading-tight">
-                        Atelier Privado & Fitting Room en Roma Norte
-                    </h3>
-                    <p class="text-sm text-ash font-light leading-relaxed">
-                        Para nuestros clientes en Ciudad de México, disponemos de un espacio de showroom privado en la colonia Roma Norte. Puedes agendar una cita individual para probarte prendas de la sección <strong class="text-brokenwhite">Available</strong>, revisar muestras textiles de nuestros viajes o planificar un encargo de Personal Sourcing tomando un café de especialidad.
+        <!-- Atelier Privado en Roma Norte CDMX -->
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16">
+            <div class="bg-carbon rounded-3xl border border-carbon-light p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm">
+                <div class="max-w-xl space-y-4">
+                    <span class="text-[10px] uppercase font-mono tracking-widest text-olive font-semibold">Showroom & Atelier • Roma Norte</span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-medium text-brokenwhite leading-tight">
+                        Fitting Privado con Omar en CDMX
+                    </h2>
+                    <p class="text-xs sm:text-sm text-ash font-normal leading-relaxed">
+                        Si estás en la Ciudad de México, agenda una sesión individual en nuestro showroom de la Roma Norte. Podrás probarte prendas de la sección <strong class="text-brokenwhite font-medium">Available</strong>, evaluar textiles en persona o revisar el itinerario del próximo viaje para coordinar un encargo a la medida con Omar.
                     </p>
-                    <div class="space-y-2 text-xs text-ash/80 border-t border-carbon-light/60 pt-4">
-                        <p>📍 Dirección: Col. Roma Norte, Cuauhtémoc, CDMX (Ubicación exacta enviada al confirmar cita)</p>
-                        <p>⏰ Horarios: Lunes a Sábado, 11:00 a 19:00 hrs (Cita previa indispensable)</p>
-                        <p>☕ Amenidad: Servicio de café de especialidad y asesoría estilística 1-a-1</p>
+                    <div class="space-y-1.5 text-xs text-ash/80 border-t border-carbon-light/60 pt-3">
+                        <p>Ubicación: Col. Roma Norte, Cuauhtémoc, CDMX</p>
+                        <p>Horario: Lunes a Sábado, previa cita coordinada vía WhatsApp</p>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto flex flex-col gap-4">
-                    <a href="https://wa.me/525589201204?text=Hola%20Found%20in%20Asia%20MX,%20quisiera%20agendar%20una%20cita%20privada%20de%20fitting%20en%20el%20Atelier%20de%20Roma%20Norte%20CDMX." target="_blank"
-                        class="px-8 py-4 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 text-center whitespace-nowrap shadow-xl shadow-olive/10">
-                        Agendar Cita en el Atelier vía WhatsApp →
+                <div class="w-full lg:w-auto flex flex-col gap-3">
+                    <a href="https://wa.me/525589201204?text=Hola%20Omar,%20estuve%20viendo%20la%20sección%20de%20Quiénes%20Somos%20en%20Found%20in%20Asia%20y%20me%20gustaría%20agendar%20una%20cita%20privada%20de%20fitting%20en%20el%20Atelier%20de%20Roma%20Norte%20CDMX." target="_blank"
+                        class="px-7 py-3.5 bg-olive hover:bg-olive-hover text-white font-semibold text-xs uppercase tracking-wider rounded-full transition-all text-center whitespace-nowrap shadow-lg shadow-olive/10 inline-flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                        </svg>
+                        <span>Agendar Cita con Omar vía WhatsApp</span>
                     </a>
-                    <a href="./the-finds.html?cat=available"
-                        class="px-8 py-4 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light font-medium text-xs uppercase tracking-widest rounded-full transition-colors text-center whitespace-nowrap">
-                        Ver Prendas Disponibles en CDMX
+                    <a href="./the-finds?cat=available"
+                        class="px-7 py-3 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light font-medium text-xs uppercase tracking-wider rounded-full transition-colors text-center whitespace-nowrap">
+                        Ver Prendas en Entrega Inmediata
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA de Regreso al Home Principal -->
+        <!-- CTA de Exploración -->
         <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pb-16">
             <div class="p-8 sm:p-10 rounded-2xl bg-carbon border border-carbon-light/60 flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div class="text-left space-y-1">
-                    <h4 class="text-xl font-editorial text-brokenwhite">¿Deseas regresar a la portada principal?</h4>
-                    <p class="text-xs text-ash">Regresa al home para conocer nuestros pilares de servicio o explorar los próximos drops.</p>
+                    <h4 class="text-xl font-editorial text-brokenwhite">¿Listo para explorar la selección actual?</h4>
+                    <p class="text-xs text-ash">Descubre las piezas disponibles en México o revisa los próximos destinos de viaje de Omar.</p>
                 </div>
-                <a href="./index.html" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-carbon-dark hover:bg-olive hover:text-carbon-dark text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest font-semibold transition-all duration-300 whitespace-nowrap">
-                    <span>← Regresar al Home Principal</span>
-                </a>
+                <div class="flex flex-wrap items-center gap-3">
+                    <a href="./the-finds?cat=available" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold transition-all shadow-md">
+                        <span>Explorar The Finds →</span>
+                    </a>
+                    <a href="./destinations" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest font-medium transition-colors">
+                        <span>Próximos Viajes</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -486,11 +589,11 @@
                 <div class="space-y-3">
                     <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Secciones</span>
                     <ul class="text-xs text-ash space-y-2.5">
-                        <li><a href="./index.html" class="hover:text-olive transition-colors">Inicio</a></li>
-                        <li><a href="./the-finds.html?cat=available" class="hover:text-olive transition-colors">The Finds (Catálogo)</a></li>
-                        <li><a href="./personal-sourcing.html" class="hover:text-olive transition-colors">Personal Sourcing</a></li>
-                        <li><a href="./destinations.html" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
-                        <li><a href="./about.html" class="hover:text-olive text-brokenwhite font-semibold transition-colors">About & Envíos</a></li>
+                        <li><a href="./" class="hover:text-olive transition-colors">Inicio</a></li>
+                        <li><a href="./the-finds?cat=available" class="hover:text-olive transition-colors">The Finds (Catálogo)</a></li>
+                        <li><a href="./personal-sourcing" class="hover:text-olive transition-colors">Personal Sourcing</a></li>
+                        <li><a href="./destinations" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
+                        <li><a href="./about" class="hover:text-olive text-brokenwhite font-semibold transition-colors">Quiénes Somos & Envíos</a></li>
                     </ul>
                 </div>
 
@@ -534,8 +637,8 @@
                     © 2026 FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="./about.html" class="hover:text-ash">Términos de Compra</a>
-                    <a href="./about.html" class="hover:text-ash">Envíos & Aduanas</a>
+                    <a href="./about" class="hover:text-ash">Términos de Compra</a>
+                    <a href="./about" class="hover:text-ash">Envíos & Aduanas</a>
                 </div>
             </div>
 
@@ -603,11 +706,10 @@
 
                 <div class="space-y-2 pt-2">
                     <button id="checkout-whatsapp-btn" data-action="checkout-whatsapp"
-                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
+                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-white text-xs uppercase tracking-wider font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
                         <span>Pedir Orden vía WhatsApp</span>
-                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.055 1.233 1.543.513.319.923.414 1.137.499.167.066.265.055.365-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
                         </svg>
                     </button>
                 </div>

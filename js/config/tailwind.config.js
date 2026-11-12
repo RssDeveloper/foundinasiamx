@@ -26,8 +26,9 @@ const fiaTailwindConfig = {
                 studiogray: '#8B8B8D'   // Gris de estudio
             },
             fontFamily: {
-                editorial: ['"Cormorant Garamond"', 'serif'],
-                sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                editorial: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+                sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+                mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
             },
             letterSpacing: {
                 ultra: '0.25em',

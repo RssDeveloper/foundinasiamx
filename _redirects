@@ -1,0 +1,17 @@
+# ==============================================================================
+# _redirects — Enrutamiento y Pretty URLs para Found in Asia MX (Netlify)
+# ==============================================================================
+
+# Reescrituras transparentes: Servir los archivos HTML bajo URLs limpias (200 OK)
+/the-finds              /the-finds.html             200
+/personal-sourcing      /personal-sourcing.html     200
+/destinations           /destinations.html          200
+/about                  /about.html                 200
+
+# Redirecciones canónicas forzadas 301 para URLs con extensión .html
+/the-finds.html         /the-finds                  301!
+/personal-sourcing.html /personal-sourcing          301!
+/destinations.html      /destinations               301!
+/about.html             /about                      301!
+/index.html             /                           301!
+

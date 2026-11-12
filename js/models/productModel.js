@@ -27,8 +27,11 @@ const THE_FINDS = [
         "description": "Prensado japonés para coleccionistas con faja OBI tradicional en caracteres japoneses. Adquirido in situ en tienda de archivo independiente de vinilos en Fukuoka.",
         "images": [
             "./find-001-fukoka-japan.jpeg",
-            "./find-001-fukoka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1542208998-f6dbbb27a72f?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.8/10 • Prensado Impecable con OBI",
+        "district": "Tenjin, Fukuoka"
     },
     {
         "id": "find-002",
@@ -49,8 +52,11 @@ const THE_FINDS = [
         "description": "Pieza de archivo de culto del streetwear japonés con capucha completa de tiburón y camuflaje característico. Verificada bajo luz natural en Shibuya, Tokio.",
         "images": [
             "./find-002-tokyo-japan.jpeg",
-            "./find-002-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.5/10 • Archivo Urahara Grado A",
+        "district": "Harajuku, Tokio"
     },
     {
         "id": "find-005",
@@ -70,8 +76,11 @@ const THE_FINDS = [
         "description": "Cojín floral icónico de Takashi Murakami en colaboración especial en paleta azul y negro. Empaque original sellado, verificado en Roppongi, Tokio.",
         "images": [
             "./find-005-tokyo-japan.jpeg",
-            "./find-005-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Sellado Deadstock con Holograma",
+        "district": "Roppongi Hills, Tokio"
     },
     {
         "id": "find-006",
@@ -91,8 +100,11 @@ const THE_FINDS = [
         "description": "Reloj mecánico vintage de manufactura japonesa con esfera plateada rayos de sol y fechador a las 3. Mecanismo revisado y funcionando con precisión cronométrica en Sapporo.",
         "images": [
             "./find-006-sapporo-japan.jpeg",
-            "./find-006-sapporo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.2/10 • Revisión Mecánica Reciente",
+        "district": "Susukino, Sapporo"
     },
     {
         "id": "find-009",
@@ -113,8 +125,11 @@ const THE_FINDS = [
         "description": "Sneaker de culto del archivo japonés Nigo-era en charol verde manzana vibrante y blanco. Estado impecable con empaque original verificado in situ en Shibuya, Tokio.",
         "images": [
             "./find-008.jpeg",
-            "./find-008.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.6/10 • Charol Sin Arrugas de Quiebre",
+        "district": "Shibuya, Tokio"
     },
     {
         "id": "find-011",
@@ -134,8 +149,11 @@ const THE_FINDS = [
         "description": "Cápsula fonocaptora de alta precisión para audiófilos fabricada en Japón. Ofrece una reproducción sonora de gama alta con separación de canales impecable para vinilos de archivo.",
         "images": [
             "./find-010.jpeg",
-            "./find-010.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Nuevo de Fábrica Sellado JDM",
+        "district": "Akihabara, Tokio"
     },
     {
         "id": "find-013",
@@ -156,8 +174,11 @@ const THE_FINDS = [
         "description": "Cardigan de lana pesada en tono carbón con costuras invertidas artesanales. Adquirido en boutique de archivo de Aoyama, Tokio.",
         "images": [
             "./find-002-tokyo-japan.jpeg",
-            "./find-002-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.4/10 • Archivo Vintage Rei Kawakubo",
+        "district": "Aoyama, Tokio"
     },
     {
         "id": "find-014",
@@ -177,8 +198,11 @@ const THE_FINDS = [
         "description": "Tapete coleccionable con la icónica silueta de tigre diseñada por Nigo. Localizado en la tienda insignia de Human Made 1928 en Kioto.",
         "images": [
             "./find-005-tokyo-japan.jpeg",
-            "./find-005-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Deadstock Sellado de Kioto",
+        "district": "Sanjo-dori, Kioto"
     },
     {
         "id": "find-015",
@@ -198,8 +222,11 @@ const THE_FINDS = [
         "description": "Versión original Fox Fire para el mercado interno japonés (JDM) con iluminación ámbar suave. Revisado e impermeabilizado en Sapporo.",
         "images": [
             "./find-006-sapporo-japan.jpeg",
-            "./find-006-sapporo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.5/10 • Pieza de Colección JDM Impecable",
+        "district": "Susukino, Sapporo"
     },
     {
         "id": "find-016",
@@ -219,8 +246,11 @@ const THE_FINDS = [
         "description": "Edición japonesa sumamente buscada de la obra maestra experimental de Radiohead. Conservada en funda plástica de archivo sin desgaste.",
         "images": [
             "./find-001-fukoka-japan.jpeg",
-            "./find-001-fukoka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.9/10 • Conservación Audiófila con OBI",
+        "district": "Oyafuko-dori, Fukuoka"
     },
     {
         "id": "find-017",
@@ -240,8 +270,11 @@ const THE_FINDS = [
         "description": "El bolso más icónico de la manufactura japonesa Porter. Confeccionado a mano en Japón siguiendo especificaciones militares de aviación.",
         "images": [
             "./find-008.jpeg",
-            "./find-008.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.7/10 • Nylon sin Marcas ni Desgaste",
+        "district": "Ginza, Tokio"
     },
     {
         "id": "find-003",
@@ -261,8 +294,11 @@ const THE_FINDS = [
         "description": "Peluche conmemorativo del rey de los monstruos con textura de escamas y etiqueta original de Toho. Adquirido en distrito de coleccionistas de Taipéi.",
         "images": [
             "./find-003-taipei-taiwan.jpeg",
-            "./find-003-taipei-taiwan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.8/10 • Colección Vintage Licenciada",
+        "district": "Ximending, Taipéi"
     },
     {
         "id": "find-007",
@@ -284,8 +320,11 @@ const THE_FINDS = [
         "description": "Playera conmemorativa de la tienda oficial Stüssy en Minami Horie, Osaka. Tipografía clásica serigrafiada al reverso en color negro sobre blanco puro.",
         "images": [
             "./find-007-osaka-japan.jpeg",
-            "./find-007-osaka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.5/10 • Sin Desvanecimiento de Tinta",
+        "district": "Minami, Osaka"
     },
     {
         "id": "find-010",
@@ -305,8 +344,11 @@ const THE_FINDS = [
         "description": "Colaboración emblemática entre Medicom Toy y A Bathing Ape con sudadera Shark Hoodie en felpa real gris y patrón multicolor. Adquisición garantizada con certificado de autenticidad en Tokio.",
         "images": [
             "./find-009.jpeg",
-            "./find-009.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Caja Sellada de Fábrica (DS)",
+        "district": "Shibuya, Tokio"
     },
     {
         "id": "find-018",
@@ -327,8 +369,11 @@ const THE_FINDS = [
         "description": "Una de las colecciones más celebradas del maestro del punk-couture japonés. Pieza convertible localizada en boutique de Harajuku.",
         "images": [
             "./find-002-tokyo-japan.jpeg",
-            "./find-002-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.6/10 • Grado A Archivo Colección",
+        "district": "Daikanyama, Tokio"
     },
     {
         "id": "find-019",
@@ -350,8 +395,11 @@ const THE_FINDS = [
         "description": "Silueta seminal de Visvim que combina técnicas nativas americanas con tecnología ergonómica japonesa de última generación.",
         "images": [
             "./find-008.jpeg",
-            "./find-008.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.8/10 • Prácticamente Nuevo con Caja",
+        "district": "Gion, Kioto"
     },
     {
         "id": "find-020",
@@ -371,8 +419,11 @@ const THE_FINDS = [
         "description": "Montura angular de la serie Bold con herrajes dorados en las patillas y estuche rígido de cuero texturizado.",
         "images": [
             "./find-004-seoul-south-korea.jpeg",
-            "./find-004-seoul-south-korea.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Nuevas con Estuche & Certificado",
+        "district": "Hannam-dong, Seúl"
     },
     {
         "id": "find-021",
@@ -393,8 +444,11 @@ const THE_FINDS = [
         "description": "Pieza emblemática de Yohji Yamamoto inspirada en la vestimenta marcial tradicional japonesa, adaptada a la sastrería urbana moderna.",
         "images": [
             "./find-007-osaka-japan.jpeg",
-            "./find-007-osaka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.7/10 • Gabardina de Lana Impecable",
+        "district": "Minami-Aoyama, Tokio"
     },
     {
         "id": "find-022",
@@ -414,8 +468,11 @@ const THE_FINDS = [
         "description": "Colaboración exclusiva de Hiroshi Fujiwara para el Thunderbolt Project. Solo distribuida en pop-ups secretos de Ginza, Tokio.",
         "images": [
             "./find-003-taipei-taiwan.jpeg",
-            "./find-003-taipei-taiwan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • DSWT con Etiquetas Japonesas",
+        "district": "Ginza Sony Park, Tokio"
     },
     {
         "id": "find-023",
@@ -435,8 +492,11 @@ const THE_FINDS = [
         "description": "Bolso técnico de la aclamada diseñadora coreana Hyein Seo, combinando funcionalidad distópica y acabados de lujo.",
         "images": [
             "./find-009.jpeg",
-            "./find-009.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.9/10 • Sin Signos de Uso",
+        "district": "Seongsu-dong, Seúl"
     },
     {
         "id": "find-024",
@@ -456,8 +516,11 @@ const THE_FINDS = [
         "description": "La edición japonesa más codiciada de Discovery, con arte gráfico original de Toei Animation y faja OBI original en impecable estado.",
         "images": [
             "./find-001-fukoka-japan.jpeg",
-            "./find-001-fukoka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1603048588665-791ca8aea617?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.8/10 • OBI Original Intacto & Foil Brillante",
+        "district": "Amerikamura, Osaka"
     },
     {
         "id": "find-025",
@@ -479,8 +542,11 @@ const THE_FINDS = [
         "description": "Obra cumbre de la división Kountry de Kapital en Okayama. Cada par requiere más de 40 horas de trabajo manual en telares centenarios.",
         "images": [
             "./find-007-osaka-japan.jpeg",
-            "./find-007-osaka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1542272604-780c96856592?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.6/10 • Pieza Artesanal Única en su Tipo",
+        "district": "Kojima Denim Street, Okayama"
     },
     {
         "id": "find-004",
@@ -500,8 +566,11 @@ const THE_FINDS = [
         "description": "Tabla de skate de colección con arte clásico del Sagrado Corazón. Pieza histórica localizada en boutique de archivo en Hannam-dong, Seúl.",
         "images": [
             "./find-004-seoul-south-korea.jpeg",
-            "./find-004-seoul-south-korea.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Deadstock Sellado en Shrinkwrap",
+        "district": "Dosan Park, Seúl"
     },
     {
         "id": "find-008",
@@ -521,8 +590,11 @@ const THE_FINDS = [
         "description": "Edición exclusiva para Japón del aclamado álbum AM con su faja OBI blanca en caracteres japoneses. Pieza de colección localizada en tienda independiente de Niigata.",
         "images": [
             "./find-008-nigata-japan.jpeg",
-            "./find-008-nigata-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1542208998-f6dbbb27a72f?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.9/10 • Ejemplar de Colección con OBI Mint",
+        "district": "Furumachi, Niigata"
     },
     {
         "id": "find-012",
@@ -542,8 +614,11 @@ const THE_FINDS = [
         "description": "Llavero de felpa conmemorativo de la gira mundial KAWS:HOLIDAY representando el planeta Tierra con los emblemáticos ojos en cruz de Brian Donnelly. Procedente de colección privada en Seúl.",
         "images": [
             "./llavero-tierra.jpeg",
-            "./llavero-tierra.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Sellado en Packaging Original",
+        "district": "Seongsu-dong, Seúl"
     },
     {
         "id": "find-026",
@@ -563,8 +638,11 @@ const THE_FINDS = [
         "description": "El Santo Grial del archivo punk japonés de Takahiro Miyashita. Considerada una obra de arte textil de la era de oro de Urahara.",
         "images": [
             "./find-002-tokyo-japan.jpeg",
-            "./find-002-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.3/10 • Pieza de Museo Takahiro Miyashita",
+        "district": "Ebisu, Tokio"
     },
     {
         "id": "find-027",
@@ -584,8 +662,11 @@ const THE_FINDS = [
         "description": "Pieza histórica de pasarela de Issey Miyake. Presenta cordones tensores que permiten esculpir la silueta en múltiples geometrías tridimensionales.",
         "images": [
             "./find-007-osaka-japan.jpeg",
-            "./find-007-osaka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.6/10 • Estado Extraordinario de Conservación",
+        "district": "Ginza, Tokio"
     },
     {
         "id": "find-028",
@@ -605,8 +686,11 @@ const THE_FINDS = [
         "description": "Ejemplo cumbre del lujo gótico japonés. Confeccionada con los materiales más selectos de Tokio y numerada individualmente.",
         "images": [
             "./find-009.jpeg",
-            "./find-009.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.7/10 • Piel Suave sin Desgaste",
+        "district": "Roppongi, Tokio"
     },
     {
         "id": "find-029",
@@ -626,8 +710,11 @@ const THE_FINDS = [
         "description": "Colaboración mítica que redefinió el gorpcore internacional: Junya Watanabe fusionó un macuto de montaña directamente en una chaqueta impermeable.",
         "images": [
             "./find-008-nigata-japan.jpeg",
-            "./find-008-nigata-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.5/10 • Grado A Archivo Junya Watanabe",
+        "district": "Shinjuku, Tokio"
     },
     {
         "id": "find-030",
@@ -647,8 +734,11 @@ const THE_FINDS = [
         "description": "El sastre coreano Juun.J deconstruye la trinchera militar clásica en un abrigo arquitectónico de proporciones escultóricas.",
         "images": [
             "./find-004-seoul-south-korea.jpeg",
-            "./find-004-seoul-south-korea.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.8/10 • Prácticamente Nuevo con Percha",
+        "district": "Cheongdam-dong, Seúl"
     },
     {
         "id": "find-031",
@@ -668,8 +758,11 @@ const THE_FINDS = [
         "description": "Una de las prendas más influyentes de la cultura del streetwear mundial. Fabricada en cantidades diminutas en Tokio a finales de los años 90.",
         "images": [
             "./find-008.jpeg",
-            "./find-008.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1578932750294-f5075e85f44a?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.4/10 • Pieza Histórica Época Nigo",
+        "district": "Urahara (Harajuku), Tokio"
     },
     {
         "id": "find-032",
@@ -689,8 +782,11 @@ const THE_FINDS = [
         "description": "Pieza de arte de colección privada adquirida en subasta de Tokio. Representa la evolución pulpoide de Mr. DOB en tonos pastel.",
         "images": [
             "./find-005-tokyo-japan.jpeg",
-            "./find-005-tokyo-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "10/10 • Certificado de Autenticidad Sellado",
+        "district": "Nakano Broadway, Tokio"
     },
     {
         "id": "find-033",
@@ -710,8 +806,11 @@ const THE_FINDS = [
         "description": "Reconocida internacionalmente entre audiófilos como la masterización más limpia y dinámica jamás realizada de The Dark Side of the Moon.",
         "images": [
             "./find-001-fukoka-japan.jpeg",
-            "./find-001-fukoka-japan.jpeg"
-        ]
+            "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1542208998-f6dbbb27a72f?auto=format&fit=crop&w=800&q=80"
+        ],
+        "condition": "9.9/10 • Audiófilo Pro-Use Completo con OBI",
+        "district": "Shinjuku West, Tokio"
     }
 ];
 
@@ -724,12 +823,14 @@ const productModel = {
     async getAll({ category = 'available', searchQuery = '', sortBy = 'featured' } = {}) {
         await new Promise(resolve => setTimeout(resolve, 20));
 
-        // Por requerimiento: solo mostrar productos de la sección elegida (default: 'available')
+        // Por requerimiento: solo mostrar productos de la sección elegida (default: 'available', soporta 'all' para explorador)
         const activeCategory = (category && ['available', 'on-request', 'archive'].includes(category))
             ? category
             : 'available';
 
-        let results = THE_FINDS.filter(p => p.category === activeCategory);
+        let results = category === 'all'
+            ? [...THE_FINDS]
+            : THE_FINDS.filter(p => p.category === activeCategory);
 
         // Filtrado por texto (búsqueda dentro de la sección elegida)
         if (searchQuery && searchQuery.trim() !== '') {

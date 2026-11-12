@@ -8,12 +8,62 @@
 [build.processing.html]
   pretty_urls = true
 
-# Reescritura transparente y cabeceras de seguridad
+# Reescrituras transparentes para URLs limpias sin .html (200 OK)
+[[redirects]]
+  from = "/the-finds"
+  to = "/the-finds.html"
+  status = 200
+
+[[redirects]]
+  from = "/personal-sourcing"
+  to = "/personal-sourcing.html"
+  status = 200
+
+[[redirects]]
+  from = "/destinations"
+  to = "/destinations.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+# Redirecciones canónicas forzadas 301 para URLs con extensión .html
+[[redirects]]
+  from = "/the-finds.html"
+  to = "/the-finds"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/personal-sourcing.html"
+  to = "/personal-sourcing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/destinations.html"
+  to = "/destinations"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+# Cabeceras de seguridad
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-

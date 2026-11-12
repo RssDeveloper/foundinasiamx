@@ -12,10 +12,10 @@ Fuente de verdad técnica para desarrolladores y agentes de inteligencia artific
      - `available`: Prendas en inventario con entrega inmediata en México.
      - `on-request`: Piezas localizadas durante viajes a Asia, listas para adquisición bajo pedido.
      - `archive`: Archivo histórico y museo visual de hallazgos de colección pasados.
-     - Controles interactivos: pastillas de categoría, ordenamiento por precio y nombre, selector de 2, 3 o 4 columnas, y buscador en tiempo real.
+     - Controles interactivos: pastillas de categoría, ordenamiento por precio y nombre, selector responsivo de columnas (1 o 2 en móvil, 2 o 3 en desktop), y buscador en tiempo real.
   3. **Personal Sourcing (`personal-sourcing.html`)**: Explicación paso a paso del servicio de búsqueda a medida en Tokio y Seúl, esquema transparente de honorarios (15%-20%), y formulario interactivo con soporte de pre-llenado (`?piece=...` o `?destination=...`) conectado directamente a WhatsApp Concierge.
   4. **Destinations (`destinations.html`)**: Itinerario de expediciones y drops con fechas confirmadas (Tokio & Niigata, Seúl Minimalist, Kioto & Osaka Tour), rutas de distritos, enfoque de prendas, reglas de encargo y botones de encargo directo por viaje.
-  5. **About (`about.html`)**: Filosofía de la marca, moda de archivo vs fast fashion, cómo funciona la logística express de importación asegurada con DHL Express a México (cero sorpresas arancelarias), y reserva de fitting privado en el Atelier de Roma Norte CDMX.
+  5. **Quiénes Somos / About (`about.html`)**: Historia, trayectoria y visión de Omar (fundador y personal shopper), viajes de búsqueda presencial de piezas de colección y moda vintage de autor en Japón y Corea del Sur, logística express asegurada con DHL Express a México (cero sorpresas arancelarias), y reserva de fitting privado en el Atelier de Roma Norte CDMX.
 - **Stack Tecnológico**:
   - **Estructura**: HTML5 Semántico (Regla Inquebrantable: Cero CSS en HTML, cero atributos `style=""`).
   - **Estilos**: Tailwind CSS (Play CDN con configuración previa síncrona `js/config/tailwind.config.js`) + Hojas maestras externas exclusivas (`css/main.css` y `css/components.css`).
@@ -31,12 +31,13 @@ Fuente de verdad técnica para desarrolladores y agentes de inteligencia artific
 foundinasiamx/
 ├── .antigravityrules           # Guardrails y directivas permanentes del agente
 ├── PROJECT_CONTEXT.md          # Especificación y memoria del sistema
+├── _redirects                  # Enrutamiento rápido Netlify para URLs limpias sin .html
 ├── netlify.toml                # Enrutamiento de URLs limpias, redirects y cabeceras
-├── index.html                  # Portal Principal: Marca y visión general
-├── the-finds.html              # Vista 2: Catálogo (Available, On Request, Archive)
-├── personal-sourcing.html      # Vista 3: Concierge y Formulario a medida
-├── destinations.html           # Vista 4: Itinerario de Viajes y Calendario
-├── about.html                  # Vista 5: Filosofía, Logística México & Atelier CDMX
+├── index.html                  # Portal Principal: Marca y visión general (URL: /)
+├── the-finds.html              # Vista 2: Catálogo (URL limpia: /the-finds)
+├── personal-sourcing.html      # Vista 3: Concierge y Formulario a medida (URL limpia: /personal-sourcing)
+├── destinations.html           # Vista 4: Itinerario de Viajes y Calendario (URL limpia: /destinations)
+├── about.html                  # Vista 5: Filosofía, Logística México & Atelier CDMX (URL limpia: /about)
 ├── css/                        # Hojas de estilo externas exclusivas
 │   ├── main.css                # Variables CSS, reset, scrollbars y utilidades globales
 │   └── components.css          # Tarjetas de producto, flip de imagen, modales y drawer

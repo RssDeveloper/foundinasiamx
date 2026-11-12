@@ -18,11 +18,18 @@
     <meta property="og:description" content="Selección textil de autor de Asia. Piezas disponibles, bajo pedido y archivo.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85">
 
+    <!-- Favicons & Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="manifest" href="./site.webmanifest">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -58,12 +65,12 @@
 
                 <!-- Menú Desktop Unificado con TODAS las secciones en pequeño -->
                 <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[10px] xl:text-[11px] tracking-[0.16em] uppercase font-medium text-ash">
-                    <a href="./index.html"
+                    <a href="./"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Inicio</a>
 
                     <!-- The Finds con Dropdown Desktop (Activo) -->
                     <div class="relative group py-2">
-                        <a href="./the-finds.html?cat=available"
+                        <a href="./the-finds?cat=available"
                             class="text-brokenwhite transition-colors border-b-2 border-olive font-semibold flex items-center gap-1">
                             <span>The Finds</span>
                             <svg class="w-3 h-3 opacity-80 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,15 +80,15 @@
                         <!-- Dropdown Desktop para The Finds -->
                         <div class="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
                             <div class="w-48 bg-carbon rounded-xl border border-carbon-light shadow-xl p-2 space-y-1">
-                                <a href="./the-finds.html?cat=available"
+                                <a href="./the-finds?cat=available"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Available
                                 </a>
-                                <a href="./the-finds.html?cat=on-request"
+                                <a href="./the-finds?cat=on-request"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Source on Request
                                 </a>
-                                <a href="./the-finds.html?cat=archive"
+                                <a href="./the-finds?cat=archive"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Archive
                                 </a>
@@ -90,20 +97,20 @@
                         </div>
                     </div>
 
-                    <a href="./personal-sourcing.html"
+                    <a href="./personal-sourcing"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Personal Sourcing</a>
 
-                    <a href="./destinations.html"
+                    <a href="./destinations"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Destinations</a>
 
-                    <a href="./about.html"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">About</a>
+                    <a href="./about"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Quiénes Somos</a>
                 </nav>
             </div>
 
             <!-- Center: Logo Oficial con Fondo Transparente Centrado -->
             <div class="flex items-center justify-center">
-                <a href="./index.html" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
+                <a href="./" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
                     <img src="./logo.png?v=3"
                         alt="FOUND IN ASIA"
                         class="h-7 sm:h-8 md:h-9 w-auto max-w-[120px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105" />
@@ -171,7 +178,7 @@
         class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden flex">
         <div class="w-full max-w-sm sm:max-w-md bg-carbon-dark h-full border-r border-carbon-light p-6 flex flex-col justify-between overflow-y-auto no-scrollbar shadow-2xl">
             <div>
-                <!-- Top Bar: = | FOUND IN ASIA | 🔍 -->
+                <!-- Top Bar: Mobile Menu Trigger | LOGO | Cart Trigger -->
                 <div class="flex items-center justify-between pb-5 border-b border-carbon-light/80">
                     <button id="close-mobile-menu-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Cerrar menú móvil">
                         <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,7 +203,7 @@
 
                     <nav class="flex flex-col text-sm sm:text-base">
                         <!-- Home -->
-                        <a href="./index.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Home</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -213,7 +220,7 @@
                             </button>
                             <!-- Submenús que se despliegan al picarle a The Finds -->
                             <div id="mobile-the-finds-submenu" class="pb-3 pt-1 pl-3 my-1 ml-2 border-l-2 border-carbon-light/70 flex flex-col space-y-1">
-                                <a href="./the-finds.html?cat=available" data-cat="available"
+                                <a href="./the-finds?cat=available" data-cat="available"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -223,7 +230,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </a>
-                                <a href="./the-finds.html?cat=on-request" data-cat="on-request"
+                                <a href="./the-finds?cat=on-request" data-cat="on-request"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -233,7 +240,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </a>
-                                <a href="./the-finds.html?cat=archive" data-cat="archive"
+                                <a href="./the-finds?cat=archive" data-cat="archive"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -248,7 +255,7 @@
                         </div>
 
                         <!-- Personal Sourcing -->
-                        <a href="./personal-sourcing.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./personal-sourcing" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Personal Sourcing</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -256,16 +263,16 @@
                         </a>
 
                         <!-- Destinations -->
-                        <a href="./destinations.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./destinations" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Destinations</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </a>
 
-                        <!-- About -->
-                        <a href="./about.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
-                            <span class="font-normal tracking-wide">About / How It Works</span>
+                        <!-- Quiénes Somos -->
+                        <a href="./about" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">Quiénes Somos</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
@@ -289,39 +296,260 @@
     <!-- ======================================================== -->
     <main class="flex-1 max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10">
 
-        <!-- Grid de Productos: Acceso y Filtrado Directo desde la Barra de Navegación -->
-        <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-12">
-            <!-- Los productos se inyectan dinámicamente con imágenes interactivas, quick view y add to cart -->
+        <!-- Selector Dinámico de Categorías y Controles de Vista -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4 mb-8 pb-5 border-b border-carbon-light/60">
+            <!-- Tabs Dinámicos de Categorías -->
+            <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto no-scrollbar py-1 flex-nowrap">
+                <button type="button" data-action="filter-cat" data-cat="available"
+                    class="cat-pill active flex-shrink-0 px-4 sm:px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-white font-semibold shadow-sm ring-1 ring-olive/40">
+                    Available (11)
+                </button>
+                <button type="button" data-action="filter-cat" data-cat="on-request"
+                    class="cat-pill flex-shrink-0 px-4 sm:px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light hover:border-olive/50 font-medium">
+                    Source on Request (11)
+                </button>
+                <button type="button" data-action="filter-cat" data-cat="archive"
+                    class="cat-pill flex-shrink-0 px-4 sm:px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light hover:border-olive/50 font-medium">
+                    Galería de Archivo (11)
+                </button>
+            </div>
+
+            <!-- Contador y Controles de Columnas (Alineados en bloque estético) -->
+            <div class="flex items-center justify-between lg:justify-end gap-3 sm:gap-4 pt-1 lg:pt-0">
+                <span class="text-xs font-mono text-ash tracking-wide">
+                    <strong id="displayed-count" class="text-brokenwhite font-semibold">11</strong> piezas curadas
+                </span>
+                
+                <div class="inline-flex items-center gap-1 p-1 bg-carbon border border-carbon-light rounded-full shadow-sm">
+                    <!-- Botón 1 Columna (Móvil) -->
+                    <button id="grid-btn-1" type="button" data-action="set-grid-cols" data-cols="1" 
+                        class="w-8 h-8 rounded-full flex md:hidden items-center justify-center text-ash hover:text-brokenwhite transition-all" 
+                        title="Ver 1 columna" aria-label="1 columna">
+                        <svg class="w-3.5 h-3.5 pointer-events-none" fill="currentColor" viewBox="0 0 16 16">
+                            <rect width="14" height="14" x="1" y="1" rx="1.5"/>
+                        </svg>
+                    </button>
+                    <!-- Botón 2 Columnas (Móvil: Activo inicial | Desktop: Inactivo inicial) -->
+                    <button id="grid-btn-2" type="button" data-action="set-grid-cols" data-cols="2" 
+                        class="w-8 h-8 rounded-full flex items-center justify-center bg-olive text-white md:bg-transparent md:text-ash md:hover:text-brokenwhite shadow-sm md:shadow-none transition-all" 
+                        title="Ver 2 columnas" aria-label="2 columnas">
+                        <svg class="w-3.5 h-3.5 pointer-events-none" fill="currentColor" viewBox="0 0 16 16">
+                            <rect width="6" height="14" x="1" y="1" rx="1"/>
+                            <rect width="6" height="14" x="9" y="1" rx="1"/>
+                        </svg>
+                    </button>
+                    <!-- Botón 3 Columnas (Tablet y Desktop: Activo inicial) -->
+                    <button id="grid-btn-3" type="button" data-action="set-grid-cols" data-cols="3" 
+                        class="w-8 h-8 rounded-full hidden md:flex items-center justify-center bg-olive text-white shadow-sm transition-all" 
+                        title="Ver 3 columnas" aria-label="3 columnas">
+                        <svg class="w-3.5 h-3.5 pointer-events-none" fill="currentColor" viewBox="0 0 16 16">
+                            <rect width="3.5" height="14" x="1" y="1" rx="1"/>
+                            <rect width="3.5" height="14" x="6.25" y="1" rx="1"/>
+                            <rect width="3.5" height="14" x="11.5" y="1" rx="1"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- Estado Vacío (Filtros sin coincidencias) -->
+        <!-- Indicador de Sección Dinámica -->
+        <div id="active-view-indicator" class="mb-8">
+            <h2 class="view-title text-2xl sm:text-3xl font-editorial font-medium text-brokenwhite">Available — Entrega Inmediata</h2>
+            <p id="view-subtitle" class="text-xs sm:text-sm text-ash mt-1 max-w-xl font-normal leading-relaxed">
+                Piezas verificadas e inspeccionadas bajo luz natural. Listas para despacho express el mismo día en México.
+            </p>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- VISOR DE PRODUCTO EN PÁGINA (DESKTOP: SIN MODAL POPUP)   -->
+        <!-- ======================================================== -->
+        <section id="inpage-product-viewer" class="hidden bg-carbon/90 border border-carbon-light/80 rounded-3xl p-6 sm:p-8 lg:p-10 mb-12 shadow-2xl relative animate-fade-in" aria-label="Detalle de pieza seleccionada">
+            <!-- Barra superior del visor: Navegación continua y botón cerrar -->
+            <div class="flex items-center justify-between pb-5 mb-8 border-b border-carbon-light/60">
+                <div class="flex items-center gap-2">
+                    <button type="button" id="ipv-prev-product-btn" data-action="ipv-prev-product"
+                        class="px-3 py-1.5 rounded-full bg-carbon-dark border border-carbon-light/80 text-ash hover:text-brokenwhite hover:border-olive text-xs font-medium flex items-center gap-1.5 transition-colors"
+                        title="Pieza anterior">
+                        <span>←</span>
+                        <span>Anterior</span>
+                    </button>
+                    <span id="ipv-index-badge" class="text-xs font-mono uppercase tracking-widest text-ash px-3 py-1 rounded bg-carbon-dark border border-carbon-light/50">
+                        Pieza 1
+                    </span>
+                    <button type="button" id="ipv-next-product-btn" data-action="ipv-next-product"
+                        class="px-3 py-1.5 rounded-full bg-carbon-dark border border-carbon-light/80 text-ash hover:text-brokenwhite hover:border-olive text-xs font-medium flex items-center gap-1.5 transition-colors"
+                        title="Siguiente pieza">
+                        <span>Siguiente</span>
+                        <span>→</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono text-ash/70 uppercase hidden lg:inline">Navega con flechas ← →</span>
+                    <button type="button" data-action="close-inpage-viewer"
+                        class="px-3.5 py-1.5 rounded-full bg-carbon-dark border border-carbon-light/80 text-ash hover:text-brokenwhite hover:border-olive text-xs font-medium flex items-center gap-1.5 transition-colors"
+                        aria-label="Cerrar detalle en página">
+                        <span>Cerrar</span>
+                        <svg class="w-3.5 h-3.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cuerpo del Visor en Página: Galería Heroica + Curation Sheet -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                
+                <!-- Columna Izquierda (7 cols): Galería Hero Multi-Imagen -->
+                <div class="lg:col-span-7 flex flex-col space-y-4">
+                    <!-- Visor de Imagen Principal Heroica -->
+                    <div class="relative w-full aspect-[4/5] max-h-[580px] bg-studiogray rounded-2xl overflow-hidden shadow-inner flex items-center justify-center group/hero">
+                        <img id="ipv-image" src="" alt="Prenda" width="800" height="1000"
+                            class="w-full h-full object-cover transition-all duration-300">
+                        
+                        <!-- Badge de Origen / Drop -->
+                        <div id="ipv-badge"
+                            class="absolute top-4 left-4 text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-carbon-dark/90 text-ash border border-carbon-light/60 backdrop-blur-sm">
+                            Badge
+                        </div>
+
+                        <!-- Contador de Imagen -->
+                        <div id="ipv-img-counter"
+                            class="absolute top-4 right-4 text-[10px] font-mono px-2.5 py-1 rounded-full bg-carbon-dark/90 text-brokenwhite border border-carbon-light/60 backdrop-blur-sm">
+                            1 / 1
+                        </div>
+
+                        <!-- Flechas de cambio de foto -->
+                        <button type="button" data-action="ipv-prev-image"
+                            class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-carbon/90 text-brokenwhite hover:text-olive flex items-center justify-center transition-all shadow-lg opacity-85 hover:opacity-100"
+                            aria-label="Imagen anterior">
+                            ‹
+                        </button>
+                        <button type="button" data-action="ipv-next-image"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-carbon/90 text-brokenwhite hover:text-olive flex items-center justify-center transition-all shadow-lg opacity-85 hover:opacity-100"
+                            aria-label="Imagen siguiente">
+                            ›
+                        </button>
+                    </div>
+
+                    <!-- Miniaturas de la pieza -->
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-ash font-semibold">
+                                Vistas de la Pieza
+                            </span>
+                            <span class="text-[10px] text-basegray">Haz clic para alternar ángulo</span>
+                        </div>
+                        <div id="ipv-thumbnails-container" class="flex gap-2.5 overflow-x-auto no-scrollbar py-1">
+                            <!-- Inyectadas dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha (5 cols): Información Curada & Despejada -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div>
+                            <span id="ipv-category" class="text-xs uppercase font-mono tracking-widest text-olive font-semibold block mb-1">
+                                Categoría
+                            </span>
+                            <h3 id="ipv-title" class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-medium text-brokenwhite leading-tight">
+                                Título
+                            </h3>
+                            <div class="mt-2">
+                                <p id="ipv-price" class="text-xl font-mono font-semibold text-brokenwhite"></p>
+                            </div>
+                        </div>
+
+                        <p id="ipv-description" class="text-xs sm:text-sm text-ash leading-relaxed font-normal">
+                            Descripción de la prenda.
+                        </p>
+
+                        <!-- Especificaciones Técnicas Limpias y Despejadas -->
+                        <div class="bg-carbon-dark/70 rounded-2xl p-4 border border-carbon-light/60 space-y-2.5 text-xs font-mono">
+                            <div class="flex justify-between items-center">
+                                <span class="text-basegray uppercase tracking-wider text-[10px]">Condición</span>
+                                <span id="ipv-condition" class="text-olive font-semibold">9.5/10 • Impecable</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-carbon-light/40 pt-2">
+                                <span class="text-basegray uppercase tracking-wider text-[10px]">Origen</span>
+                                <span id="ipv-origin" class="text-brokenwhite">Tokio, Japón</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-carbon-light/40 pt-2">
+                                <span class="text-basegray uppercase tracking-wider text-[10px]">Composición</span>
+                                <span id="ipv-composition" class="text-brokenwhite">100% Algodón Pesado</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-carbon-light/40 pt-2">
+                                <span class="text-basegray uppercase tracking-wider text-[10px]">Corte / Formato</span>
+                                <span id="ipv-fit" class="text-brokenwhite">Edición Coleccionista</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-carbon-light/40 pt-2">
+                                <span class="text-basegray uppercase tracking-wider text-[10px]">Logística</span>
+                                <span class="text-ash font-medium">DHL Express Asegurado a México</span>
+                            </div>
+                        </div>
+
+                        <!-- Selector de Tallas -->
+                        <div>
+                            <span class="text-[10px] uppercase font-mono tracking-wider text-ash block mb-2 font-medium">Talla / Formato</span>
+                            <div id="ipv-sizes-container" class="flex flex-wrap items-center gap-2">
+                                <!-- Botones de tallas dinámicos -->
+                            </div>
+                        </div>
+
+                        <!-- Acciones Principales -->
+                        <div class="pt-2 space-y-2.5">
+                            <button id="ipv-add-btn" data-action="add-ipv-to-bag"
+                                class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-olive/10">
+                                <span>Añadir a la Bolsa</span>
+                            </button>
+                            <button id="ipv-whatsapp-btn" data-action="ipv-whatsapp-order"
+                                class="w-full py-3 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light text-xs uppercase tracking-wider rounded-full transition-colors font-medium flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none text-olive" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                </svg>
+                                <span>Consultar al Concierge vía WhatsApp</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Grid de Productos Dinámicos -->
+        <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-10">
+            <!-- Los productos se inyectan dinámicamente con catalogCtrl.js -->
+        </div>
+
+        <!-- Estado Vacío -->
         <div id="empty-state" class="hidden py-24 text-center">
             <p class="text-sm uppercase tracking-widest text-ash">No se encontraron piezas en esta categoría</p>
             <button type="button" data-action="reset-filters"
-                class="mt-4 px-6 py-2.5 border border-olive text-olive hover:bg-olive hover:text-carbon-dark text-xs uppercase tracking-wider rounded-full transition-colors">
+                class="mt-4 px-6 py-2.5 border border-olive text-olive hover:bg-olive hover:text-carbon-dark text-xs uppercase tracking-wider rounded-full transition-colors font-medium">
                 Restablecer Filtros
             </button>
         </div>
 
-        <!-- Callout Banner: Personal Sourcing Concierge -->
-        <div class="mt-20 p-8 sm:p-12 rounded-2xl bg-carbon border border-carbon-light/60 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="space-y-2 text-center md:text-left">
-                <span class="text-[10px] uppercase font-mono tracking-widest text-olive">Servicio a Medida</span>
-                <h3 class="text-2xl sm:text-3xl font-editorial text-brokenwhite">¿Buscas una pieza o archivo que no está en catálogo?</h3>
-                <p class="text-xs text-ash max-w-xl font-light">
-                    Compramos in situ para ti en Asia. Envíanos el diseñador, año o referencia fotográfica y la buscaremos en nuestro próximo viaje.
+        <!-- Callout Banner: Personal Sourcing Concierge (Calm & Minimal) -->
+        <div class="mt-20 p-8 sm:p-10 rounded-3xl bg-carbon border border-carbon-light/60 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-1.5 text-center md:text-left">
+                <span class="text-[10px] uppercase font-mono tracking-widest text-olive font-semibold">Personal Sourcing</span>
+                <h3 class="text-2xl font-editorial font-medium text-brokenwhite">¿Buscas una pieza específica?</h3>
+                <p class="text-xs text-ash max-w-lg font-normal">
+                    Dinos el modelo, año o referencia fotográfica. La localizamos in situ en nuestro próximo recorrido por Tokio y Seúl.
                 </p>
             </div>
-            <a href="./personal-sourcing.html"
-                class="px-8 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 whitespace-nowrap shadow-lg shadow-olive/10">
-                Pedir Personal Sourcing →
+            <a href="./personal-sourcing"
+                class="px-7 py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 whitespace-nowrap shadow-lg shadow-olive/10">
+                Solicitar Búsqueda →
             </a>
         </div>
 
         <!-- Enlace de Retorno Inferior al Home -->
         <div class="mt-12 pt-8 border-t border-carbon-light/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ash">
             <span>Explora el inicio para conocer la marca o agendar una cita en CDMX</span>
-            <a href="./index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-carbon-light text-ash hover:text-brokenwhite hover:border-olive uppercase tracking-widest transition-all">
+            <a href="./" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-carbon-light text-ash hover:text-brokenwhite hover:border-olive uppercase tracking-widest transition-all">
                 <span>← Regresar al Home Principal</span>
             </a>
         </div>
@@ -352,11 +580,11 @@
                 <div class="space-y-3">
                     <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Secciones</span>
                     <ul class="text-xs text-ash space-y-2.5">
-                        <li><a href="./index.html" class="hover:text-olive transition-colors">Inicio</a></li>
-                        <li><a href="./the-finds.html?cat=available" class="hover:text-olive text-brokenwhite font-semibold transition-colors">The Finds (Catálogo)</a></li>
-                        <li><a href="./personal-sourcing.html" class="hover:text-olive transition-colors">Personal Sourcing</a></li>
-                        <li><a href="./destinations.html" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
-                        <li><a href="./about.html" class="hover:text-olive transition-colors">About & Envíos</a></li>
+                        <li><a href="./" class="hover:text-olive transition-colors">Inicio</a></li>
+                        <li><a href="./the-finds?cat=available" class="hover:text-olive text-brokenwhite font-semibold transition-colors">The Finds (Catálogo)</a></li>
+                        <li><a href="./personal-sourcing" class="hover:text-olive transition-colors">Personal Sourcing</a></li>
+                        <li><a href="./destinations" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
+                        <li><a href="./about" class="hover:text-olive transition-colors">Quiénes Somos & Envíos</a></li>
                     </ul>
                 </div>
 
@@ -400,8 +628,8 @@
                     © 2026 FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="./about.html" class="hover:text-ash">Términos de Compra</a>
-                    <a href="./about.html" class="hover:text-ash">Envíos & Aduanas</a>
+                    <a href="./about" class="hover:text-ash">Términos de Compra</a>
+                    <a href="./about" class="hover:text-ash">Envíos & Aduanas</a>
                 </div>
             </div>
 
@@ -469,11 +697,10 @@
 
                 <div class="space-y-2 pt-2">
                     <button id="checkout-whatsapp-btn" data-action="checkout-whatsapp"
-                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
+                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-white text-xs uppercase tracking-wider font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
                         <span>Pedir Orden vía WhatsApp</span>
-                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.055 1.233 1.543.513.319.923.414 1.137.499.167.066.265.055.365-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
                         </svg>
                     </button>
                 </div>
@@ -487,87 +714,167 @@
     </div>
 
     <!-- ======================================================== -->
-    <!-- QUICK VIEW MODAL (DETALLES Y MEDIDAS)                    -->
     <!-- ======================================================== -->
-    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    <!-- QUICK VIEW MODAL (MULTI-IMAGEN, NAVEGACIÓN Y HALLAZGOS)  -->
+    <!-- ======================================================== -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-0 sm:p-4">
         <!-- Backdrop -->
-        <div id="quickview-backdrop" class="fixed inset-0 bg-black/75 backdrop-blur-md"></div>
+        <div id="quickview-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md"></div>
 
-        <!-- Modal Card -->
+        <!-- Modal Card Totalmente Responsivo -->
         <div
-            class="relative z-10 bg-carbon border border-carbon-light rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]">
-            <!-- Close Button -->
-            <button data-action="close-quickview"
-                class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-carbon-dark/80 text-ash hover:text-brokenwhite flex items-center justify-center transition-colors"
-                aria-label="Cerrar vista rápida">
-                <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-
-            <!-- Image Column with Studio Gray (#8B8B8D) Background -->
-            <div class="md:w-1/2 bg-studiogray relative aspect-[3/4] md:aspect-auto">
-                <img id="qv-image" src="" alt="Prenda" width="600" height="800" class="w-full h-full object-cover">
-                <div id="qv-badge"
-                    class="absolute top-4 left-4 text-[10px] uppercase font-mono tracking-widest px-3 py-1 rounded-full bg-carbon-dark/90 text-ash border border-carbon-light">
-                    Badge
-                </div>
-            </div>
-
-            <!-- Info Column -->
-            <div class="md:w-1/2 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
-                <div class="space-y-4">
-                    <div>
-                        <span id="qv-category"
-                            class="text-[10px] uppercase font-mono tracking-ultra text-olive">Categoría</span>
-                        <h4 id="qv-title" class="text-2xl sm:text-3xl font-editorial font-light text-brokenwhite mt-1">
-                            Título
-                        </h4>
-                        <p id="qv-price" class="text-lg font-mono text-brokenwhite mt-1">$0 MXN</p>
-                    </div>
-
-                    <p id="qv-description" class="text-xs sm:text-sm text-ash leading-relaxed font-light">
-                        Descripción detallada de la prenda.
-                    </p>
-
-                    <!-- Technical Specs -->
-                    <div class="border-y border-carbon-light/60 py-3 my-2 space-y-1.5 text-xs font-mono">
-                        <div class="flex justify-between">
-                            <span class="text-basegray">Origen</span>
-                            <span id="qv-origin" class="text-brokenwhite">Niigata, Japón</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-basegray">Composición</span>
-                            <span id="qv-composition" class="text-brokenwhite">100% Lana Virgen</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-basegray">Corte / Fit</span>
-                            <span id="qv-fit" class="text-brokenwhite">Estructural Oversized</span>
-                        </div>
-                    </div>
-
-                    <!-- Size Selector -->
-                    <div>
-                        <span class="text-[10px] uppercase font-mono tracking-wider text-ash block mb-2">Tallas Disponibles</span>
-                        <div id="qv-sizes-container" class="flex items-center gap-2">
-                            <!-- Se generan dinámicamente -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Actions -->
-                <div class="pt-6 space-y-2 mt-4">
-                    <button id="qv-add-btn" data-action="add-qv-to-bag"
-                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-medium text-xs uppercase tracking-widest rounded-full transition-colors flex items-center justify-center gap-2">
-                        <span>Añadir a la Bolsa</span>
+            class="relative z-10 bg-carbon border border-carbon-light rounded-none sm:rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl flex flex-col h-full sm:h-auto sm:max-h-[92vh]">
+            
+            <!-- 1. Top Bar: Navegación Continua entre Hallazgos + Cerrar -->
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-carbon-light/60 bg-carbon-dark/70 z-20">
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                    <button type="button" id="qv-prev-product-btn" data-action="qv-prev-product"
+                        class="px-2.5 py-1.5 rounded-full bg-carbon border border-carbon-light/80 text-ash hover:text-brokenwhite hover:border-olive text-[11px] font-medium flex items-center gap-1 transition-colors"
+                        title="Pieza anterior">
+                        <span>←</span>
+                        <span class="hidden sm:inline">Anterior</span>
                     </button>
-                    <button id="qv-whatsapp-btn" data-action="qv-whatsapp-order"
-                        class="w-full py-3 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest rounded-full transition-colors">
-                        Consultar al Concierge vía WhatsApp
+                    <span id="qv-index-badge" class="text-[10px] font-mono uppercase tracking-widest text-ash/90 px-2 py-1 rounded bg-carbon border border-carbon-light/50">
+                        Pieza 1
+                    </span>
+                    <button type="button" id="qv-next-product-btn" data-action="qv-next-product"
+                        class="px-2.5 py-1.5 rounded-full bg-carbon border border-carbon-light/80 text-ash hover:text-brokenwhite hover:border-olive text-[11px] font-medium flex items-center gap-1 transition-colors"
+                        title="Siguiente pieza">
+                        <span class="hidden sm:inline">Siguiente</span>
+                        <span>→</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span class="text-[10px] font-mono text-ash uppercase hidden sm:inline">Navega con flechas ← →</span>
+                    <button data-action="close-quickview"
+                        class="w-8 h-8 rounded-full bg-carbon border border-carbon-light/80 text-ash hover:text-brokenwhite flex items-center justify-center transition-colors"
+                        aria-label="Cerrar vista rápida">
+                        <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
                     </button>
                 </div>
             </div>
+
+            <!-- 2. Cuerpo del Modal (Scrollable, Despejado y Focalizado en Imagen) -->
+            <div class="flex-1 overflow-y-auto no-scrollbar flex flex-col md:flex-row">
+                
+                <!-- Columna Izquierda: Galería Multi-Imagen Interactiva -->
+                <div class="md:w-1/2 p-4 sm:p-6 bg-carbon-dark/30 flex flex-col space-y-3">
+                    <!-- Visor de Imagen Principal Heroica -->
+                    <div class="relative aspect-[3/4] sm:aspect-[4/5] max-h-[50vh] sm:max-h-[520px] bg-studiogray rounded-2xl overflow-hidden shadow-inner group/viewer flex items-center justify-center">
+                        <img id="qv-image" src="" alt="Prenda" width="600" height="800"
+                            class="w-full h-full object-cover transition-all duration-300">
+                        
+                        <!-- Badge de Origen / Drop -->
+                        <div id="qv-badge"
+                            class="absolute top-3 left-3 text-[10px] uppercase font-mono tracking-widest px-2.5 py-1 rounded-full bg-carbon-dark/90 text-ash border border-carbon-light/60 backdrop-blur-sm">
+                            Badge
+                        </div>
+
+                        <!-- Contador de Imagen Actual -->
+                        <div id="qv-img-counter"
+                            class="absolute top-3 right-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-carbon-dark/90 text-brokenwhite border border-carbon-light/60 backdrop-blur-sm">
+                            1 / 2
+                        </div>
+
+                        <!-- Flechas táctiles sobre la imagen para cambiar de foto -->
+                        <button type="button" data-action="qv-prev-image"
+                            class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-carbon/90 text-brokenwhite hover:text-olive flex items-center justify-center transition-all shadow-md opacity-80 hover:opacity-100"
+                            aria-label="Imagen anterior">
+                            ‹
+                        </button>
+                        <button type="button" data-action="qv-next-image"
+                            class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-carbon/90 text-brokenwhite hover:text-olive flex items-center justify-center transition-all shadow-md opacity-80 hover:opacity-100"
+                            aria-label="Imagen siguiente">
+                            ›
+                        </button>
+                    </div>
+
+                    <!-- Fila de Miniaturas (Thumbnails Táctiles) -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] uppercase font-mono tracking-widest text-ash block font-semibold">
+                                Vistas de la Pieza
+                            </span>
+                            <span class="text-[10px] text-basegray">Toca para alternar foto</span>
+                        </div>
+                        <div id="qv-thumbnails-container" class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+                            <!-- Se inyectan dinámicamente con catalogCtrl.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Ficha Técnica & Curaduría de Lujo Despejada -->
+                <div class="md:w-1/2 p-5 sm:p-7 flex flex-col justify-between space-y-5">
+                    <div class="space-y-4">
+                        <div>
+                            <span id="qv-category" class="text-[10px] uppercase font-mono tracking-widest text-olive font-semibold">
+                                Categoría
+                            </span>
+                            <h3 id="qv-title" class="text-2xl sm:text-3xl font-editorial font-medium text-brokenwhite mt-1 leading-snug">
+                                Título
+                            </h3>
+                            <div class="mt-1">
+                                <p id="qv-price" class="text-lg font-mono font-semibold text-brokenwhite"></p>
+                            </div>
+                        </div>
+
+                        <p id="qv-description" class="text-xs sm:text-sm text-ash leading-relaxed font-normal">
+                            Descripción detallada de la prenda.
+                        </p>
+
+                        <!-- Especificaciones Técnicas y Autenticidad Simplificadas -->
+                        <div class="bg-carbon-dark/60 rounded-xl p-3.5 border border-carbon-light/60 space-y-2 text-xs font-mono">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] uppercase tracking-wider text-basegray">Condición</span>
+                                <span id="qv-condition" class="font-mono text-olive font-semibold">9.5/10 • Impecable</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-carbon-light/40 pt-1.5">
+                                <span class="text-[10px] uppercase tracking-wider text-basegray">Origen</span>
+                                <span id="qv-origin" class="text-brokenwhite">Tokio, Japón</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-carbon-light/40 pt-1.5">
+                                <span class="text-[10px] uppercase tracking-wider text-basegray">Composición</span>
+                                <span id="qv-composition" class="text-brokenwhite">100% Algodón Pesado</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-carbon-light/40 pt-1.5">
+                                <span class="text-[10px] uppercase tracking-wider text-basegray">Corte / Formato</span>
+                                <span id="qv-fit" class="text-brokenwhite">Edición Coleccionista</span>
+                            </div>
+                            <div class="flex items-center justify-between border-t border-carbon-light/40 pt-1.5">
+                                <span class="text-[10px] uppercase tracking-wider text-basegray">Logística México</span>
+                                <span class="text-ash">DHL Express con Cobertura Total</span>
+                            </div>
+                        </div>
+
+                        <!-- Size Selector -->
+                        <div>
+                            <span class="text-[10px] uppercase font-mono tracking-wider text-ash block mb-2 font-medium">Talla / Formato</span>
+                            <div id="qv-sizes-container" class="flex flex-wrap items-center gap-2">
+                                <!-- Se generan dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="pt-2 space-y-2">
+                            <button id="qv-add-btn" data-action="add-qv-to-bag"
+                                class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-olive/10">
+                                <span>Añadir a la Bolsa</span>
+                            </button>
+                            <button id="qv-whatsapp-btn" data-action="qv-whatsapp-order"
+                                class="w-full py-3 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light text-xs uppercase tracking-wider rounded-full transition-colors font-medium flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none text-olive" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                </svg>
+                                <span>Consultar al Concierge vía WhatsApp</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 

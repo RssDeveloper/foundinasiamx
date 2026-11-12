@@ -4,6 +4,53 @@
    Compatible con Single-Page y Multi-Page Navigation (index, the-finds, etc.)
    ========================================================================== */
 
+// --- ENRUTAMIENTO LIMPIO: PRETTY URLS SIN EXTENSIÓN .HTML ---
+(function initPrettyRouting() {
+    try {
+        if (window.location.protocol !== 'file:') {
+            // En servidores web (Netlify, localhost, producción): eliminar .html de la barra de direcciones
+            const path = window.location.pathname;
+            if (path.endsWith('.html')) {
+                let cleanPath = path.replace(/\.html$/, '');
+                if (cleanPath.endsWith('/index') || cleanPath === '/index') {
+                    cleanPath = cleanPath.replace(/\/index$/, '') || '/';
+                }
+                const cleanUrl = cleanPath + window.location.search + window.location.hash;
+                window.history.replaceState(window.history.state, '', cleanUrl);
+            }
+        } else {
+            // Compatibilidad universal para apertura directa en local (file:///)
+            document.addEventListener('click', (e) => {
+                const a = e.target.closest('a[href]');
+                if (!a) return;
+                const href = a.getAttribute('href');
+                if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.includes('.html')) return;
+                
+                const [path, query] = href.split('?');
+                const qStr = query ? `?${query}` : '';
+                if (path === './' || path === '/' || path === '.') {
+                    e.preventDefault();
+                    window.location.href = './index.html' + qStr;
+                } else if (['./the-finds', '/the-finds', 'the-finds'].includes(path)) {
+                    e.preventDefault();
+                    window.location.href = './the-finds.html' + qStr;
+                } else if (['./personal-sourcing', '/personal-sourcing', 'personal-sourcing'].includes(path)) {
+                    e.preventDefault();
+                    window.location.href = './personal-sourcing.html' + qStr;
+                } else if (['./destinations', '/destinations', 'destinations'].includes(path)) {
+                    e.preventDefault();
+                    window.location.href = './destinations.html' + qStr;
+                } else if (['./about', '/about', 'about'].includes(path)) {
+                    e.preventDefault();
+                    window.location.href = './about.html' + qStr;
+                }
+            });
+        }
+    } catch (e) {
+        // Fallback silencioso
+    }
+})();
+
 const getProductModel = () => window.productModel;
 const getCartModel = () => window.cartModel;
 
@@ -13,7 +60,12 @@ let searchQuery = '';
 let currentSort = 'featured';
 let isWishlistView = false;
 let currentQuickViewProduct = null;
+let currentQuickViewImageIndex = 0;
+let currentQuickViewList = [];
 let selectedQuickViewSize = null;
+let currentInpageProduct = null;
+let currentInpageImageIndex = 0;
+let selectedInpageSize = null;
 let toastTimeout = null;
 
 // --- ELEMENTOS DOM EN CACHÉ ---
@@ -41,6 +93,7 @@ function cacheDOMElements() {
         toastMessage: document.getElementById('toast-message'),
         quickviewModal: document.getElementById('quickview-modal'),
         quickviewBackdrop: document.getElementById('quickview-backdrop'),
+        inpageViewer: document.getElementById('inpage-product-viewer'),
         searchInput: document.getElementById('search-input'),
         searchBarContainer: document.getElementById('search-bar-container'),
         sourcingForm: document.getElementById('sourcing-form'),
@@ -132,6 +185,7 @@ async function renderCatalog() {
 
     DOM.gridContainer.innerHTML = products.map(product => {
         const isFav = cModel.isWishlisted(product.id);
+        const isArchive = product.category === 'archive';
 
         let actionBtnHtml = '';
         if (product.category === 'available') {
@@ -140,9 +194,9 @@ async function renderCatalog() {
           type="button"
           data-action="quick-add"
           data-id="${product.id}"
-          class="text-[11px] uppercase tracking-wider text-olive hover:text-brokenwhite font-medium flex items-center gap-1 group/btn transition-colors px-2 py-1"
+          class="text-[11px] uppercase tracking-wider text-olive hover:text-brokenwhite font-semibold flex items-center gap-1 group/btn transition-colors px-2.5 py-1 rounded-full hover:bg-olive/10"
         >
-          <span>Añadir Bolsa</span>
+          <span>Añadir</span>
           <span class="transform group-hover/btn:translate-x-0.5 transition-transform">+</span>
         </button>
       `;
@@ -152,7 +206,7 @@ async function renderCatalog() {
           type="button"
           data-action="open-quickview"
           data-id="${product.id}"
-          class="text-[11px] uppercase tracking-wider text-olive hover:text-brokenwhite font-medium flex items-center gap-1 transition-colors px-2 py-1"
+          class="text-[11px] uppercase tracking-wider text-olive hover:text-brokenwhite font-semibold flex items-center gap-1 transition-colors px-2.5 py-1 rounded-full hover:bg-olive/10"
         >
           <span>Encargar</span>
           <span>→</span>
@@ -164,7 +218,7 @@ async function renderCatalog() {
           type="button"
           data-action="source-similar"
           data-name="${encodeURIComponent(product.name)}"
-          class="text-[11px] uppercase tracking-wider text-ash hover:text-olive font-medium flex items-center gap-1 transition-colors px-2 py-1"
+          class="text-[11px] uppercase tracking-wider text-ash hover:text-olive font-semibold flex items-center gap-1 transition-colors px-2.5 py-1 rounded-full hover:bg-carbon-light/30"
         >
           <span>Pedir Similar</span>
           <span>↗</span>
@@ -172,17 +226,22 @@ async function renderCatalog() {
       `;
         }
 
+        // En la sección de archivo los productos NO tienen precio: es solo galería de productos ya encontrados
+        const priceOrStatusHtml = isArchive
+            ? `<span class="text-[10px] font-mono uppercase tracking-widest text-ash/80 px-2 py-0.5 rounded bg-carbon-light/30 font-medium">Pieza Encontrada</span>`
+            : `<span class="text-xs font-mono font-medium text-brokenwhite">${formatMXN(product.price)}</span>`;
+
         return `
-      <div class="product-card group flex flex-col justify-between bg-carbon/50 p-3 rounded-xl border border-carbon-light/40" data-id="${product.id}">
+      <div class="product-card group flex flex-col justify-between bg-carbon/60 hover:bg-carbon p-3.5 rounded-2xl border border-carbon-light/50 hover:border-olive/40 hover:shadow-lg transition-all duration-300 animate-fade-in" data-id="${product.id}">
         <div>
           <!-- Contenedor de Imagen con Efecto Hover Flip y Fondo Gris de Estudio (#8B8B8D) -->
-          <div class="product-img-wrapper mb-3 cursor-pointer relative bg-studiogray" data-action="open-quickview" data-id="${product.id}">
+          <div class="product-img-wrapper mb-3 cursor-pointer relative bg-studiogray rounded-xl overflow-hidden" data-action="open-quickview" data-id="${product.id}">
             <img 
               src="${product.images[0]}" 
               alt="${product.name}" 
               width="600"
               height="800"
-              class="product-img-primary"
+              class="product-img-primary object-cover w-full h-full transition-all duration-500 group-hover:scale-105"
               loading="lazy"
               onerror="this.src='https://placehold.co/600x800/8B8B8D/F8FAFC?text=${encodeURIComponent(product.name)}'"
             />
@@ -191,14 +250,14 @@ async function renderCatalog() {
               alt="${product.name} detalle" 
               width="600"
               height="800"
-              class="product-img-secondary"
+              class="product-img-secondary object-cover w-full h-full transition-all duration-500"
               loading="lazy"
               onerror="this.src='${product.images[0]}'"
             />
 
             <!-- Badge Superior Izquierdo -->
             <div class="absolute top-3 left-3 z-10">
-              <span class="text-[9px] uppercase tracking-ultra font-semibold px-2.5 py-1 rounded-full bg-carbon-dark/95 text-ash border border-carbon-light/60 backdrop-blur-sm">
+              <span class="text-[9px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded-full bg-carbon-dark/95 text-ash border border-carbon-light/60 backdrop-blur-sm">
                 ${product.badge}
               </span>
             </div>
@@ -222,33 +281,33 @@ async function renderCatalog() {
                 type="button"
                 data-action="open-quickview"
                 data-id="${product.id}"
-                class="w-full py-2.5 bg-carbon/95 text-brokenwhite hover:bg-olive hover:text-carbon-dark text-[11px] uppercase tracking-widest font-medium rounded-full transition-colors backdrop-blur-md shadow-lg"
+                class="w-full py-2 bg-carbon/95 text-brokenwhite hover:bg-olive hover:text-carbon-dark text-[10px] uppercase tracking-widest font-semibold rounded-full transition-colors backdrop-blur-md shadow-lg"
               >
-                Detalles & Medidas
+                ${isArchive ? 'Ver Ficha de Archivo' : 'Detalles & Medidas'}
               </button>
             </div>
           </div>
 
           <!-- Detalles del Producto -->
           <div class="space-y-1">
-            <div class="flex items-center justify-between text-[10px] uppercase tracking-ultra text-basegray font-mono">
+            <div class="flex items-center justify-between text-[10px] uppercase tracking-wider text-basegray font-mono">
               <span>${product.origin}</span>
               <span class="text-olive font-semibold">${product.categoryLabel}</span>
             </div>
             <h4 
               data-action="open-quickview" 
               data-id="${product.id}"
-              class="text-sm font-light tracking-wide text-brokenwhite cursor-pointer hover:text-olive transition-colors leading-snug"
+              class="text-sm font-medium tracking-normal text-brokenwhite cursor-pointer hover:text-olive transition-colors leading-snug line-clamp-1"
             >
               ${product.name}
             </h4>
-            <p class="text-xs text-ash/80 line-clamp-1 font-light">${product.subtitle}</p>
+            <p class="text-xs text-ash line-clamp-1 font-normal">${product.subtitle}</p>
           </div>
         </div>
 
-        <!-- Precio y Botón de Acción -->
-        <div class="pt-3 mt-2 flex items-center justify-between border-t border-carbon-light/30">
-          <span class="text-xs font-mono text-brokenwhite">${formatMXN(product.price)}</span>
+        <!-- Precio o Estado de Archivo y Botón de Acción -->
+        <div class="pt-3 mt-3 flex items-center justify-between border-t border-carbon-light/30">
+          ${priceOrStatusHtml}
           ${actionBtnHtml}
         </div>
       </div>
@@ -301,7 +360,7 @@ function updateCartView() {
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.19-.578-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
         </svg>
         <p class="text-xs uppercase tracking-widest">Tu bolsa está vacía actualmente</p>
-        <a href="./the-finds.html" data-action="close-cart" class="text-xs text-olive underline uppercase tracking-wider">Explorar The Finds</a>
+        <a href="./the-finds" data-action="close-cart" class="text-xs text-olive underline uppercase tracking-wider">Explorar The Finds</a>
       </div>
     `;
         if (DOM.checkoutBtn) {
@@ -361,8 +420,254 @@ function updateWishlistView() {
     }
 }
 
-// --- VISTA RÁPIDA (QUICK VIEW MODAL) ---
+// --- RESALTADO DE TARJETA ACTIVA EN CATÁLOGO ---
+function highlightActiveProductCard(activeId) {
+    document.querySelectorAll('[data-id]').forEach(el => {
+        if (el.classList.contains('product-card') || (el.hasAttribute('data-action') && el.getAttribute('data-action') === 'open-quickview')) {
+            if (activeId && el.getAttribute('data-id') === activeId) {
+                el.classList.add('product-card-active');
+            } else {
+                el.classList.remove('product-card-active');
+            }
+        }
+    });
+}
+
+// --- VISOR DE PRODUCTO EN PÁGINA (DESKTOP: SIN MODAL POPUP) ---
+function updateInpageImage(newIndex) {
+    if (!currentInpageProduct || !currentInpageProduct.images || currentInpageProduct.images.length === 0) return;
+    const total = currentInpageProduct.images.length;
+    currentInpageImageIndex = (newIndex + total) % total;
+
+    const imgEl = document.getElementById('ipv-image');
+    if (imgEl) {
+        imgEl.src = currentInpageProduct.images[currentInpageImageIndex];
+        imgEl.alt = `${currentInpageProduct.name} - Vista ${currentInpageImageIndex + 1}`;
+    }
+
+    const counterEl = document.getElementById('ipv-img-counter');
+    if (counterEl) {
+        counterEl.textContent = `${currentInpageImageIndex + 1} / ${total}`;
+    }
+
+    const thumbBtns = document.querySelectorAll('.ipv-thumb-btn');
+    thumbBtns.forEach((btn, idx) => {
+        if (idx === currentInpageImageIndex) {
+            btn.className = 'ipv-thumb-btn flex-shrink-0 w-16 h-20 rounded-xl overflow-hidden border-2 border-olive ring-2 ring-olive/40 opacity-100 transition-all';
+        } else {
+            btn.className = 'ipv-thumb-btn flex-shrink-0 w-16 h-20 rounded-xl overflow-hidden border border-carbon-light/60 opacity-60 hover:opacity-100 transition-all';
+        }
+    });
+}
+
+async function openInpageViewer(productId) {
+    const pModel = getProductModel();
+    if (!pModel) return;
+
+    const product = await pModel.getById(productId);
+    if (!product) return;
+
+    currentInpageProduct = product;
+    currentInpageImageIndex = 0;
+    selectedInpageSize = (product.sizes && product.sizes.length > 0) ? product.sizes[0] : 'Estándar';
+
+    const viewer = document.getElementById('inpage-product-viewer');
+    if (!viewer) return;
+
+    // Obtener lista completa de piezas para navegación continua
+    if (currentQuickViewList.length === 0) {
+        currentQuickViewList = await pModel.getAll({ category: 'all' });
+    }
+
+    const currentIndex = currentQuickViewList.findIndex(p => p.id === product.id);
+    const totalProducts = currentQuickViewList.length;
+    const prevProduct = currentQuickViewList[(currentIndex - 1 + totalProducts) % totalProducts];
+    const nextProduct = currentQuickViewList[(currentIndex + 1) % totalProducts];
+
+    const prevBtn = document.getElementById('ipv-prev-product-btn');
+    const nextBtn = document.getElementById('ipv-next-product-btn');
+    const indexBadge = document.getElementById('ipv-index-badge');
+
+    if (prevBtn && prevProduct) {
+        prevBtn.dataset.id = prevProduct.id;
+        prevBtn.title = `Anterior: ${prevProduct.name}`;
+    }
+    if (nextBtn && nextProduct) {
+        nextBtn.dataset.id = nextProduct.id;
+        nextBtn.title = `Siguiente: ${nextProduct.name}`;
+    }
+    if (indexBadge) {
+        indexBadge.textContent = `Pieza ${currentIndex >= 0 ? currentIndex + 1 : 1} de ${totalProducts}`;
+    }
+
+    // Imagen principal
+    const imgEl = document.getElementById('ipv-image');
+    if (imgEl) {
+        imgEl.src = product.images[0];
+        imgEl.alt = product.name;
+    }
+
+    // Badge superior
+    const badgeEl = document.getElementById('ipv-badge');
+    if (badgeEl) badgeEl.textContent = product.badge;
+
+    // Contador de imágenes
+    const counterEl = document.getElementById('ipv-img-counter');
+    if (counterEl) {
+        counterEl.textContent = `1 / ${product.images.length}`;
+    }
+
+    // Thumbnails
+    const thumbsContainer = document.getElementById('ipv-thumbnails-container');
+    if (thumbsContainer) {
+        if (product.images.length > 1) {
+            thumbsContainer.innerHTML = product.images.map((imgUrl, idx) => `
+                <button 
+                  type="button" 
+                  data-action="ipv-select-image" 
+                  data-index="${idx}" 
+                  class="ipv-thumb-btn flex-shrink-0 w-16 h-20 rounded-xl overflow-hidden border ${idx === 0 ? 'border-2 border-olive ring-2 ring-olive/40 opacity-100' : 'border-carbon-light/60 opacity-60 hover:opacity-100'} transition-all"
+                  aria-label="Ver imagen ${idx + 1} de ${product.name}"
+                >
+                  <img src="${imgUrl}" alt="${product.name} ángulo ${idx + 1}" class="w-full h-full object-cover pointer-events-none" onerror="this.src='${product.images[0]}'"/>
+                </button>
+            `).join('');
+            thumbsContainer.parentElement.classList.remove('hidden');
+        } else {
+            thumbsContainer.innerHTML = '';
+            thumbsContainer.parentElement.classList.add('hidden');
+        }
+    }
+
+    // Curation info
+    const catEl = document.getElementById('ipv-category');
+    if (catEl) catEl.textContent = `Sección: ${product.categoryLabel}`;
+
+    const titleEl = document.getElementById('ipv-title');
+    if (titleEl) titleEl.textContent = product.name;
+
+    const priceEl = document.getElementById('ipv-price');
+    if (priceEl) {
+        if (product.category === 'archive') {
+            priceEl.textContent = 'Pieza de Archivo • Galería de Encontrados';
+            priceEl.className = 'text-xs uppercase font-mono tracking-wider text-ash mt-1.5 inline-block px-3 py-1 bg-carbon-dark/80 rounded-md border border-carbon-light/40 font-medium';
+        } else {
+            priceEl.textContent = formatMXN(product.price);
+            priceEl.className = 'text-2xl font-mono font-semibold text-brokenwhite mt-1';
+        }
+    }
+
+    const descEl = document.getElementById('ipv-description');
+    if (descEl) descEl.textContent = product.description;
+
+    const condEl = document.getElementById('ipv-condition');
+    if (condEl) condEl.textContent = product.condition || '9.5/10 • Archivo Impecable';
+
+    const originEl = document.getElementById('ipv-origin');
+    if (originEl) originEl.textContent = product.origin;
+
+    const compEl = document.getElementById('ipv-composition');
+    if (compEl) compEl.textContent = product.composition;
+
+    const fitEl = document.getElementById('ipv-fit');
+    if (fitEl) fitEl.textContent = product.fit;
+
+    // Action button
+    const addBtn = document.getElementById('ipv-add-btn');
+    if (addBtn) {
+        if (product.category === 'available') {
+            addBtn.innerHTML = `
+              <span>Añadir a la Bolsa</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            `;
+            addBtn.className = 'w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-olive/10';
+        } else if (product.category === 'on-request') {
+            addBtn.innerHTML = `
+              <span>Encargar Pieza (On Request)</span>
+              <span class="text-sm">→</span>
+            `;
+            addBtn.className = 'w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-olive/10';
+        } else {
+            addBtn.innerHTML = `
+              <span>Solicitar Búsqueda de Pieza Similar</span>
+              <span class="text-sm">↗</span>
+            `;
+            addBtn.className = 'w-full py-3.5 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light/80 text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 font-medium';
+        }
+    }
+
+    // Sizes
+    const sizesContainer = document.getElementById('ipv-sizes-container');
+    if (sizesContainer && product.sizes) {
+        sizesContainer.innerHTML = product.sizes.map((sz, idx) => `
+            <button 
+              type="button"
+              data-action="select-ipv-size"
+              data-size="${sz}"
+              class="ipv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors ${idx === 0 ? 'border-olive text-olive bg-olive/10' : 'border-carbon-light text-ash hover:border-brokenwhite'}"
+            >
+              ${sz}
+            </button>
+        `).join('');
+    }
+
+    // Mostrar visor in-page
+    viewer.classList.remove('hidden');
+
+    // Resaltar tarjeta seleccionada en el grid
+    highlightActiveProductCard(product.id);
+
+    // Scroll suave hacia el visor
+    viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeInpageViewer() {
+    const viewer = document.getElementById('inpage-product-viewer');
+    if (viewer) {
+        viewer.classList.add('hidden');
+    }
+    highlightActiveProductCard(null);
+    currentInpageProduct = null;
+    currentInpageImageIndex = 0;
+}
+
+// --- VISTA RÁPIDA (QUICK VIEW MODAL MÓVIL MULTI-IMAGEN) ---
+function updateQuickViewImage(newIndex) {
+    if (!currentQuickViewProduct || !currentQuickViewProduct.images || currentQuickViewProduct.images.length === 0) return;
+    const total = currentQuickViewProduct.images.length;
+    currentQuickViewImageIndex = (newIndex + total) % total;
+
+    const qvImg = document.getElementById('qv-image');
+    if (qvImg) {
+        qvImg.src = currentQuickViewProduct.images[currentQuickViewImageIndex];
+        qvImg.alt = `${currentQuickViewProduct.name} - Vista ${currentQuickViewImageIndex + 1}`;
+    }
+
+    const qvImgCounter = document.getElementById('qv-img-counter');
+    if (qvImgCounter) {
+        qvImgCounter.textContent = `${currentQuickViewImageIndex + 1} / ${total}`;
+    }
+
+    // Actualizar estilos activos de los botones de miniaturas
+    const thumbBtns = document.querySelectorAll('.qv-thumb-btn');
+    thumbBtns.forEach((btn, idx) => {
+        if (idx === currentQuickViewImageIndex) {
+            btn.className = 'qv-thumb-btn flex-shrink-0 w-16 h-20 rounded-xl overflow-hidden border-2 border-olive ring-2 ring-olive/40 opacity-100 transition-all';
+        } else {
+            btn.className = 'qv-thumb-btn flex-shrink-0 w-16 h-20 rounded-xl overflow-hidden border border-carbon-light/60 opacity-60 hover:opacity-100 transition-all';
+        }
+    });
+}
+
 async function openQuickViewModal(productId) {
+    // Si estamos en computadora (desktop >= 768px) y existe el visor en página, abrir directamente en la página sin modal
+    const isDesktop = window.innerWidth >= 768;
+    const inpageViewer = document.getElementById('inpage-product-viewer');
+    if (isDesktop && inpageViewer) {
+        openInpageViewer(productId);
+        return;
+    }
+
     const pModel = getProductModel();
     if (!pModel) return;
 
@@ -370,17 +675,76 @@ async function openQuickViewModal(productId) {
     if (!product) return;
 
     currentQuickViewProduct = product;
-    selectedQuickViewSize = product.sizes[0];
+    currentQuickViewImageIndex = 0;
+    selectedQuickViewSize = (product.sizes && product.sizes.length > 0) ? product.sizes[0] : 'Estándar';
 
+    // Obtener lista completa de piezas para permitir navegación continua fluida
+    if (currentQuickViewList.length === 0) {
+        currentQuickViewList = await pModel.getAll({ category: 'all' });
+    }
+
+    // Configurar botones de navegación entre piezas (Anterior / Siguiente)
+    const currentIndex = currentQuickViewList.findIndex(p => p.id === product.id);
+    const totalProducts = currentQuickViewList.length;
+    const prevProduct = currentQuickViewList[(currentIndex - 1 + totalProducts) % totalProducts];
+    const nextProduct = currentQuickViewList[(currentIndex + 1) % totalProducts];
+
+    const prevBtn = document.getElementById('qv-prev-product-btn');
+    const nextBtn = document.getElementById('qv-next-product-btn');
+    const indexBadge = document.getElementById('qv-index-badge');
+
+    if (prevBtn && prevProduct) {
+        prevBtn.dataset.id = prevProduct.id;
+        prevBtn.title = `Anterior: ${prevProduct.name}`;
+    }
+    if (nextBtn && nextProduct) {
+        nextBtn.dataset.id = nextProduct.id;
+        nextBtn.title = `Siguiente: ${nextProduct.name}`;
+    }
+    if (indexBadge) {
+        indexBadge.textContent = `Pieza ${currentIndex >= 0 ? currentIndex + 1 : 1} de ${totalProducts}`;
+    }
+
+    // Imagen principal
     const qvImg = document.getElementById('qv-image');
     if (qvImg) {
         qvImg.src = product.images[0];
         qvImg.alt = product.name;
     }
 
+    // Badge superior
     const qvBadge = document.getElementById('qv-badge');
     if (qvBadge) qvBadge.textContent = product.badge;
 
+    // Contador de imágenes
+    const qvImgCounter = document.getElementById('qv-img-counter');
+    if (qvImgCounter) {
+        qvImgCounter.textContent = `1 / ${product.images.length}`;
+    }
+
+    // Renderizar miniaturas táctiles de imágenes
+    const thumbsContainer = document.getElementById('qv-thumbnails-container');
+    if (thumbsContainer) {
+        if (product.images.length > 1) {
+            thumbsContainer.innerHTML = product.images.map((imgUrl, idx) => `
+                <button 
+                  type="button" 
+                  data-action="qv-select-image" 
+                  data-index="${idx}" 
+                  class="qv-thumb-btn flex-shrink-0 w-16 h-20 rounded-xl overflow-hidden border ${idx === 0 ? 'border-2 border-olive ring-2 ring-olive/40 opacity-100' : 'border-carbon-light/60 opacity-60 hover:opacity-100'} transition-all"
+                  aria-label="Ver imagen ${idx + 1} de ${product.name}"
+                >
+                  <img src="${imgUrl}" alt="${product.name} ángulo ${idx + 1}" class="w-full h-full object-cover pointer-events-none" onerror="this.src='${product.images[0]}'"/>
+                </button>
+            `).join('');
+            thumbsContainer.parentElement.classList.remove('hidden');
+        } else {
+            thumbsContainer.innerHTML = '';
+            thumbsContainer.parentElement.classList.add('hidden');
+        }
+    }
+
+    // Ficha técnica & encabezados
     const qvCat = document.getElementById('qv-category');
     if (qvCat) qvCat.textContent = `Sección: ${product.categoryLabel}`;
 
@@ -388,10 +752,23 @@ async function openQuickViewModal(productId) {
     if (qvTitle) qvTitle.textContent = product.name;
 
     const qvPrice = document.getElementById('qv-price');
-    if (qvPrice) qvPrice.textContent = formatMXN(product.price);
+    if (qvPrice) {
+        if (product.category === 'archive') {
+            qvPrice.textContent = 'Pieza de Archivo • Galería de Encontrados';
+            qvPrice.className = 'text-xs uppercase font-mono tracking-wider text-ash mt-1.5 inline-block px-3 py-1 bg-carbon-dark/80 rounded-md border border-carbon-light/40 font-medium';
+        } else {
+            qvPrice.textContent = formatMXN(product.price);
+            qvPrice.className = 'text-lg font-mono font-semibold text-brokenwhite mt-1';
+        }
+    }
 
     const qvDesc = document.getElementById('qv-description');
     if (qvDesc) qvDesc.textContent = product.description;
+
+    const qvCondition = document.getElementById('qv-condition');
+    if (qvCondition) {
+        qvCondition.textContent = product.condition || '9.5/10 • Archivo Impecable';
+    }
 
     const qvOrigin = document.getElementById('qv-origin');
     if (qvOrigin) qvOrigin.textContent = product.origin;
@@ -402,32 +779,51 @@ async function openQuickViewModal(productId) {
     const qvFit = document.getElementById('qv-fit');
     if (qvFit) qvFit.textContent = product.fit;
 
+    // Botones de acción principales
     const addBtn = document.getElementById('qv-add-btn');
     if (addBtn) {
         if (product.category === 'available') {
-            addBtn.innerHTML = `<span>Añadir a la Bolsa</span>`;
+            addBtn.innerHTML = `
+              <span>Añadir a la Bolsa</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            `;
+            addBtn.className = 'w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-olive/10';
         } else if (product.category === 'on-request') {
-            addBtn.innerHTML = `<span>Encargar Pieza (On Request)</span>`;
+            addBtn.innerHTML = `
+              <span>Encargar Pieza (On Request)</span>
+              <span class="text-sm">→</span>
+            `;
+            addBtn.className = 'w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-olive/10';
         } else {
-            addBtn.innerHTML = `<span>Solicitar Búsqueda de Pieza Similar</span>`;
+            addBtn.innerHTML = `
+              <span>Solicitar Búsqueda de Pieza Similar</span>
+              <span class="text-sm">↗</span>
+            `;
+            addBtn.className = 'w-full py-3.5 bg-carbon-dark hover:bg-carbon-light text-brokenwhite border border-carbon-light/80 text-xs uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2 font-medium';
         }
     }
 
+    // Selector de tallas
     const sizesContainer = document.getElementById('qv-sizes-container');
-    if (sizesContainer) {
+    if (sizesContainer && product.sizes) {
         sizesContainer.innerHTML = product.sizes.map((sz, idx) => `
-      <button 
-        type="button"
-        data-action="select-qv-size"
-        data-size="${sz}"
-        class="qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors ${idx === 0 ? 'border-olive text-olive bg-olive/10' : 'border-carbon-light text-ash hover:border-brokenwhite'}"
-      >
-        ${sz}
-      </button>
-    `).join('');
+            <button 
+              type="button"
+              data-action="select-qv-size"
+              data-size="${sz}"
+              class="qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors ${idx === 0 ? 'border-olive text-olive bg-olive/10' : 'border-carbon-light text-ash hover:border-brokenwhite'}"
+            >
+              ${sz}
+            </button>
+        `).join('');
     }
 
+    // Reiniciar posición de scroll dentro del modal si se navegó previamente
+    if (!DOM.quickviewModal) DOM.quickviewModal = document.getElementById('quickview-modal');
     if (DOM.quickviewModal) {
+        const modalScrollArea = DOM.quickviewModal.querySelector('.overflow-y-auto');
+        if (modalScrollArea) modalScrollArea.scrollTop = 0;
+
         DOM.quickviewModal.classList.remove('hidden');
         DOM.quickviewModal.classList.add('flex');
         document.body.classList.add('overflow-hidden');
@@ -435,11 +831,13 @@ async function openQuickViewModal(productId) {
 }
 
 function closeQuickViewModal() {
+    if (!DOM.quickviewModal) DOM.quickviewModal = document.getElementById('quickview-modal');
     if (DOM.quickviewModal) {
         DOM.quickviewModal.classList.add('hidden');
         DOM.quickviewModal.classList.remove('flex');
         document.body.classList.remove('overflow-hidden');
         currentQuickViewProduct = null;
+        currentQuickViewImageIndex = 0;
     }
 }
 
@@ -510,15 +908,16 @@ function simulateCheckout() {
 
 // --- FILTRADO DE CATEGORÍAS EN "THE FINDS" ---
 function setCategory(cat, shouldScroll = false) {
+    closeInpageViewer();
     currentCategory = (cat && ['available', 'on-request', 'archive'].includes(cat)) ? cat : 'available';
     isWishlistView = false;
 
     // Actualizar pastillas de filtro
     document.querySelectorAll('.cat-pill').forEach(btn => {
         if (btn.dataset.cat === currentCategory) {
-            btn.className = 'cat-pill active px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-carbon-dark font-semibold shadow-sm';
+            btn.className = 'cat-pill active flex-shrink-0 px-4 sm:px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-olive text-white font-semibold shadow-sm ring-1 ring-olive/40';
         } else {
-            btn.className = 'cat-pill px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light/60';
+            btn.className = 'cat-pill flex-shrink-0 px-4 sm:px-5 py-2.5 text-xs uppercase tracking-wider rounded-full transition-all whitespace-nowrap bg-carbon text-ash hover:text-brokenwhite border border-carbon-light hover:border-olive/50 font-medium';
         }
     });
 
@@ -541,19 +940,29 @@ function setCategory(cat, shouldScroll = false) {
     const banner = document.getElementById('active-view-indicator');
     if (banner) {
         const labels = {
-            'all': 'Todos los Hallazgos de Archivo (12 piezas)',
-            'available': 'Available — Entrega Inmediata en México (6 piezas)',
-            'on-request': 'Source on Request — Búsqueda en Viajes Activos (3 piezas)',
-            'archive': 'Archive — Colección Histórica y Referencia (3 piezas)'
+            'all': 'Todos los Hallazgos de Archivo',
+            'available': 'Available — Entrega Inmediata',
+            'on-request': 'Source on Request — Bajo Pedido',
+            'archive': 'Galería de Archivo — Piezas Encontradas'
+        };
+        const subtitles = {
+            'all': 'Explora la colección completa de piezas curadas en Japón y Corea del Sur.',
+            'available': 'Piezas verificadas e inspeccionadas bajo luz natural. Listas para envío express en México.',
+            'on-request': 'Piezas localizadas en tiendas de archivo en Tokio y Seúl, listas para encargar.',
+            'archive': 'Galería de piezas ya encontradas para coleccionistas. No tienen precio por ser adquisiciones históricas; solicita una similar si te interesa.'
         };
         const titleEl = banner.querySelector('.view-title');
         if (titleEl) {
             titleEl.textContent = labels[currentCategory] || 'Catálogo The Finds';
         }
+        const subEl = document.getElementById('view-subtitle') || banner.querySelector('.view-subtitle');
+        if (subEl) {
+            subEl.textContent = subtitles[currentCategory] || '';
+        }
     }
 
     // Actualizar estado activo en enlaces de submenús de navegación (Desktop Dropdown y Menú Móvil)
-    document.querySelectorAll('a[href*="the-finds.html"]').forEach(link => {
+    document.querySelectorAll('a[href*="the-finds"]').forEach(link => {
         try {
             const linkHref = link.getAttribute('href') || '';
             let linkCat = 'all';
@@ -606,6 +1015,7 @@ function setCategory(cat, shouldScroll = false) {
 }
 
 function resetFilters() {
+    closeInpageViewer();
     searchQuery = '';
     if (DOM.searchInput) DOM.searchInput.value = '';
     setCategory('available', true);
@@ -617,24 +1027,29 @@ function setGridCols(cols) {
 
     DOM.gridContainer.classList.remove(
         'grid-cols-1', 'grid-cols-2', 'grid-cols-3',
-        'sm:grid-cols-2', 'sm:grid-cols-3',
-        'md:grid-cols-2', 'md:grid-cols-3',
-        'lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4'
+        'sm:grid-cols-1', 'sm:grid-cols-2', 'sm:grid-cols-3',
+        'md:grid-cols-1', 'md:grid-cols-2', 'md:grid-cols-3',
+        'lg:grid-cols-1', 'lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4'
     );
 
+    const btn1 = document.getElementById('grid-btn-1');
     const btn2 = document.getElementById('grid-btn-2');
     const btn3 = document.getElementById('grid-btn-3');
 
-    [btn2, btn3].forEach(b => {
-        if (b) b.className = 'p-1.5 rounded-full text-ash hover:text-brokenwhite transition-colors';
-    });
+    const baseClass = 'w-8 h-8 rounded-full items-center justify-center transition-all';
+    const inactiveClass = 'text-ash hover:text-brokenwhite';
+    const activeClass = 'bg-olive text-white shadow-sm';
 
-    if (cols === 2) {
+    if (btn1) btn1.className = `${baseClass} flex md:hidden ${cols === 1 ? activeClass : inactiveClass}`;
+    if (btn2) btn2.className = `${baseClass} flex ${cols === 2 ? activeClass : inactiveClass}`;
+    if (btn3) btn3.className = `${baseClass} hidden md:flex ${cols === 3 ? activeClass : inactiveClass}`;
+
+    if (cols === 1) {
+        DOM.gridContainer.classList.add('grid-cols-1', 'sm:grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-2');
+    } else if (cols === 2) {
         DOM.gridContainer.classList.add('grid-cols-2', 'sm:grid-cols-2', 'md:grid-cols-2', 'lg:grid-cols-2');
-        if (btn2) btn2.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
     } else {
         DOM.gridContainer.classList.add('grid-cols-2', 'sm:grid-cols-2', 'md:grid-cols-3', 'lg:grid-cols-3');
-        if (btn3) btn3.className = 'p-1.5 rounded-full bg-olive text-carbon-dark transition-colors';
     }
 }
 
@@ -679,7 +1094,9 @@ function handleGlobalClick(e) {
             if (currentQuickViewProduct && cModel) {
                 if (currentQuickViewProduct.category === 'archive') {
                     closeQuickViewModal();
-                    const targetUrl = `./personal-sourcing.html?piece=${encodeURIComponent(currentQuickViewProduct.name)}`;
+                    const targetUrl = window.location.protocol === 'file:' 
+                        ? `./personal-sourcing.html?piece=${encodeURIComponent(currentQuickViewProduct.name)}`
+                        : `./personal-sourcing?piece=${encodeURIComponent(currentQuickViewProduct.name)}`;
                     const sourcingSection = document.getElementById('personal-sourcing');
                     if (sourcingSection) {
                         if (DOM.sourcingPieceInput) {
@@ -702,7 +1119,12 @@ function handleGlobalClick(e) {
 
         case 'qv-whatsapp-order':
             if (currentQuickViewProduct) {
-                const text = `Hola Found in Asia MX, me interesa la pieza "${currentQuickViewProduct.name}" [${currentQuickViewProduct.categoryLabel}] (Talla: ${selectedQuickViewSize || 'Estándar'}) de ${formatMXN(currentQuickViewProduct.price)}. ¿Tienen disponibilidad o fecha de sourcing?`;
+                let text = '';
+                if (currentQuickViewProduct.category === 'archive') {
+                    text = `Hola Found in Asia MX, vi en su galería de archivo la pieza "${currentQuickViewProduct.name}". Me gustaría solicitar la búsqueda de una pieza similar en su próximo viaje.`;
+                } else {
+                    text = `Hola Found in Asia MX, me interesa la pieza "${currentQuickViewProduct.name}" [${currentQuickViewProduct.categoryLabel}] (Talla: ${selectedQuickViewSize || 'Estándar'}) de ${formatMXN(currentQuickViewProduct.price)}. ¿Tienen disponibilidad o fecha de sourcing?`;
+                }
                 window.open(`https://wa.me/525589201204?text=${encodeURIComponent(text)}`, '_blank');
             }
             break;
@@ -717,7 +1139,10 @@ function handleGlobalClick(e) {
                 sourcingEl.scrollIntoView({ behavior: 'smooth' });
                 showToast(`Listo: Solicita "${pieceName}" en Personal Sourcing`);
             } else {
-                window.location.href = `./personal-sourcing.html?piece=${encodeURIComponent(pieceName)}`;
+                const targetSimilarUrl = window.location.protocol === 'file:'
+                    ? `./personal-sourcing.html?piece=${encodeURIComponent(pieceName)}`
+                    : `./personal-sourcing?piece=${encodeURIComponent(pieceName)}`;
+                window.location.href = targetSimilarUrl;
             }
             break;
 
@@ -731,7 +1156,10 @@ function handleGlobalClick(e) {
                 srcEl.scrollIntoView({ behavior: 'smooth' });
                 showToast(`Destino "${tripName}" preseleccionado para tu encargo`);
             } else {
-                window.location.href = `./personal-sourcing.html?destination=${encodeURIComponent(tripName)}`;
+                const targetDestUrl = window.location.protocol === 'file:'
+                    ? `./personal-sourcing.html?destination=${encodeURIComponent(tripName)}`
+                    : `./personal-sourcing?destination=${encodeURIComponent(tripName)}`;
+                window.location.href = targetDestUrl;
             }
             break;
 
@@ -779,7 +1207,11 @@ function handleGlobalClick(e) {
             setCategory(cat, true);
             if (window.location.pathname.includes('the-finds')) {
                 try {
-                    const newUrl = cat === 'all' ? './the-finds.html' : `./the-finds.html?cat=${cat}`;
+                    let cleanBase = window.location.pathname.replace(/\.html$/, '');
+                    if (window.location.protocol === 'file:') {
+                        cleanBase = './the-finds.html';
+                    }
+                    const newUrl = cat === 'all' ? cleanBase : `${cleanBase}?cat=${cat}`;
                     window.history.pushState({ cat }, '', newUrl);
                 } catch (e) {}
             }
@@ -799,6 +1231,33 @@ function handleGlobalClick(e) {
                 btn.className = 'qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors border-carbon-light text-ash hover:border-brokenwhite';
             });
             target.className = 'qv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors border-olive text-olive bg-olive/10';
+            break;
+
+        case 'qv-select-image':
+            const imgIdx = parseInt(target.dataset.index, 10);
+            if (!isNaN(imgIdx)) {
+                updateQuickViewImage(imgIdx);
+            }
+            break;
+
+        case 'qv-prev-image':
+            updateQuickViewImage(currentQuickViewImageIndex - 1);
+            break;
+
+        case 'qv-next-image':
+            updateQuickViewImage(currentQuickViewImageIndex + 1);
+            break;
+
+        case 'qv-prev-product':
+            if (target.dataset.id) {
+                openQuickViewModal(target.dataset.id);
+            }
+            break;
+
+        case 'qv-next-product':
+            if (target.dataset.id) {
+                openQuickViewModal(target.dataset.id);
+            }
             break;
     }
 }
@@ -922,7 +1381,10 @@ function initListeners() {
             if (e.key === 'Enter') {
                 const q = DOM.searchInput.value.trim();
                 if (!DOM.gridContainer && q) {
-                    window.location.href = `./the-finds.html?q=${encodeURIComponent(q)}`;
+                    const targetSearchUrl = window.location.protocol === 'file:'
+                        ? `./the-finds.html?q=${encodeURIComponent(q)}`
+                        : `./the-finds?q=${encodeURIComponent(q)}`;
+                    window.location.href = targetSearchUrl;
                 }
             }
         });
@@ -998,24 +1460,30 @@ function initListeners() {
 
     // Intercepción dinámica de enlaces a subsecciones de The Finds para cambio instantáneo de vista
     document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href*="the-finds.html?cat="], a[href="./the-finds.html"], a[href="the-finds.html"]');
+        const link = e.target.closest('a[href*="the-finds"]');
         if (!link) return;
 
-        const isTheFindsPage = window.location.pathname.includes('the-finds.html') || window.location.pathname.endsWith('/the-finds');
-        if (isTheFindsPage) {
+        const isTheFindsPage = window.location.pathname.includes('the-finds');
+        const href = link.getAttribute('href') || '';
+        if (isTheFindsPage && href.includes('cat=')) {
             try {
                 const url = new URL(link.href, window.location.href);
                 const cat = url.searchParams.get('cat') || 'available';
                 e.preventDefault();
                 toggleMobileNav(false);
                 setCategory(cat, true);
-                window.history.pushState({ cat }, '', url.href);
+                let cleanBase = window.location.pathname.replace(/\.html$/, '');
+                if (window.location.protocol === 'file:') {
+                    cleanBase = './the-finds.html';
+                }
+                const newUrl = cat === 'all' ? cleanBase : `${cleanBase}?cat=${cat}`;
+                window.history.pushState({ cat }, '', newUrl);
             } catch (err) {}
         }
     });
 
     window.addEventListener('popstate', () => {
-        const isTheFindsPage = window.location.pathname.includes('the-finds.html') || window.location.pathname.endsWith('/the-finds');
+        const isTheFindsPage = window.location.pathname.includes('the-finds');
         if (isTheFindsPage) {
             const urlParams = new URLSearchParams(window.location.search);
             const cat = urlParams.get('cat') || 'available';
@@ -1042,12 +1510,28 @@ function initListeners() {
         });
     }
 
-    // Accesibilidad Teclado (Escape)
+    // Accesibilidad Teclado (Escape y Navegación con Flechas)
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeQuickViewModal();
             closeCart();
             toggleMobileNav(false);
+        } else if (DOM.quickviewModal && !DOM.quickviewModal.classList.contains('hidden')) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevBtn = document.getElementById('qv-prev-product-btn');
+                if (prevBtn && prevBtn.dataset.id) openQuickViewModal(prevBtn.dataset.id);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextBtn = document.getElementById('qv-next-product-btn');
+                if (nextBtn && nextBtn.dataset.id) openQuickViewModal(nextBtn.dataset.id);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                updateQuickViewImage(currentQuickViewImageIndex - 1);
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                updateQuickViewImage(currentQuickViewImageIndex + 1);
+            }
         }
     });
 }
@@ -1101,7 +1585,24 @@ async function init() {
     await renderCatalog();
     updateCartView();
     updateWishlistView();
+
+    // Inicializar columnas según dispositivo (2 cols en móvil, 3 cols en desktop)
+    if (document.getElementById('products-grid')) {
+        const isMobile = window.innerWidth < 768;
+        setGridCols(isMobile ? 2 : 3);
+    }
 }
+
+// Adaptación responsiva al cambiar tamaño de pantalla o girar el móvil
+let lastIsMobileView = window.innerWidth < 768;
+window.addEventListener('resize', () => {
+    if (!document.getElementById('products-grid')) return;
+    const isMobile = window.innerWidth < 768;
+    if (isMobile !== lastIsMobileView) {
+        lastIsMobileView = isMobile;
+        setGridCols(isMobile ? 2 : 3);
+    }
+});
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

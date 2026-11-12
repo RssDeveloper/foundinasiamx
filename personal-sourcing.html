@@ -18,11 +18,18 @@
     <meta property="og:description" content="Conseguimos la prenda de archivo o autor que buscas en Japón y Corea del Sur con entrega garantizada en México.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85">
 
+    <!-- Favicons & Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="manifest" href="./site.webmanifest">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -58,12 +65,12 @@
 
                 <!-- Menú Desktop Unificado con TODAS las secciones en pequeño -->
                 <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-[10px] xl:text-[11px] tracking-[0.16em] uppercase font-medium text-ash">
-                    <a href="./index.html"
+                    <a href="./"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Inicio</a>
 
                     <!-- The Finds con Dropdown Desktop -->
                     <div class="relative group py-2">
-                        <a href="./the-finds.html?cat=available"
+                        <a href="./the-finds?cat=available"
                             class="hover:text-brokenwhite transition-colors border-b-2 border-transparent hover:border-olive flex items-center gap-1">
                             <span>The Finds</span>
                             <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 group-hover:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,15 +80,15 @@
                         <!-- Dropdown Desktop para The Finds -->
                         <div class="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50">
                             <div class="w-48 bg-carbon rounded-xl border border-carbon-light shadow-xl p-2 space-y-1">
-                                <a href="./the-finds.html?cat=available"
+                                <a href="./the-finds?cat=available"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Available
                                 </a>
-                                <a href="./the-finds.html?cat=on-request"
+                                <a href="./the-finds?cat=on-request"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Source on Request
                                 </a>
-                                <a href="./the-finds.html?cat=archive"
+                                <a href="./the-finds?cat=archive"
                                     class="block px-3 py-2 text-[10px] tracking-wider uppercase font-semibold text-brokenwhite hover:bg-carbon-dark hover:text-olive rounded-lg transition-colors">
                                     Archive
                                 </a>
@@ -90,20 +97,20 @@
                         </div>
                     </div>
 
-                    <a href="./personal-sourcing.html"
+                    <a href="./personal-sourcing"
                         class="text-brokenwhite transition-colors py-2 border-b-2 border-olive font-semibold">Personal Sourcing</a>
 
-                    <a href="./destinations.html"
+                    <a href="./destinations"
                         class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Destinations</a>
 
-                    <a href="./about.html"
-                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">About</a>
+                    <a href="./about"
+                        class="hover:text-brokenwhite transition-colors py-2 border-b-2 border-transparent hover:border-olive">Quiénes Somos</a>
                 </nav>
             </div>
 
             <!-- Center: Logo Oficial con Fondo Transparente Centrado -->
             <div class="flex items-center justify-center">
-                <a href="./index.html" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
+                <a href="./" class="inline-flex items-center justify-center group" aria-label="Found in Asia MX — Inicio">
                     <img src="./logo.png?v=3"
                         alt="FOUND IN ASIA"
                         class="h-7 sm:h-8 md:h-9 w-auto max-w-[120px] sm:max-w-[150px] object-contain transition-transform duration-300 group-hover:scale-105" />
@@ -171,7 +178,7 @@
         class="fixed inset-0 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out hidden flex">
         <div class="w-full max-w-sm sm:max-w-md bg-carbon-dark h-full border-r border-carbon-light p-6 flex flex-col justify-between overflow-y-auto no-scrollbar shadow-2xl">
             <div>
-                <!-- Top Bar: = | FOUND IN ASIA | 🔍 -->
+                <!-- Top Bar: Mobile Menu Trigger | LOGO | Cart Trigger -->
                 <div class="flex items-center justify-between pb-5 border-b border-carbon-light/80">
                     <button id="close-mobile-menu-btn" class="text-brokenwhite hover:text-olive p-1 transition-colors" aria-label="Cerrar menú móvil">
                         <svg class="w-6 h-6 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,7 +203,7 @@
 
                     <nav class="flex flex-col text-sm sm:text-base">
                         <!-- Home -->
-                        <a href="./index.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Home</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -213,7 +220,7 @@
                             </button>
                             <!-- Submenús que se despliegan al picarle a The Finds -->
                             <div id="mobile-the-finds-submenu" class="hidden pb-3 pt-1 pl-3 my-1 ml-2 border-l-2 border-carbon-light/70 flex flex-col space-y-1">
-                                <a href="./the-finds.html?cat=available" data-cat="available"
+                                <a href="./the-finds?cat=available" data-cat="available"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -223,7 +230,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </a>
-                                <a href="./the-finds.html?cat=on-request" data-cat="on-request"
+                                <a href="./the-finds?cat=on-request" data-cat="on-request"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -233,7 +240,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
                                 </a>
-                                <a href="./the-finds.html?cat=archive" data-cat="archive"
+                                <a href="./the-finds?cat=archive" data-cat="archive"
                                     class="mobile-subnav-link flex items-center justify-between py-2.5 px-3 rounded-lg text-brokenwhite hover:text-olive hover:bg-carbon transition-all group">
                                     <div class="flex items-center gap-2.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-ash/40 subnav-dot transition-colors"></span>
@@ -248,7 +255,7 @@
                         </div>
 
                         <!-- Personal Sourcing -->
-                        <a href="./personal-sourcing.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-olive font-semibold transition-colors group">
+                        <a href="./personal-sourcing" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-olive font-semibold transition-colors group">
                             <span class="font-normal tracking-wide">Personal Sourcing</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -256,16 +263,16 @@
                         </a>
 
                         <!-- Destinations -->
-                        <a href="./destinations.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                        <a href="./destinations" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
                             <span class="font-normal tracking-wide">Destinations</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </a>
 
-                        <!-- About -->
-                        <a href="./about.html" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
-                            <span class="font-normal tracking-wide">About / How It Works</span>
+                        <!-- Quiénes Somos -->
+                        <a href="./about" class="mobile-nav-link flex items-center justify-between py-4 px-1 border-b border-carbon-light/70 text-brokenwhite hover:text-olive transition-colors group">
+                            <span class="font-normal tracking-wide">Quiénes Somos</span>
                             <svg class="w-4 h-4 text-ash/60 group-hover:text-olive group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
@@ -291,7 +298,7 @@
 
         <!-- Enlace de Retorno al Home Principal -->
         <div class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-8 pb-2">
-            <a href="./index.html" class="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors group">
+            <a href="./" class="inline-flex items-center gap-2.5 text-xs uppercase tracking-widest text-ash hover:text-olive transition-colors group">
                 <span class="p-1 rounded-full border border-carbon-light group-hover:border-olive group-hover:bg-olive/10 transition-colors">
                     <svg class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
@@ -302,96 +309,93 @@
         </div>
 
         <!-- Sourcing Hero Section -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-12 pb-16 lg:py-20 border-b border-carbon-light/50">
-            <div class="max-w-4xl space-y-6">
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 pt-10 pb-12 lg:py-16 border-b border-carbon-light/50">
+            <div class="max-w-3xl space-y-4">
                 <div class="flex items-center gap-3">
-                    <span class="w-8 h-[1px] bg-olive"></span>
-                    <span class="text-xs uppercase tracking-ultra text-olive font-medium">
-                        Concierge a Medida • Japón & Corea del Sur
+                    <span class="w-6 h-[1.5px] bg-olive"></span>
+                    <span class="text-xs uppercase tracking-widest text-olive font-semibold">
+                        Personal Sourcing • Japón & Corea
                     </span>
                 </div>
 
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-editorial font-light text-brokenwhite leading-[1.1]">
-                    Conseguimos la pieza exacta que buscas en Asia.<br>
-                    <span class="italic font-normal">Sin complicaciones de idioma ni aduanas.</span>
-                </h2>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-editorial font-medium text-brokenwhite leading-[1.1]">
+                    La pieza exacta que buscas en Asia,<br>
+                    <span class="text-olive font-normal">localizada en persona.</span>
+                </h1>
 
-                <p class="text-sm sm:text-base text-ash font-light max-w-2xl leading-relaxed">
-                    Si sueñas con una pieza de archivo específica de Yohji Yamamoto, un abrigo de lana de Niigata, una pieza de pasarela vintage de Issey Miyake o un corte contemporáneo de Seúl, nosotros la rastreamos in situ durante nuestras expediciones y te la entregamos en México con seguro total.
+                <p class="text-sm sm:text-base text-ash font-normal max-w-xl leading-relaxed">
+                    Dinos qué diseñador, vinilo, talla o referencia fotográfica deseas. La rastreamos in situ durante nuestras rutas en Tokio y Seúl y te la entregamos en México con seguro total.
                 </p>
 
                 <!-- Value Highlights -->
-                <div class="flex flex-wrap gap-3 pt-2 text-xs font-mono">
-                    <span class="px-3.5 py-1.5 rounded-full bg-carbon border border-carbon-light text-ash">
-                        ✓ Inspección física & fotos en mano
+                <div class="flex flex-wrap gap-2.5 pt-1 text-xs font-mono">
+                    <span class="px-3 py-1 rounded-full bg-carbon border border-carbon-light text-ash">
+                        ✓ Inspección presencial
                     </span>
-                    <span class="px-3.5 py-1.5 rounded-full bg-carbon border border-carbon-light text-ash">
-                        ✓ Importación y aduana resueltas
+                    <span class="px-3 py-1 rounded-full bg-carbon border border-carbon-light text-ash">
+                        ✓ Fotos y medidas en mano
                     </span>
-                    <span class="px-3.5 py-1.5 rounded-full bg-carbon border border-carbon-light text-ash">
-                        ✓ Entrega DHL Express a todo México
-                    </span>
-                    <span class="px-3.5 py-1.5 rounded-full bg-carbon border border-carbon-light text-ash">
-                        ✓ Fitting privado en Atelier CDMX
+                    <span class="px-3 py-1 rounded-full bg-carbon border border-carbon-light text-ash">
+                        ✓ Entrega DHL Express en México
                     </span>
                 </div>
             </div>
         </section>
 
         <!-- El Proceso de Sourcing en 4 Pasos -->
-        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-16 lg:py-24 border-b border-carbon-light/50">
-            <div class="mb-12">
-                <span class="text-[11px] uppercase tracking-ultra text-basegray block mb-1">Metodología de Trabajo</span>
-                <h3 class="text-3xl font-editorial font-light text-brokenwhite">Cómo Funciona el Personal Sourcing</h3>
+        <section class="max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 py-12 lg:py-16 border-b border-carbon-light/50">
+            <div class="mb-8">
+                <span class="text-xs uppercase tracking-widest text-olive font-semibold block mb-1">Metodología</span>
+                <h2 class="text-2xl sm:text-3xl font-editorial font-medium text-brokenwhite">Cómo Funciona</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Paso 1 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="text-2xl font-mono text-olive font-light">01</span>
-                        <h4 class="text-lg font-editorial text-brokenwhite">Solicitud & Brief</h4>
-                        <p class="text-xs text-ash leading-relaxed">
-                            Completa el formulario inferior o contáctanos por WhatsApp. Dinos la prenda, diseñador, año, talla o compártenos fotos y referencias deseadas.
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4 shadow-sm">
+                    <div class="space-y-2.5">
+                        <span class="text-xl font-mono text-olive font-semibold">01</span>
+                        <h3 class="text-base font-editorial font-medium text-brokenwhite">Solicitud</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Comparte la foto, diseñador o enlace de la pieza que deseas rastrear.
                         </p>
                     </div>
                     <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Paso Inicial</span>
                 </div>
 
                 <!-- Paso 2 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="text-2xl font-mono text-olive font-light">02</span>
-                        <h4 class="text-lg font-editorial text-brokenwhite">Búsqueda In Situ</h4>
-                        <p class="text-xs text-ash leading-relaxed">
-                            En nuestro viaje a Tokio, Seúl o Kioto, recorremos boutiques de archivo, subastas privadas y distribuidores vintage exclusivos para encontrarla.
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4 shadow-sm">
+                    <div class="space-y-2.5">
+                        <span class="text-xl font-mono text-olive font-semibold">02</span>
+                        <h3 class="text-base font-editorial font-medium text-brokenwhite">Búsqueda In Situ</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Recorremos boutiques de archivo y tiendas vintage en Tokio o Seúl.
                         </p>
                     </div>
-                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">En Tokio / Seúl</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Tokio / Seúl</span>
                 </div>
 
                 <!-- Paso 3 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="text-2xl font-mono text-olive font-light">03</span>
-                        <h4 class="text-lg font-editorial text-brokenwhite">Inspección & Fotos</h4>
-                        <p class="text-xs text-ash leading-relaxed">
-                            Verificamos la condición del tejido, costuras y autenticidad. Te enviamos fotos y medidas exactas antes de confirmar la compra final.
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4 shadow-sm">
+                    <div class="space-y-2.5">
+                        <span class="text-xl font-mono text-olive font-semibold">03</span>
+                        <h3 class="text-base font-editorial font-medium text-brokenwhite">Inspección & Fotos</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Verificamos autenticidad y condición. Te enviamos reporte fotográfico antes de comprar.
                         </p>
                     </div>
-                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Autenticación 100%</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Validación</span>
                 </div>
 
                 <!-- Paso 4 -->
-                <div class="bg-carbon p-8 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <span class="text-2xl font-mono text-olive font-light">04</span>
-                        <h4 class="text-lg font-editorial text-brokenwhite">Envío Seguro a México</h4>
-                        <p class="text-xs text-ash leading-relaxed">
-                            Importamos con seguro DHL Express. Recibe en tu puerta en 3-5 días hábiles sin sorpresas arancelarias, o pruébatela en nuestro atelier de Roma Norte.
+                <div class="bg-carbon p-6 sm:p-7 rounded-2xl border border-carbon-light/60 flex flex-col justify-between space-y-4 shadow-sm">
+                    <div class="space-y-2.5">
+                        <span class="text-xl font-mono text-olive font-semibold">04</span>
+                        <h3 class="text-base font-editorial font-medium text-brokenwhite">Entrega en México</h3>
+                        <p class="text-xs text-ash leading-relaxed font-normal">
+                            Despacho por DHL Express directo a tu puerta o cita en atelier Roma Norte.
                         </p>
                     </div>
-                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Entrega Garantizada</span>
+                    <span class="text-[10px] uppercase font-mono tracking-wider text-basegray">Entrega Express</span>
                 </div>
             </div>
         </section>
@@ -521,12 +525,11 @@
 
                             <div class="pt-2">
                                 <button type="submit"
-                                    class="w-full py-4 bg-olive hover:bg-olive-hover text-carbon-dark font-semibold text-xs uppercase tracking-widest rounded-full transition-all duration-300 shadow-xl shadow-olive/10 flex items-center justify-center gap-2">
-                                    <span>Enviar Solicitud Concierge vía WhatsApp</span>
-                                    <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.055 1.233 1.543.513.319.923.414 1.137.499.167.066.265.055.365-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+                                    class="w-full py-4 px-6 bg-olive hover:bg-olive-hover text-white font-semibold text-xs uppercase tracking-wider rounded-full transition-all duration-300 shadow-xl shadow-olive/10 inline-flex items-center justify-center gap-2.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none" viewBox="0 0 16 16">
+                                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
                                     </svg>
+                                    <span>Enviar Solicitud Concierge vía WhatsApp</span>
                                 </button>
                                 <p class="text-[11px] text-center text-ash/60 mt-3 font-light">
                                     Sin costo por cotización inicial. Respondemos en menos de 4 horas hábiles.
@@ -575,7 +578,7 @@
                     <h4 class="text-xl font-editorial text-brokenwhite">¿Deseas regresar a la portada principal?</h4>
                     <p class="text-xs text-ash">Regresa al home para conocer la filosofía de la marca o explorar las fechas de viaje.</p>
                 </div>
-                <a href="./index.html" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-carbon-dark hover:bg-olive hover:text-carbon-dark text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest font-semibold transition-all duration-300 whitespace-nowrap">
+                <a href="./" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-carbon-dark hover:bg-olive hover:text-carbon-dark text-brokenwhite border border-carbon-light text-xs uppercase tracking-widest font-semibold transition-all duration-300 whitespace-nowrap">
                     <span>← Regresar al Home Principal</span>
                 </a>
             </div>
@@ -607,11 +610,11 @@
                 <div class="space-y-3">
                     <span class="text-xs uppercase tracking-ultra text-brokenwhite font-semibold block">Secciones</span>
                     <ul class="text-xs text-ash space-y-2.5">
-                        <li><a href="./index.html" class="hover:text-olive transition-colors">Inicio</a></li>
-                        <li><a href="./the-finds.html?cat=available" class="hover:text-olive transition-colors">The Finds (Catálogo)</a></li>
-                        <li><a href="./personal-sourcing.html" class="hover:text-olive text-brokenwhite font-semibold transition-colors">Personal Sourcing</a></li>
-                        <li><a href="./destinations.html" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
-                        <li><a href="./about.html" class="hover:text-olive transition-colors">About & Envíos</a></li>
+                        <li><a href="./" class="hover:text-olive transition-colors">Inicio</a></li>
+                        <li><a href="./the-finds?cat=available" class="hover:text-olive transition-colors">The Finds (Catálogo)</a></li>
+                        <li><a href="./personal-sourcing" class="hover:text-olive text-brokenwhite font-semibold transition-colors">Personal Sourcing</a></li>
+                        <li><a href="./destinations" class="hover:text-olive transition-colors">Destinations (Viajes)</a></li>
+                        <li><a href="./about" class="hover:text-olive transition-colors">Quiénes Somos & Envíos</a></li>
                     </ul>
                 </div>
 
@@ -655,8 +658,8 @@
                     © 2026 FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="./about.html" class="hover:text-ash">Términos de Compra</a>
-                    <a href="./about.html" class="hover:text-ash">Envíos & Aduanas</a>
+                    <a href="./about" class="hover:text-ash">Términos de Compra</a>
+                    <a href="./about" class="hover:text-ash">Envíos & Aduanas</a>
                 </div>
             </div>
 
@@ -724,11 +727,10 @@
 
                 <div class="space-y-2 pt-2">
                     <button id="checkout-whatsapp-btn" data-action="checkout-whatsapp"
-                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-carbon-dark text-xs uppercase tracking-widest font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
+                        class="w-full py-3.5 bg-olive hover:bg-olive-hover text-white text-xs uppercase tracking-wider font-semibold rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg">
                         <span>Pedir Orden vía WhatsApp</span>
-                        <svg class="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 1.055 1.233 1.543.513.319.923.414 1.137.499.167.066.265.055.365-.058.101-.116.433-.505.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564c.173.087.289.13.332.202.043.073.043.419-.101.824z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 shrink-0 pointer-events-none" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
                         </svg>
                     </button>
                 </div>

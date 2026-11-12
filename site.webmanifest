@@ -1,0 +1,19 @@
+{
+  "name": "FOUND IN ASIA MX",
+  "short_name": "Found in Asia",
+  "icons": [
+    {
+      "src": "./android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#6E8335",
+  "background_color": "#E8E9EC",
+  "display": "standalone"
+}
