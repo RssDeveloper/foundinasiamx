@@ -50,6 +50,18 @@
                     './about': './about.html',
                     '/about': './about.html',
                     'about': './about.html',
+                    './privacy': './privacy.html',
+                    '/privacy': './privacy.html',
+                    'privacy': './privacy.html',
+                    './politica-de-privacidad': './privacy.html',
+                    '/politica-de-privacidad': './privacy.html',
+                    'politica-de-privacidad': './privacy.html',
+                    './aviso-de-privacidad': './privacy.html',
+                    '/aviso-de-privacidad': './privacy.html',
+                    'aviso-de-privacidad': './privacy.html',
+                    './cookies': './privacy.html',
+                    '/cookies': './privacy.html',
+                    'cookies': './privacy.html',
                     './404': './404.html',
                     '/404': './404.html',
                     '404': './404.html',
@@ -1750,6 +1762,21 @@ async function init() {
         const isMobile = window.innerWidth < 768;
         setGridCols(isMobile ? 2 : 3);
     }
+
+    // Inicializar consentimiento de cookies y aviso de privacidad
+    initCookieConsent();
+
+    // Actualizar año de copyright automáticamente en el footer
+    updateCopyrightYear();
+}
+
+// --- ACTUALIZACIÓN DINÁMICA DEL AÑO DE COPYRIGHT ---
+function updateCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    const elements = document.querySelectorAll('.current-year, #current-year, #footer-year');
+    elements.forEach(el => {
+        el.textContent = currentYear;
+    });
 }
 
 // Adaptación responsiva al cambiar tamaño de pantalla o girar el móvil
@@ -1762,6 +1789,50 @@ window.addEventListener('resize', () => {
         setGridCols(isMobile ? 2 : 3);
     }
 });
+
+// --- GESTIÓN DEL BANNER DE PRIVACIDAD & COOKIES ---
+function initCookieConsent() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (!banner) return;
+
+    try {
+        const consent = localStorage.getItem('fia_cookie_consent');
+        if (consent) {
+            banner.classList.add('cookie-hidden', 'hidden');
+            return;
+        }
+        banner.classList.remove('hidden');
+    } catch (e) {
+        banner.classList.add('hidden');
+    }
+
+    const acceptBtn = document.getElementById('cookie-accept-btn');
+    const necessaryBtn = document.getElementById('cookie-necessary-btn');
+
+    const handleConsent = (level) => {
+        try {
+            localStorage.setItem('fia_cookie_consent', level);
+        } catch (e) { }
+        banner.classList.add('cookie-hidden');
+        setTimeout(() => {
+            banner.classList.add('hidden');
+        }, 400);
+    };
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleConsent('all');
+        });
+    }
+
+    if (necessaryBtn) {
+        necessaryBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleConsent('necessary');
+        });
+    }
+}
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

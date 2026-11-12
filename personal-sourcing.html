@@ -655,16 +655,49 @@
             <!-- Bottom Bar -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-basegray gap-4">
                 <div>
-                    © 2026 FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
+                    © <span class="current-year">2026</span> FOUND IN ASIA MX (foundinasiamx.com). Personal Shopping de Autor.
                 </div>
-                <div class="flex items-center gap-6">
-                    <a href="./about" class="hover:text-ash">Términos de Compra</a>
-                    <a href="./about" class="hover:text-ash">Envíos & Aduanas</a>
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6">
+                    <a href="./privacy#aviso-privacidad" class="hover:text-ash transition-colors">Aviso de Privacidad</a>
+                    <a href="./privacy#cookies" class="hover:text-ash transition-colors">Política de Cookies</a>
+                    <a href="./privacy#terminos" class="hover:text-ash transition-colors">Términos de Compra</a>
+                    <a href="./about" class="hover:text-ash transition-colors">Envíos & Aduanas</a>
                 </div>
             </div>
 
         </div>
     </footer>
+
+    <!-- ======================================================== -->
+    <!-- COOKIE CONSENT & PRIVACY NOTICE BANNER                   -->
+    <!-- ======================================================== -->
+    <div id="cookie-consent-banner" class="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-md z-40 bg-carbon border border-carbon-light/80 shadow-2xl rounded-2xl p-5 backdrop-blur-md transition-all duration-300 hidden">
+        <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-olive/10 border border-olive/30 flex items-center justify-center shrink-0 text-olive mt-0.5">
+                <svg class="w-4 h-4 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <h3 class="text-xs uppercase tracking-wider font-semibold text-brokenwhite">Privacidad & Cookies</h3>
+                    <p class="text-[11px] text-ash leading-relaxed mt-1">
+                        Utilizamos cookies técnicas y almacenamiento local para recordar tu bolsa de compras, lista de deseos y preferencias. Conoce nuestro <a href="./privacy" class="text-olive hover:underline">Aviso de Privacidad</a> y <a href="./privacy#cookies" class="text-olive hover:underline">Política de Cookies</a>.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 pt-1">
+                    <button type="button" id="cookie-accept-btn" data-action="accept-cookies"
+                        class="px-4 py-2 bg-olive hover:bg-olive-hover text-carbon-dark text-[11px] font-bold uppercase tracking-wider rounded-full transition-colors cursor-pointer">
+                        Aceptar
+                    </button>
+                    <button type="button" id="cookie-necessary-btn" data-action="necessary-cookies"
+                        class="px-3 py-2 bg-carbon-dark hover:bg-carbon-light text-ash hover:text-brokenwhite border border-carbon-light/70 text-[11px] font-medium uppercase tracking-wider rounded-full transition-colors cursor-pointer">
+                        Solo Necesarias
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ======================================================== -->
     <!-- CART SLIDE-OUT DRAWER                                    -->

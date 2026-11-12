@@ -30,6 +30,26 @@
   status = 200
 
 [[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/politica-de-privacidad"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/aviso-de-privacidad"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/cookies"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
   from = "/404"
   to = "/404.html"
   status = 200
@@ -61,6 +81,12 @@
 [[redirects]]
   from = "/about.html"
   to = "/about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy"
   status = 301
   force = true
 
