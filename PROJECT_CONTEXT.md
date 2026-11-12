@@ -65,9 +65,12 @@ foundinasiamx/
 1. **Filtros de Categoría**: Botones "Todos (12)", "Available (Entrega Inmediata)", "On Request (Bajo Pedido)" y "Archive (Archivo Histórico)".
 2. **Controlador (`catalogCtrl.js`)**: Realiza la consulta a `productModel.getAll()`, renderiza los productos e inyecta botones contextuales:
    - `available`: "Añadir Bolsa" directo.
-   - `on-request`: "Encargar" que abre el Quick View para seleccionar talla y ordenar vía WhatsApp.
+   - `on-request`: "Encargar" que abre el visor para seleccionar talla y ordenar vía WhatsApp.
    - `archive`: "Pedir Similar" que transfiere el nombre de la pieza al formulario de Personal Sourcing.
 3. **Buscador & Orden**: Búsqueda en tiempo real por texto (ej. "Niigata", "Kioto", "Lana", "Issey") y orden por precio o nombre.
+4. **Visor de Producto Responsivo**:
+   - **En computadora (`desktop >= 768px`)**: Al hacer clic en cualquier prenda, se despliega el visor in-page (`#inpage-product-viewer`) integrado directamente en la página sin abrir modal ni oscurecer el fondo, con galería heroica de alta resolución, navegación continua con flechas, indicador de tarjeta activa (`product-card-active`) y ficha curatorial despejada.
+   - **En móvil (`< 768px`)**: Abre el modal optimizado (`#quickview-modal`) enfocado 100% en la fotografía heroica, sin carruseles inferiores saturados y con especificaciones técnicas consolidadas.
 
 ### Flujo 3: Solicitud de Personal Sourcing hacia WhatsApp
 1. El usuario llena el formulario `#sourcing-form` o hace clic en "Encargar para este Viaje" desde `destinations.html`.

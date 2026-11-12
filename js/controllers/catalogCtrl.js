@@ -25,7 +25,7 @@
                 if (!a) return;
                 const href = a.getAttribute('href');
                 if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.includes('.html')) return;
-                
+
                 const [path, query] = href.split('?');
                 const qStr = query ? `?${query}` : '';
                 if (path === './' || path === '/' || path === '.') {
@@ -1001,7 +1001,7 @@ function setCategory(cat, shouldScroll = false) {
                     link.classList.remove('text-olive', 'font-bold');
                 }
             }
-        } catch (e) {}
+        } catch (e) { }
     });
 
     renderCatalog();
@@ -1094,7 +1094,7 @@ function handleGlobalClick(e) {
             if (currentQuickViewProduct && cModel) {
                 if (currentQuickViewProduct.category === 'archive') {
                     closeQuickViewModal();
-                    const targetUrl = window.location.protocol === 'file:' 
+                    const targetUrl = window.location.protocol === 'file:'
                         ? `./personal-sourcing.html?piece=${encodeURIComponent(currentQuickViewProduct.name)}`
                         : `./personal-sourcing?piece=${encodeURIComponent(currentQuickViewProduct.name)}`;
                     const sourcingSection = document.getElementById('personal-sourcing');
@@ -1213,7 +1213,7 @@ function handleGlobalClick(e) {
                     }
                     const newUrl = cat === 'all' ? cleanBase : `${cleanBase}?cat=${cat}`;
                     window.history.pushState({ cat }, '', newUrl);
-                } catch (e) {}
+                } catch (e) { }
             }
             break;
 
@@ -1257,6 +1257,82 @@ function handleGlobalClick(e) {
         case 'qv-next-product':
             if (target.dataset.id) {
                 openQuickViewModal(target.dataset.id);
+            }
+            break;
+
+        case 'close-inpage-viewer':
+            closeInpageViewer();
+            break;
+
+        case 'ipv-prev-product':
+            if (target.dataset.id) {
+                openInpageViewer(target.dataset.id);
+            }
+            break;
+
+        case 'ipv-next-product':
+            if (target.dataset.id) {
+                openInpageViewer(target.dataset.id);
+            }
+            break;
+
+        case 'ipv-prev-image':
+            updateInpageImage(currentInpageImageIndex - 1);
+            break;
+
+        case 'ipv-next-image':
+            updateInpageImage(currentInpageImageIndex + 1);
+            break;
+
+        case 'ipv-select-image':
+            const ipvImgIdx = parseInt(target.dataset.index, 10);
+            if (!isNaN(ipvImgIdx)) {
+                updateInpageImage(ipvImgIdx);
+            }
+            break;
+
+        case 'select-ipv-size':
+            selectedInpageSize = target.dataset.size;
+            document.querySelectorAll('.ipv-size-btn').forEach(btn => {
+                btn.className = 'ipv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors border-carbon-light text-ash hover:border-brokenwhite';
+            });
+            target.className = 'ipv-size-btn px-3 py-1.5 text-xs font-mono uppercase rounded border transition-colors border-olive text-olive bg-olive/10';
+            break;
+
+        case 'add-ipv-to-bag':
+            if (currentInpageProduct && cModel) {
+                if (currentInpageProduct.category === 'archive') {
+                    const targetUrl = window.location.protocol === 'file:' 
+                        ? `./personal-sourcing.html?piece=${encodeURIComponent(currentInpageProduct.name)}`
+                        : `./personal-sourcing?piece=${encodeURIComponent(currentInpageProduct.name)}`;
+                    const sourcingSection = document.getElementById('personal-sourcing');
+                    if (sourcingSection) {
+                        if (DOM.sourcingPieceInput) {
+                            DOM.sourcingPieceInput.value = `Pieza similar a: ${currentInpageProduct.name} (${currentInpageProduct.origin})`;
+                        }
+                        sourcingSection.scrollIntoView({ behavior: 'smooth' });
+                        showToast("Pieza de archivo enviada al formulario de Personal Sourcing");
+                    } else {
+                        window.location.href = targetUrl;
+                    }
+                } else {
+                    cModel.addItem(currentInpageProduct, selectedInpageSize || currentInpageProduct.sizes[0]);
+                    updateCartView();
+                    showToast(`${currentInpageProduct.name} añadida a tu bolsa`);
+                    openCart();
+                }
+            }
+            break;
+
+        case 'ipv-whatsapp-order':
+            if (currentInpageProduct) {
+                let text = '';
+                if (currentInpageProduct.category === 'archive') {
+                    text = `Hola Found in Asia MX, vi en su catálogo la pieza "${currentInpageProduct.name}". Me gustaría solicitar la búsqueda de una pieza similar en su próximo viaje.`;
+                } else {
+                    text = `Hola Found in Asia MX, me interesa la pieza "${currentInpageProduct.name}" [${currentInpageProduct.categoryLabel}] (Talla: ${selectedInpageSize || 'Estándar'}) de ${formatMXN(currentInpageProduct.price)}. ¿Tienen disponibilidad o fecha de sourcing?`;
+                }
+                window.open(`https://wa.me/525589201204?text=${encodeURIComponent(text)}`, '_blank');
             }
             break;
     }
@@ -1478,7 +1554,7 @@ function initListeners() {
                 }
                 const newUrl = cat === 'all' ? cleanBase : `${cleanBase}?cat=${cat}`;
                 window.history.pushState({ cat }, '', newUrl);
-            } catch (err) {}
+            } catch (err) { }
         }
     });
 
@@ -1514,6 +1590,7 @@ function initListeners() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeQuickViewModal();
+            closeInpageViewer();
             closeCart();
             toggleMobileNav(false);
         } else if (DOM.quickviewModal && !DOM.quickviewModal.classList.contains('hidden')) {
@@ -1532,6 +1609,25 @@ function initListeners() {
                 e.preventDefault();
                 updateQuickViewImage(currentQuickViewImageIndex + 1);
             }
+        } else {
+            const ipvViewer = document.getElementById('inpage-product-viewer');
+            if (ipvViewer && !ipvViewer.classList.contains('hidden')) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const prevBtn = document.getElementById('ipv-prev-product-btn');
+                    if (prevBtn && prevBtn.dataset.id) openInpageViewer(prevBtn.dataset.id);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    const nextBtn = document.getElementById('ipv-next-product-btn');
+                    if (nextBtn && nextBtn.dataset.id) openInpageViewer(nextBtn.dataset.id);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    updateInpageImage(currentInpageImageIndex - 1);
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    updateInpageImage(currentInpageImageIndex + 1);
+                }
+            }
         }
     });
 }
@@ -1543,6 +1639,8 @@ window.handleSortChange = (val) => { currentSort = val; renderCatalog(); };
 window.setGridColumns = setGridCols;
 window.closeQuickView = closeQuickViewModal;
 window.openQuickView = openQuickViewModal;
+window.openInpageViewer = openInpageViewer;
+window.closeInpageViewer = closeInpageViewer;
 window.openCartDrawer = openCart;
 window.closeCartDrawer = closeCart;
 window.checkoutViaWhatsApp = checkoutWhatsApp;
